@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" rowHeight="59" id="KGk-i7-Jjw" customClass="TableViewCell" customModule="Juomapeli" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="451" height="59"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="451" height="59"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uo6-70-Wny">
+                        <rect key="frame" x="5" y="5" width="441" height="49"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17V-Gm-wYH">
+                                <rect key="frame" x="383" y="7" width="50" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="eUA-W9-Qy6"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="deleteButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7UQ-eq-mIT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nce-My-yvF">
+                                <rect key="frame" x="5" y="5" width="373" height="39"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="brandPurple"/>
+                        <constraints>
+                            <constraint firstItem="nce-My-yvF" firstAttribute="leading" secondItem="Uo6-70-Wny" secondAttribute="leading" constant="5" id="03p-d3-S4a"/>
+                            <constraint firstItem="17V-Gm-wYH" firstAttribute="leading" secondItem="nce-My-yvF" secondAttribute="trailing" constant="5" id="3tR-70-MKK"/>
+                            <constraint firstAttribute="trailing" secondItem="17V-Gm-wYH" secondAttribute="trailing" constant="8" id="AqU-fN-KtH"/>
+                            <constraint firstItem="nce-My-yvF" firstAttribute="top" secondItem="Uo6-70-Wny" secondAttribute="top" constant="5" id="N4h-ro-fRD"/>
+                            <constraint firstItem="17V-Gm-wYH" firstAttribute="centerY" secondItem="Uo6-70-Wny" secondAttribute="centerY" id="fks-on-ZBa"/>
+                            <constraint firstAttribute="bottom" secondItem="nce-My-yvF" secondAttribute="bottom" constant="5" id="hkw-eu-KZH"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Uo6-70-Wny" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="6JZ-eS-21b"/>
+                    <constraint firstAttribute="trailing" secondItem="Uo6-70-Wny" secondAttribute="trailing" constant="5" id="AaM-jT-8S0"/>
+                    <constraint firstItem="Uo6-70-Wny" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="RGi-MY-dQ2"/>
+                    <constraint firstAttribute="bottom" secondItem="Uo6-70-Wny" secondAttribute="bottom" constant="5" id="Vw2-SZ-MxQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="backView" destination="Uo6-70-Wny" id="7fd-oy-Dbu"/>
+                <outlet property="nameLabel" destination="nce-My-yvF" id="Ode-ls-uxg"/>
+            </connections>
+            <point key="canvasLocation" x="241.98473282442748" y="1.0563380281690142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="xmark.circle" catalog="system" width="128" height="123"/>
+        <namedColor name="brandPurple">
+            <color red="0.59215686274509804" green="0.27843137254901962" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

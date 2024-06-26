@@ -7,13 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class Start: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func startPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "12", sender: self)
+    }
+    
 }
 

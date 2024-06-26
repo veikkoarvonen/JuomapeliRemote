@@ -5,13 +5,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Start-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Juomapeli" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="Start" customModule="Juomapeli" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,6 +27,9 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="25"/>
                                     <color key="baseBackgroundColor" name="brandPurple"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="startPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MuZ-JN-ud8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -41,7 +45,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="mus-MB-wfK"/>
                     <connections>
-                        <segue destination="sGy-dV-Pdx" kind="show" id="j02-aQ-fNg"/>
+                        <segue destination="sGy-dV-Pdx" kind="show" identifier="12" id="j02-aQ-fNg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -60,18 +64,27 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovU-gQ-aAG">
-                                        <rect key="frame" x="95" y="641" width="203" height="44"/>
+                                        <rect key="frame" x="128.66666666666669" y="641" width="135.66666666666669" height="44"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Lisää osallistuja">
+                                        <buttonConfiguration key="configuration" style="filled" title="Aloita peli">
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="25"/>
                                             <color key="baseBackgroundColor" name="brandPurple"/>
                                         </buttonConfiguration>
                                     </button>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Tfz-Gb-Jtl">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="591"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" name="brandBlue"/>
                                 <constraints>
+                                    <constraint firstItem="ovU-gQ-aAG" firstAttribute="top" secondItem="Tfz-Gb-Jtl" secondAttribute="bottom" constant="50" id="2xL-1K-R56"/>
                                     <constraint firstAttribute="bottom" secondItem="ovU-gQ-aAG" secondAttribute="bottom" constant="30" id="5xn-Es-1NX"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tfz-Gb-Jtl" secondAttribute="trailing" id="9k8-Tf-NeI"/>
+                                    <constraint firstItem="Tfz-Gb-Jtl" firstAttribute="leading" secondItem="Mju-NG-boC" secondAttribute="leading" id="dPL-3x-Gtt"/>
                                     <constraint firstItem="ovU-gQ-aAG" firstAttribute="centerX" secondItem="Mju-NG-boC" secondAttribute="centerX" id="dly-nS-f9K"/>
+                                    <constraint firstItem="Tfz-Gb-Jtl" firstAttribute="top" secondItem="Mju-NG-boC" secondAttribute="top" id="jPr-5r-KJO"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -86,9 +99,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="JoB-81-AVn">
                         <barButtonItem key="backBarButtonItem" title="takaisin" id="PCz-9Q-i25"/>
+                        <barButtonItem key="rightBarButtonItem" title="+ Lisää pelaaja" id="cN6-mO-EhD">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="0Sf-Hj-GC8" kind="show" id="nUc-CS-rUF"/>
+                        <segue destination="0Sf-Hj-GC8" kind="show" identifier="23" id="nUc-CS-rUF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CMh-hz-AGP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -157,5 +173,8 @@
         <namedColor name="brandPurple">
             <color red="0.59215686274509804" green="0.27843137254901962" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

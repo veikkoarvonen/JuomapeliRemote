@@ -9,10 +9,16 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
 
+    var delegate: deleteDelegate?
+    var index: Int?
+    
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
-        
+        guard let indexNumber = index else {
+            return
+        }
+        delegate?.deleteCell(at: indexNumber)
     }
     
     override func awakeFromNib() {
@@ -22,7 +28,7 @@ class TableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     

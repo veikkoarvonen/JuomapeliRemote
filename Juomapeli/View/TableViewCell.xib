@@ -33,7 +33,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nce-My-yvF">
-                                <rect key="frame" x="5" y="5" width="373" height="39"/>
+                                <rect key="frame" x="20" y="5" width="358" height="39"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -41,7 +41,7 @@
                         </subviews>
                         <color key="backgroundColor" name="brandPurple"/>
                         <constraints>
-                            <constraint firstItem="nce-My-yvF" firstAttribute="leading" secondItem="Uo6-70-Wny" secondAttribute="leading" constant="5" id="03p-d3-S4a"/>
+                            <constraint firstItem="nce-My-yvF" firstAttribute="leading" secondItem="Uo6-70-Wny" secondAttribute="leading" constant="20" id="03p-d3-S4a"/>
                             <constraint firstItem="17V-Gm-wYH" firstAttribute="leading" secondItem="nce-My-yvF" secondAttribute="trailing" constant="5" id="3tR-70-MKK"/>
                             <constraint firstAttribute="trailing" secondItem="17V-Gm-wYH" secondAttribute="trailing" constant="8" id="AqU-fN-KtH"/>
                             <constraint firstItem="nce-My-yvF" firstAttribute="top" secondItem="Uo6-70-Wny" secondAttribute="top" constant="5" id="N4h-ro-fRD"/>
@@ -50,6 +50,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" name="brandBlue"/>
                 <constraints>
                     <constraint firstItem="Uo6-70-Wny" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="6JZ-eS-21b"/>
                     <constraint firstAttribute="trailing" secondItem="Uo6-70-Wny" secondAttribute="trailing" constant="5" id="AaM-jT-8S0"/>
@@ -67,6 +68,9 @@
     </objects>
     <resources>
         <image name="xmark.circle" catalog="system" width="128" height="123"/>
+        <namedColor name="brandBlue">
+            <color red="0.78431372549019607" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="brandPurple">
             <color red="0.59215686274509804" green="0.27843137254901962" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

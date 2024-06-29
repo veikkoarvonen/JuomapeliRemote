@@ -104,7 +104,7 @@ struct GameBrain {
         
     }
     
-    func newtask() -> String {
+    func newtask(p1: String, p2: String) -> String {
          guard let task = tasks.randomElement() else {
              return "Moe"
          }

@@ -9,7 +9,7 @@ import UIKit
 
 class AddPlayers: UIViewController, deleteDelegate {
     
-    var players: [String] = []
+    var players: [String] = ["Veikko", "Jesse", "Donia", "Mirka"]
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,7 +19,7 @@ class AddPlayers: UIViewController, deleteDelegate {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .clear
-        showAddPlayerAlert()
+        //showAddPlayerAlert()
     }
     
     @IBAction func startPressed(_ sender: UIButton) {

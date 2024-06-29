@@ -49,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B60E455A2C304E6700F1B627 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B6194D4C2C2C865F00B6E462 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B6194D3A2C2C865F00B6E462 = {
 			isa = PBXGroup;
 			children = (
@@ -69,8 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				B6194D652C2CA1C200B6E462 /* Model */,
-				B6194D5A2C2C90D700B6E462 /* View */,
-				B6194D4C2C2C865F00B6E462 /* Main.storyboard */,
+				B6194D5A2C2C90D700B6E462 /* Control */,
+				B60E455A2C304E6700F1B627 /* View */,
 				B6194D4F2C2C866100B6E462 /* Assets.xcassets */,
 				B6194D512C2C866100B6E462 /* LaunchScreen.storyboard */,
 				B6194D542C2C866100B6E462 /* Info.plist */,
@@ -78,7 +86,7 @@
 			path = Juomapeli;
 			sourceTree = "<group>";
 		};
-		B6194D5A2C2C90D700B6E462 /* View */ = {
+		B6194D5A2C2C90D700B6E462 /* Control */ = {
 			isa = PBXGroup;
 			children = (
 				B6194D4A2C2C865F00B6E462 /* Start.swift */,
@@ -88,7 +96,7 @@
 				B6194D612C2C9D7600B6E462 /* DelegateProtocols.swift */,
 				B6194D632C2C9F9400B6E462 /* GameScreen.swift */,
 			);
-			path = View;
+			path = Control;
 			sourceTree = "<group>";
 		};
 		B6194D652C2CA1C200B6E462 /* Model */ = {

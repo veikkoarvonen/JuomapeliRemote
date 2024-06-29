@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="raibale2" translatesAutoresizingMaskIntoConstraints="NO" id="hdL-aK-I4A">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="juomapeli layout png" translatesAutoresizingMaskIntoConstraints="NO" id="hdL-aK-I4A">
                                 <rect key="frame" x="0.0" y="91" width="375" height="647"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iq8-mH-1J3">
@@ -128,35 +128,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="raibale2" translatesAutoresizingMaskIntoConstraints="NO" id="opD-e7-2gr">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="juomapeli layout png" translatesAutoresizingMaskIntoConstraints="NO" id="opD-e7-2gr">
                                 <rect key="frame" x="0.0" y="91" width="375" height="647"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIw-52-LDP">
-                                <rect key="frame" x="87.666666666666686" y="231" width="200" height="350"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="3Rj-j3-wVA"/>
-                                    <constraint firstAttribute="height" constant="350" id="ssD-Wl-s4a"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" name="brandPurple"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eyi-8B-TXc"/>
                         <color key="backgroundColor" name="brandPurple"/>
                         <constraints>
                             <constraint firstItem="eyi-8B-TXc" firstAttribute="bottom" secondItem="opD-e7-2gr" secondAttribute="bottom" constant="40" id="1rU-KS-mqx"/>
                             <constraint firstItem="opD-e7-2gr" firstAttribute="leading" secondItem="eyi-8B-TXc" secondAttribute="leading" id="7Q5-We-xBL"/>
-                            <constraint firstItem="WIw-52-LDP" firstAttribute="centerX" secondItem="sSN-T8-mqh" secondAttribute="centerX" id="BJv-qG-zAf"/>
                             <constraint firstItem="eyi-8B-TXc" firstAttribute="trailing" secondItem="opD-e7-2gr" secondAttribute="trailing" id="cZh-KD-jrQ"/>
                             <constraint firstItem="opD-e7-2gr" firstAttribute="top" secondItem="eyi-8B-TXc" secondAttribute="top" id="d8a-7b-N0T"/>
-                            <constraint firstItem="WIw-52-LDP" firstAttribute="centerY" secondItem="sSN-T8-mqh" secondAttribute="centerY" id="vB3-gH-5gd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SOR-aE-MiX"/>
-                    <connections>
-                        <outlet property="taskLabel" destination="WIw-52-LDP" id="Wtu-3c-Nj0"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5z-MP-WUC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -190,7 +175,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="raibale2" width="3375" height="6000"/>
+        <image name="juomapeli layout png" width="3375" height="6000"/>
         <namedColor name="brandBlue">
             <color red="0.78431372549019607" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

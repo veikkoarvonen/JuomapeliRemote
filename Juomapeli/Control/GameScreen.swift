@@ -9,7 +9,6 @@ import UIKit
 
 class GameScreen: UIViewController {
     
-    @IBOutlet weak var taskLabel: UILabel!
     var label = UILabel()
     var players: [String] = []
     var colors = Colors.colors
@@ -20,7 +19,6 @@ class GameScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        taskLabel.removeFromSuperview()
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleScreenTap))
         self.view.addGestureRecognizer(tapGestureRecognizer)
         shouldReturn = false

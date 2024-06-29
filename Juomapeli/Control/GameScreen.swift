@@ -10,6 +10,7 @@ import UIKit
 class GameScreen: UIViewController {
     
     @IBOutlet weak var taskLabel: UILabel!
+    var label = UILabel()
     
     var players: [String] = []
     var currentTask: Int = 0
@@ -19,6 +20,7 @@ class GameScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        taskLabel.removeFromSuperview()
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleScreenTap))
         self.view.addGestureRecognizer(tapGestureRecognizer)
         shouldReturn = false
@@ -42,7 +44,7 @@ class GameScreen: UIViewController {
         }
         
         if currentTask >= tasksToAppear.count {
-            taskLabel.text = "Peli loppui!"
+            label.text = "Peli loppui!"
             shouldReturn = true
         } else {
             
@@ -54,7 +56,10 @@ class GameScreen: UIViewController {
             let p2 = remainingPlayers.randomElement()
             
             game = GameBrain(player1: p1, player2: p2!)
-            taskLabel.text = game.tasks[tasksToAppear[currentTask]]
+            setLabel()
+            let fullText = game.tasks[tasksToAppear[currentTask]]
+            label.attributedText = attributedText(for: fullText, highlight1: p1, highlight2: p2!)
+            
             currentTask += 1
            
         }
@@ -75,6 +80,54 @@ class GameScreen: UIViewController {
         return taskIndexes
     }
 
+    func setLabel() {
+        label.removeFromSuperview()
+        //label.text = game.tasks[tasksToAppear[currentTask]]
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 20)
+        label.textAlignment = .center
+        label.textColor = .black
+        label.clipsToBounds = true
+        label.frame = CGRect(x: 0, y: 0, width: 200, height: 250)
+        label.center = view.center
+        view.addSubview(label)
+        performShakingAnimation()
+    }
     
+    func performShakingAnimation() {
+            let shakeAnimation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+            shakeAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+            shakeAnimation.duration = 0.3
+            shakeAnimation.values = [-9, 9, -6, 6, -3, 3, 0]
+            label.layer.add(shakeAnimation, forKey: "shake")
+        }
+    
+    func attributedText(for fullText: String, highlight1: String, highlight2: String) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: fullText)
+
+        // Attributes for the highlighted texts
+        let highlight1Attributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.red,
+            .font: UIFont.boldSystemFont(ofSize: 24)
+        ]
+        let highlight2Attributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.orange,
+            .font: UIFont.boldSystemFont(ofSize: 24)
+        ]
+
+        // Apply attributes to highlight1
+        let highlight1Range = (fullText as NSString).range(of: highlight1)
+        if highlight1Range.location != NSNotFound {
+            attributedString.addAttributes(highlight1Attributes, range: highlight1Range)
+        }
+
+        // Apply attributes to highlight2
+        let highlight2Range = (fullText as NSString).range(of: highlight2)
+        if highlight2Range.location != NSNotFound {
+            attributedString.addAttributes(highlight2Attributes, range: highlight2Range)
+        }
+        
+        return attributedString
+    }
     
 }

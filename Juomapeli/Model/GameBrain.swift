@@ -5,7 +5,7 @@
 //  Created by Veikko Arvonen on 26.6.2024.
 //
 
-import Foundation
+import UIKit
 
 struct GameBrain {
     
@@ -27,7 +27,7 @@ struct GameBrain {
             "Kertokaa tarina sana kerrallaan, se joka jäätyy ekana juo 3 huikkaa",
             "\(player1), niin monta punnerrusta kuin sinä teet, \(player2) ottaa huikkia",
             "\(player1), freestyle räppää tästä illasta. Muut pelaajat ovat tuomaristo ja päättävät, selviätkö rangaistukselta (3 huikkaa)",
-            "\(player1), nuolaise pelaajan Valeria jalkaa tai ota 3 huikkaa",
+            "\(player1), nuolaise pelaajan \(player2) jalkaa tai ota 3 huikkaa",
             "\(player1), laita seuraavat ruumiinosat viehättävyysjärjestykseen: kainalot, varpaat, korvat",
             "\(player1), Telepatiahaaste! Yrittäkää sanoa pelaajan \(player2) kanssa sama sana samaan aikaan. Jos epäonnistutte juotte molemmat 2 huikkaa. Kategoria: väri",
             "\(player1), ota 4 huikkaa tai poskiläimäisy pelaajalta \(player2)",
@@ -104,11 +104,17 @@ struct GameBrain {
         
     }
     
-    func newtask(p1: String, p2: String) -> String {
-         guard let task = tasks.randomElement() else {
-             return "Moe"
-         }
-         return task
-     }
-    
+}
+
+struct Colors {
+    static let colors: [UIColor] = [
+        UIColor(red: 0/255.0, green: 74/255.0, blue: 173/255.0, alpha: 1.0),   // #004AAD
+        UIColor(red: 255/255.0, green: 0/255.0, blue: 207/255.0, alpha: 1.0),  // #FF00CF
+        UIColor(red: 0/255.0, green: 35/255.0, blue: 255/255.0, alpha: 1.0),   // #0023FF
+        UIColor(red: 166/255.0, green: 17/255.0, blue: 48/255.0, alpha: 1.0),  // #A61130
+        UIColor(red: 39/255.0, green: 112/255.0, blue: 30/255.0, alpha: 1.0),  // #27701E
+        UIColor(red: 255/255.0, green: 0/255.0, blue: 184/255.0, alpha: 1.0),  //#FF00B8
+        UIColor.red,
+        UIColor.orange
+    ]
 }

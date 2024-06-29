@@ -11,8 +11,8 @@ class GameScreen: UIViewController {
     
     @IBOutlet weak var taskLabel: UILabel!
     var label = UILabel()
-    
     var players: [String] = []
+    var colors = Colors.colors
     var currentTask: Int = 0
     var tasksToAppear: [Int] = []
     var shouldReturn: Bool = false
@@ -25,8 +25,8 @@ class GameScreen: UIViewController {
         self.view.addGestureRecognizer(tapGestureRecognizer)
         shouldReturn = false
         tasksToAppear = tasksForGame()
+        colors.shuffle()
         newTask()
-        print(tasksToAppear)
     }
     
     @objc func handleScreenTap() {
@@ -51,14 +51,34 @@ class GameScreen: UIViewController {
             let pIndex = Int.random(in: 0..<players.count)
             let p1 = players[pIndex]
             
-            var remainingPlayers = players
-            remainingPlayers.remove(at: pIndex)
-            let p2 = remainingPlayers.randomElement()
+            var c1: UIColor
+            var c2: UIColor
             
-            game = GameBrain(player1: p1, player2: p2!)
+            if pIndex < colors.count {
+                c1 = colors[pIndex]
+            } else {
+                c1 = .red
+            }
+            
+            var remainingPlayers = players
+            var remainingColors = colors
+            remainingPlayers.remove(at: pIndex)
+            remainingColors.remove(at: pIndex)
+            let p2index = Int.random(in: 0..<remainingPlayers.count)
+            let p2 = remainingPlayers[p2index]
+            
+            if p2index < remainingColors.count {
+                c2 = remainingColors[p2index]
+            } else {
+                c2 = .orange
+            }
+            
+        
+            
+            game = GameBrain(player1: p1, player2: p2)
             setLabel()
             let fullText = game.tasks[tasksToAppear[currentTask]]
-            label.attributedText = attributedText(for: fullText, highlight1: p1, highlight2: p2!)
+            label.attributedText = attributedText(for: fullText, highlight1: p1, highlight2: p2, color1: c1, color2: c2)
             
             currentTask += 1
            
@@ -68,8 +88,11 @@ class GameScreen: UIViewController {
     func tasksForGame() -> [Int] {
         var taskIndexes: [Int] = []
         let totalTasks = game.tasks.count
-        let requiredTasks = 10
+        let requiredTasks = 30
 
+        guard requiredTasks < totalTasks else {
+           return [1,2,3]
+        }
 
         while taskIndexes.count < requiredTasks {
             let newIndex = Int.random(in: 0..<totalTasks)
@@ -102,16 +125,16 @@ class GameScreen: UIViewController {
             label.layer.add(shakeAnimation, forKey: "shake")
         }
     
-    func attributedText(for fullText: String, highlight1: String, highlight2: String) -> NSAttributedString {
+    func attributedText(for fullText: String, highlight1: String, highlight2: String, color1: UIColor, color2: UIColor) -> NSAttributedString {
         let attributedString = NSMutableAttributedString(string: fullText)
 
         // Attributes for the highlighted texts
         let highlight1Attributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.red,
+            .foregroundColor: color1,
             .font: UIFont.boldSystemFont(ofSize: 24)
         ]
         let highlight2Attributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.orange,
+            .foregroundColor: color2,
             .font: UIFont.boldSystemFont(ofSize: 24)
         ]
 

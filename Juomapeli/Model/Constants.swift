@@ -18,7 +18,7 @@ struct C {
 }
 
 struct Cells {
-    static let images: [UIImage] = [#imageLiteral(resourceName: "2")]
+    static let images: [UIImage] = [UIImage(named: "resized1")!,UIImage(named: "resized2")!,UIImage(named: "resized3")!]
     static let headers: [String] = ["Peruspeli", "Treffit", "Extreme"]
     static let paragraphs: [String] = [
         "Monipuolisia tehtäviä ja haasteita, jotka takaavat räväkän meiningin hyvän maun rajoissa... juuri ja juuri.",

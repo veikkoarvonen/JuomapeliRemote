@@ -66,9 +66,9 @@
                                 <rect key="frame" x="0.0" y="91" width="375" height="687"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovU-gQ-aAG">
-                                        <rect key="frame" x="119.66666666666669" y="613" width="136" height="44"/>
+                                        <rect key="frame" x="122.66666666666669" y="613" width="130" height="44"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Aloita peli">
+                                        <buttonConfiguration key="configuration" style="filled" title="Seuraava">
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="25"/>
                                             <color key="baseBackgroundColor" name="brandPurple"/>
                                         </buttonConfiguration>
@@ -113,17 +113,62 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Tfz-Gb-Jtl" id="Tae-50-fUe"/>
-                        <segue destination="0Sf-Hj-GC8" kind="show" identifier="23" id="nUc-CS-rUF"/>
+                        <segue destination="oYz-kb-HrX" kind="show" identifier="23" id="kRu-cE-6MN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CMh-hz-AGP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1826.7175572519084" y="-27.464788732394368"/>
         </scene>
-        <!--Game Screen-->
+        <!--Game Select View-->
+        <scene sceneID="9ep-bU-WEF">
+            <objects>
+                <viewController id="oYz-kb-HrX" customClass="GameSelectView" customModule="Juomapeli" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X91-Ss-CXs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eum-hT-bYD">
+                                <rect key="frame" x="0.0" y="91" width="375" height="687"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xUg-ma-KMX">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="687"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="sectionIndexBackgroundColor" name="brandBlue"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" name="brandBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="xUg-ma-KMX" secondAttribute="bottom" id="9Ol-WL-YY7"/>
+                                    <constraint firstAttribute="trailing" secondItem="xUg-ma-KMX" secondAttribute="trailing" id="AJv-Lg-S3m"/>
+                                    <constraint firstItem="xUg-ma-KMX" firstAttribute="leading" secondItem="eum-hT-bYD" secondAttribute="leading" id="WIt-JH-EU7"/>
+                                    <constraint firstItem="xUg-ma-KMX" firstAttribute="top" secondItem="eum-hT-bYD" secondAttribute="top" id="iCu-Yt-1D2"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kJx-lX-9eI"/>
+                        <color key="backgroundColor" name="brandPurple"/>
+                        <constraints>
+                            <constraint firstItem="eum-hT-bYD" firstAttribute="top" secondItem="kJx-lX-9eI" secondAttribute="top" id="7q3-Eg-YFL"/>
+                            <constraint firstItem="eum-hT-bYD" firstAttribute="leading" secondItem="kJx-lX-9eI" secondAttribute="leading" id="P6J-2g-Qgj"/>
+                            <constraint firstItem="kJx-lX-9eI" firstAttribute="bottom" secondItem="eum-hT-bYD" secondAttribute="bottom" id="gb3-Qc-tlr"/>
+                            <constraint firstItem="kJx-lX-9eI" firstAttribute="trailing" secondItem="eum-hT-bYD" secondAttribute="trailing" id="wug-rL-FNU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="m8p-uL-zFY"/>
+                    <connections>
+                        <outlet property="tableView" destination="xUg-ma-KMX" id="Ca2-XZ-iTD"/>
+                        <segue destination="0Sf-Hj-GC8" kind="show" identifier="34" id="r40-vw-hja"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bjW-YV-yWg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2785" y="-27"/>
+        </scene>
+        <!--Game View-->
         <scene sceneID="gL7-zG-WYy">
             <objects>
-                <viewController id="0Sf-Hj-GC8" customClass="GameScreen" customModule="Juomapeli" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0Sf-Hj-GC8" customClass="GameView" customModule="Juomapeli" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sSN-T8-mqh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5z-MP-WUC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2634.3511450381679" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="3706" y="-28"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QYY-MI-XJa">

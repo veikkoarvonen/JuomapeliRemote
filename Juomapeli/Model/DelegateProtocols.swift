@@ -10,3 +10,7 @@ import Foundation
 protocol deleteDelegate: AnyObject {
     func deleteCell(at index: Int)
 }
+
+protocol valueDelegate: AnyObject {
+    func setValue(to: Float, forTier: Bool)
+}

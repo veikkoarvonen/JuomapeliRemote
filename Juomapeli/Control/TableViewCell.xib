@@ -34,7 +34,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nce-My-yvF">
                                 <rect key="frame" x="20" y="5" width="358" height="39"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -63,7 +63,7 @@
                 <outlet property="backView" destination="Uo6-70-Wny" id="7fd-oy-Dbu"/>
                 <outlet property="nameLabel" destination="nce-My-yvF" id="Ode-ls-uxg"/>
             </connections>
-            <point key="canvasLocation" x="241.98473282442748" y="1.0563380281690142"/>
+            <point key="canvasLocation" x="237" y="41"/>
         </tableViewCell>
     </objects>
     <resources>

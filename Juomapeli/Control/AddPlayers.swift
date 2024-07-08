@@ -9,7 +9,7 @@ import UIKit
 
 class AddPlayers: UIViewController, deleteDelegate {
     
-    var players: [String] = ["Veikko","Donia"]
+    var players: [String] = ["Veikko","Donia", "Valeria", "Jese"]
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -36,7 +36,7 @@ class AddPlayers: UIViewController, deleteDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "23" {
-            let destinationVC = segue.destination as! GameScreen
+            let destinationVC = segue.destination as! GameSelectView
             destinationVC.players = players
         }
     }

@@ -7,8 +7,9 @@
 
 import Foundation
 
-protocol deleteDelegate: AnyObject {
+protocol CellDelegate: AnyObject {
     func deleteCell(at index: Int)
+    func addPlayer(name: String, row: Int)
 }
 
 protocol valueDelegate: AnyObject {

@@ -7,15 +7,16 @@
 
 import UIKit
 
-class AddPlayers: UIViewController, deleteDelegate {
+class AddPlayers: UIViewController, CellDelegate {
     
-    var players: [String] = ["Veikko","Donia", "Valeria", "Jese"]
+    
+    var players: [String] = []
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "tableViewCell")
+        tableView.register(UINib(nibName: C.playerTextCell, bundle: nil), forCellReuseIdentifier: C.playerTextNib)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .clear
@@ -89,18 +90,35 @@ class AddPlayers: UIViewController, deleteDelegate {
         players.remove(at: index)
         tableView.reloadData()
     }
+    
+    func addPlayer(name: String, row: Int) {
+        
+        if row >= players.count {
+            players.append(name)
+        } else {
+            players[row] = name
+        }
+        tableView.reloadData()
+        print(players)
+    }
 }
 
 extension AddPlayers: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return players.count
+        return players.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! TableViewCell
-        cell.nameLabel.text = players[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: C.playerTextNib, for: indexPath) as! TableViewTextCell
         cell.delegate = self
-        cell.index = indexPath.row
+        cell.row = indexPath.row
+        if indexPath.row < players.count {
+            cell.textField.text = players[indexPath.row]
+            cell.deleteButton.isHidden = false
+        } else {
+            cell.textField.text = ""
+            cell.deleteButton.isHidden = true
+        }
         return cell
     }
     

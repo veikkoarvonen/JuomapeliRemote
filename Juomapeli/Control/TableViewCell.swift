@@ -9,7 +9,7 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
 
-    var delegate: deleteDelegate?
+    var delegate: CellDelegate?
     var index: Int?
     
     @IBOutlet weak var backView: UIView!

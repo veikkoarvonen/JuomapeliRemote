@@ -12,6 +12,8 @@ struct C {
     static let playerNib = "tableViewCell"
     static let gamemodeCell = "GameModeCell"
     static let gamemodeNIb = "gameModeCell"
+    static let playerTextCell = "TableViewTextCell"
+    static let playerTextNib = "tableViewTextCell"
     
     static let purple = "brandPurple"
     static let blue = "brandBlue"

@@ -58,6 +58,13 @@ extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row != 2 {
             cell.lowerView.isHidden = true
         }
+        
+        if let imageView = cell.customImageView {
+            imageView.image = Cells.images[indexPath.row]
+        } else {
+            print("Image view is nil")
+        }
+        
         return cell
     }
     

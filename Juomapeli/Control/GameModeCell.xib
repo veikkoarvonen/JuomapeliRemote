@@ -139,6 +139,7 @@
             <connections>
                 <outlet property="actionSlider" destination="KoX-4l-FNR" id="psE-v7-3C3"/>
                 <outlet property="backView" destination="TLw-ML-KhI" id="0Mk-rK-iWP"/>
+                <outlet property="customImageView" destination="Zya-v8-MvD" id="MDl-pd-Em5"/>
                 <outlet property="drinkSlider" destination="EN7-oC-xy4" id="G7x-m0-DDI"/>
                 <outlet property="header" destination="ebs-XN-aPI" id="1hh-Tn-W8t"/>
                 <outlet property="imageView" destination="Zya-v8-MvD" id="rL8-jr-4Yp"/>

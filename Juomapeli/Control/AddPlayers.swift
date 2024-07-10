@@ -9,7 +9,6 @@ import UIKit
 
 class AddPlayers: UIViewController, CellDelegate {
     
-    
     var players: [String] = []
     
     @IBOutlet weak var tableView: UITableView!
@@ -20,7 +19,6 @@ class AddPlayers: UIViewController, CellDelegate {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .clear
-        //showAddPlayerAlert()
     }
     
     @IBAction func startPressed(_ sender: UIButton) {
@@ -31,44 +29,12 @@ class AddPlayers: UIViewController, CellDelegate {
         }
     }
     
-    @IBAction func addPlayerPressed(_ sender: UIBarButtonItem) {
-        showAddPlayerAlert()
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "23" {
             let destinationVC = segue.destination as! GameSelectView
             destinationVC.players = players
         }
     }
-    
-    func showAddPlayerAlert() {
-            // Create the alert controller
-            let alertController = UIAlertController(title: "Lisää pelaaja", message: nil, preferredStyle: .alert)
-            
-            // Add the text field to the alert
-            alertController.addTextField { (textField) in
-                textField.placeholder = "Pelaajan nimi"
-                textField.autocapitalizationType = .words
-            }
-            
-            // Add the "Cancel" action
-            let cancelAction = UIAlertAction(title: "Peruuta", style: .cancel, handler: nil)
-            alertController.addAction(cancelAction)
-            
-            // Add the "Add Player" action
-            let addAction = UIAlertAction(title: "Lisää", style: .default) { (_) in
-                if let textField = alertController.textFields?.first, let playerName = textField.text {
-                    // Handle the player name here
-                    self.players.append(playerName)
-                    self.tableView.reloadData()
-                }
-            }
-            alertController.addAction(addAction)
-            
-            // Present the alert controller
-            self.present(alertController, animated: true, completion: nil)
-        }
     
     func showErrorAlert() {
             // Create the alert controller
@@ -83,27 +49,28 @@ class AddPlayers: UIViewController, CellDelegate {
         }
     
     func deleteCell(at index: Int) {
-        
         guard index <= players.count else {
             return
         }
+        
         players.remove(at: index)
         tableView.reloadData()
     }
     
     func addPlayer(name: String, row: Int) {
-        
         if row >= players.count {
             players.append(name)
         } else {
             players[row] = name
         }
+        
         tableView.reloadData()
         print(players)
     }
 }
 
 extension AddPlayers: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return players.count + 1
     }

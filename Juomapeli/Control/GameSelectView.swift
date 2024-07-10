@@ -14,7 +14,6 @@ class GameSelectView: UIViewController, valueDelegate {
     var tierValueForGame: Float = 3.0
     var drinkValueForGame: Float = 3.0
     
-    
     @IBOutlet weak var tableView: UITableView!
   
     
@@ -77,22 +76,24 @@ extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
         case 1: height = 120
         case 2: height = 300
         default: height = 300
-            
-      
         }
+        
         return height
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         categoryForGame = indexPath.row
-        var gategory: Int
+        var category: Int
+        
         switch indexPath.row {
-        case 0: gategory = 0; drinkValueForGame = 3
-        case 1: gategory = 1; drinkValueForGame = 3
-        case 2: gategory = 2
-        default: gategory = 0
+        case 0: category = 0; drinkValueForGame = 3
+        case 1: category = 1; drinkValueForGame = 3
+        case 2: category = 2
+        default: category = 0
         }
-        categoryForGame = gategory
+        
+        categoryForGame = category
         performSegue(withIdentifier: "34", sender: self)
     }
     

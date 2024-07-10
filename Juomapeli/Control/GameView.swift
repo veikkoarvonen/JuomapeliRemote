@@ -13,13 +13,14 @@ class GameView: UIViewController {
     var gameCategory: Int = 0
     var tierValue: Float = 3.0
     var drinkValue: Float = 1.0
+    
     var game = Game(players: [], gameCategory: 0, drinkIndex: 1, tierIndex: 1, numberOfTasks: 30)
+    var colors = Colors.colors
     var tasks: [NSAttributedString] = []
     
     var currentTask = 0
     var label = UILabel()
     var shouldReturn = false
-    var colors = Colors.colors
     
     override func viewDidLoad() {
         super.viewDidLoad()

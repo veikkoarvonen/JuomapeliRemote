@@ -12,6 +12,7 @@ class AddPlayers: UIViewController, CellDelegate {
     var players: [String] = []
     
     @IBOutlet weak var tableView: UITableView!
+    var delegate: TextFieldDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,9 @@ class AddPlayers: UIViewController, CellDelegate {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .clear
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleScreenTap))
+        self.view.addGestureRecognizer(tapGestureRecognizer)
     }
     
     @IBAction func startPressed(_ sender: UIButton) {
@@ -34,6 +38,10 @@ class AddPlayers: UIViewController, CellDelegate {
             let destinationVC = segue.destination as! GameSelectView
             destinationVC.players = players
         }
+    }
+    
+    @objc func handleScreenTap() {
+        view.endEditing(true)
     }
     
     func showErrorAlert() {
@@ -91,6 +99,10 @@ extension AddPlayers: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
     

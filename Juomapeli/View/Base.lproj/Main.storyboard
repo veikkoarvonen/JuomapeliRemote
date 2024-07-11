@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="91" width="375" height="647"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iq8-mH-1J3">
-                                <rect key="frame" x="119.66666666666669" y="384" width="136" height="44"/>
+                                <rect key="frame" x="119.00000000000001" y="382.66666666666669" width="137.33333333333337" height="46.666666666666686"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Aloita peli">
-                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="25"/>
+                                    <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
                                     <color key="baseBackgroundColor" name="brandPurple"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -66,18 +66,18 @@
                                 <rect key="frame" x="0.0" y="91" width="375" height="687"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovU-gQ-aAG">
-                                        <rect key="frame" x="122.66666666666669" y="613" width="130" height="44"/>
+                                        <rect key="frame" x="126.66666666666669" y="615.66666666666663" width="122" height="41.333333333333371"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Seuraava">
-                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="25"/>
+                                            <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
                                             <color key="baseBackgroundColor" name="brandPurple"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="startPressed:" destination="sGy-dV-Pdx" eventType="touchUpInside" id="TDn-8b-ILp"/>
                                         </connections>
                                     </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Tfz-Gb-Jtl">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="563"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Tfz-Gb-Jtl">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="565.66666666666663"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
@@ -104,12 +104,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="JoB-81-AVn">
                         <barButtonItem key="backBarButtonItem" title="takaisin" id="PCz-9Q-i25"/>
-                        <barButtonItem key="rightBarButtonItem" title="+ Lisää pelaaja" id="cN6-mO-EhD">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="addPlayerPressed:" destination="sGy-dV-Pdx" id="5z8-fE-vMy"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Tfz-Gb-Jtl" id="Tae-50-fUe"/>
@@ -155,7 +149,9 @@
                             <constraint firstItem="kJx-lX-9eI" firstAttribute="trailing" secondItem="eum-hT-bYD" secondAttribute="trailing" id="wug-rL-FNU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="m8p-uL-zFY"/>
+                    <navigationItem key="navigationItem" id="m8p-uL-zFY">
+                        <barButtonItem key="backBarButtonItem" title="takaisin" id="LVh-QA-30z"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="xUg-ma-KMX" id="Ca2-XZ-iTD"/>
                         <segue destination="0Sf-Hj-GC8" kind="show" identifier="34" id="r40-vw-hja"/>
@@ -186,7 +182,9 @@
                             <constraint firstItem="opD-e7-2gr" firstAttribute="top" secondItem="eyi-8B-TXc" secondAttribute="top" id="d8a-7b-N0T"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="SOR-aE-MiX"/>
+                    <navigationItem key="navigationItem" id="SOR-aE-MiX">
+                        <barButtonItem key="backBarButtonItem" title="takaisin" id="yl3-kJ-3Gy"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5z-MP-WUC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

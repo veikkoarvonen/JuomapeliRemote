@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableViewTextCell: UITableViewCell {
+class TableViewTextCell: UITableViewCell, TextFieldDelegate {
 
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var textField: UITextField!
@@ -24,12 +24,28 @@ class TableViewTextCell: UITableViewCell {
         // Initialization code
         backView.layer.cornerRadius = 5
         textField.delegate = self
+        
+        
+        setPlaceholder(text: " + Lisää pelaaja")
+    }
+    
+    func resignTextField() {
+        print("Resigning textField in cell \(row!)")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        
+    }
+    
+    func setPlaceholder(text: String) {
+        let placeholderText = text
+        let placeholderColor = UIColor.white // Your desired color
+        textField.attributedPlaceholder = NSAttributedString(
+            string: placeholderText,
+            attributes: [NSAttributedString.Key.foregroundColor: placeholderColor]
+        )
     }
     
 }
@@ -44,5 +60,18 @@ extension TableViewTextCell: UITextFieldDelegate {
         // Typically used to dismiss the keyboard
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        setPlaceholder(text: "")
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        setPlaceholder(text: " + Lisää pelaaja")
+        if let text = textField.text {
+            if text != "" {
+                delegate?.addPlayer(name: text, row: row!)
+            }
+        }
     }
 }

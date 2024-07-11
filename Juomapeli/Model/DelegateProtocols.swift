@@ -15,3 +15,7 @@ protocol CellDelegate: AnyObject {
 protocol valueDelegate: AnyObject {
     func setValue(to: Float, forTier: Bool)
 }
+
+protocol TextFieldDelegate: AnyObject {
+    func resignTextField()
+}

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableViewTextCell: UITableViewCell, TextFieldDelegate {
+class TableViewTextCell: UITableViewCell {
 
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var textField: UITextField!
@@ -27,10 +27,6 @@ class TableViewTextCell: UITableViewCell, TextFieldDelegate {
         
         
         setPlaceholder(text: " + Lisää pelaaja")
-    }
-    
-    func resignTextField() {
-        print("Resigning textField in cell \(row!)")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

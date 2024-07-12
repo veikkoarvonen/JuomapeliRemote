@@ -12,7 +12,6 @@ class AddPlayers: UIViewController, CellDelegate {
     var players: [String] = []
     
     @IBOutlet weak var tableView: UITableView!
-    var delegate: TextFieldDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +25,7 @@ class AddPlayers: UIViewController, CellDelegate {
     }
     
     @IBAction func startPressed(_ sender: UIButton) {
+        view.endEditing(true)
         if players.count < 2 {
             showErrorAlert()
         } else {

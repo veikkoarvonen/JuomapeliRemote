@@ -115,8 +115,31 @@ struct Game {
     }
     
     func getIndexes() -> [Int] {
-        var array = Array(0..<30)
-        array.shuffle()
+        var demoTask = Task(player1: "", player2: "", drinkIndex: 1, color1: .red, color2: .red)
+        var array: [Int] = []
+        if gameCategory == 0 {
+            array = Array(0..<demoTask.normals.count)
+        } else if gameCategory == 1 {
+            array = Array(0..<demoTask.dates.count)
+        } else {
+            var n1 = Array(0..<demoTask.tier1.count)
+            var n2 = Array(0..<demoTask.tier2.count)
+            var n3 = Array(0..<demoTask.tier3.count)
+            var n4 = Array(0..<demoTask.tier4.count)
+            var n5 = Array(0..<demoTask.tier5.count)
+            var tiers = [n1, n2, n3, n4, n5]
+            for i in 0..<tiers.count {
+                tiers[i].shuffle()
+            }
+            
+            let tierValues = getTiers()
+            for i in 0..<tierValues.count {
+            let tier = tierValues[i]
+            let correctArray = tiers[tier - 1]
+            let index = correctArray[i]
+                array.append(index)
+            }
+        }
         return array
     }
     
@@ -135,7 +158,10 @@ struct Game {
         var tasks: [NSAttributedString] = []
         
         let tiers = getTiers()
-        var indexes = getIndexes()
+        let indexes = getIndexes()
+        
+        print("Tiers: \(tiers)")
+        print("Indexes: \(indexes)")
         
         for i in 0..<numberOfTasks {
             
@@ -292,7 +318,6 @@ struct Task {
             "\(player1), twerkkaa 15 sekunnin ajan tai juo \(getNumber(input: 4)) huikkaa",
             "\(player1), näytä orgasmi-ilmeesi tai juo \(getNumber(input: 4)) huikkaa",
             "\(player1), syö banaani viettelevästi tai juo \(getNumber(input: 3)) huikkaa",
-            "\(player1), soita ilmakitaraa 15 sekunnin ajan tai juo \(getNumber(input: 4)) huikkaa",
             "\(player1), et saa nauraa loppupelin ajan. Jos epäonnistut, juo 5 huikkaa",
             "\(player1), kuiskaa salaisuus pelaajalle \(player2). Jos hän ei reagoi mitenkään, juo 2 huikkaa",
             "\(player1), päätä, kuka pelaajista juo 3 huikkaa",
@@ -371,6 +396,7 @@ struct Task {
         self.tier1 = [
             "\(player1), nimeä viisi jediritaria Tähtiensota-elokuvista tai juo \(getNumber(input: 3)) huikkaa",
             "\(player1), jos olisit peruna, tulisitko mieluummin kuorituksi vai keitetyksi?",
+            "Jokainen pelaaja, joka on alle 180cm pitkä, juo \(getNumber(input: 3)) huikkaa",
             "\(player1), niin monta punnerrusta kuin sinä teet, \(player2) ottaa huikkia",
             "\(player1), Telepatiahaaste! Yrittäkää sanoa pelaajan \(player2) kanssa sama sana samaan aikaan. Jos epäonnistutte juotte molemmat \(getNumber(input: 2)) huikkaa. Kategoria: väri",
             "Kertokaa tarina sana kerrallaan, se joka jäätyy ensimmäisena juo \(getNumber(input: 3)) huikkaa. Aloittakaa myötäpäivään pelaajasta \(player1)",
@@ -390,6 +416,9 @@ struct Task {
             "\(player1), nimeä 4 James Bond -näyttelijää 10:ssä sekunnissa. Epäonnistumisesta \(getNumber(input: 3)) huikkaa",
             "\(player1), puhu niin monella kielellä jotain järkevää kuin osaat. Jokaista kieltä kohden muut juovat \(getNumber(input: 2)) huikkaa",
             "\(player1) päättää kategorian. Ensimmäinen joka ei osaa nimetä uutta asiaa, ottaa \(getNumber(input: 3)) huikkaa",
+            "\(player1), sano 5 kertaa putkeen ”mustan kissan paksut posket” ilman että kieli menee solmuun, tai juo huikkaa",
+            "\(player1), sano 5 kertaa putkeen ”käki istui keskellä keskioskaa” ilman että kieli menee solmuun, tai juo \(getNumber(input: 3)) huikkaa",
+            "\(player1), sano 5 kertaa putkeen ”yksikseskös yskiskelet, itsekseskös itkeskelet” ilman että kieli menee solmuun, tai juo \(getNumber(input: 3)) huikkaa",
             "\(player1), nimeä 10 NATO-maata 10:ssä sekunnissa tai juo \(getNumber(input: 3)) huikkaa",
             "\(player1), nimeä 5 Suomen maakuntaa 10:ssä sekunnissa tai juo \(getNumber(input: 3)) huikkaa",
             "\(player1), sano kaksi legendaarista one-lineria Terminator-elokuvasarjasta tai juo \(getNumber(input: 3)) huikkaa",
@@ -402,19 +431,31 @@ struct Task {
             "\(player1), Millainen oli ensisuudelmasi? Vastaa tai juo \(getNumber(input: 3)) huikkaa.",
             "\(player1), Kuka on kuumin tietämäsi julkkis? Vastaa tai juo \(getNumber(input: 3)) huikkaa.",
             "\(player1), Kuka on kuuluisin henkilö, kenen numero sinulla on? Vastaa tai juo \(getNumber(input: 3)) huikkaa.",
+            "Jokainen pelaaja laulaa sana kerrallaan Juice Leskisen kappaletta Ei tippa tapa. Se, joka jäätyy ensimmäisenä, juo \(getNumber(input: 3)) huikkaa. ”\(player1) aloittaa",
+            "Jokainen pelaaja laulaa sana kerrallaan PMMP:n kappaletta Rusketusraidat. Se, joka jäätyy ensimmäisenä, juo \(getNumber(input: 3)) huikkaa. ”\(player1) aloittaa",
+            "Jokainen pelaaja laulaa sana kerrallaan kappaletta Minttu sekä Ville. Se, joka jäätyy ensimmäisenä, juo \(getNumber(input: 3)) huikkaa. \(player1) aloittaa",
+            "Jokainen pelaaja laulaa sana kerrallaan Mirellan kappaletta Timanttei. Se, joka jäätyy ensimmäisenä, juo \(getNumber(input: 3)) huikkaa. \(player1) aloittaa",
+            "Jokainen pelaaja laulaa sana kerrallaan Kasmirin kappaletta Vadelmavene. Se, joka jäätyy ensimmäisenä, juo \(getNumber(input: 3)) huikkaa. \(player1) aloittaa",
+            "Jokainen pelaaja laulaa sana kerrallaan Käärijän kappaletta Cha cha cha. Se, joka jäätyy ensimmäisenä, juo \(getNumber(input: 3)) huikkaa. \(player1) aloittaa",
+            "Jokainen pelaaja laulaa sana kerrallaan JVG:n kappaletta Ikuinen vappu. Se, joka jäätyy ensimmäisenä, juo \(getNumber(input: 3)) huikkaa. \(player1) aloittaa",
             "\(player1), päätä, kuka pelaajista juo \(getNumber(input: 3)) huikkaa",
             "\(player1), päätä, kuka pelaajista juo \(getNumber(input: 4)) huikkaa",
             "\(player1), päätä, kuka pelaajista juo \(getNumber(input: 5)) huikkaa",
             "\(player1), ota \(getNumber(input: 3)) huikkaa",
             "\(player1), ota \(getNumber(input: 4)) huikkaa",
             "\(player1), ota \(getNumber(input: 5)) huikkaa",
+            "Pelaaja, jolla on pienin jalka, juo \(getNumber(input: 3)) huikkaa",
             "Pelkäättekö enemmän korkeita vai ahtaita paikkoja? Äänestäkää! Vähemmistö ottaa \(getNumber(input: 4)) huikkaa"
         ]
         
         self.tier2 = [
             "\(player1), Mikä on pisin aikasi pesemättä hampaita? Vastaa tai juo \(getNumber(input: 2)) huikkaa.",
+            "Pelaaja, jolla on paras peppu, juo \(getNumber(input: 4)) huikkaa",
+            "Pelaaja, jolla on isoin hauis, juo \(getNumber(input: 4)) huikkaa",
             "\(player1), et saa nauraa loppupelin ajan. Jos epäonnistut, juo \(getNumber(input: 5)) huikkaa",
             "\(player1), kerro jokin harvinianen asia, jota olet tehnyt. Kaikki ketkä eivät ole tehneet kyseistä asiaa, juovat \(getNumber(input: 3)) huikkaa",
+            "\(player1), laita pelaajan \(player2) sukat käsiisi loppupelin ajaksi tai juo \(getNumber(input: 5)) huikkaa",
+            "Jokainen pelaaja imitoi vauvan ääniä. Huonoiten suoriutunut juo \(getNumber(input: 3)) huikkaa",
             "\(player1), jos puhelimesi ruutuaika on suurempi kuin pelaajalla \(player2), juo \(getNumber(input: 3)) huikkaa. Muussa tapauksessa \(player2) juo \(getNumber(input: 3)) huikkaa.",
             "\(player2), kerro jokin mielenkiintoinen fakta. Kaikki ketkä eivät tienneet sitä, juovat \(getNumber(input: 2)) huikkaa",
             "\(player1), laita seuraavat ruumiinosat viehättävyysjärjestykseen: kainalot, varpaat, korvat, tai juo \(getNumber(input: 2)) huikkaa",
@@ -442,6 +483,7 @@ struct Task {
             "\(player1), imitoi jotain julkkista kunnes muut pelaajat arvaavat ketä esität. Jos epäonnistut, juo \(getNumber(input: 4)) huikkaa",
             "\(player1), mikä on suurin fantasiasi? Vastaa tai juo \(getNumber(input: 4)) huikkaa",
             "\(player1), kerro paras iskurepliikkisi, jos muut eivät pidä sitä hauskana, juo \(getNumber(input: 2)) huikkaa",
+            "Jokainen pelaaja päästää vuorollaan oudon äänen. Kieltäytyjä juo \(getNumber(input: 4)) huikkaa",
             "\(player1), polvistu pelaajan \(player2) eteen ja kosi häntä, tai juo \(getNumber(input: 3)) huikkaa",
             "\(player1), kehrää kuin kissa 5 sekunnin ajan tai juo \(getNumber(input: 2)) huikkaa",
             "Seuraava pelaaja, joka nauraa ensimmäisenä, juo \(getNumber(input: 5)) huikkaa!",
@@ -455,12 +497,21 @@ struct Task {
             "\(player1), soita ilmakitaraa 15 sekunnin ajan tai juo \(getNumber(input: 4)) huikkaa",
             "\(player1), saat puhua vain kuiskaten seuraavan 3 kierroksen ajan. Jos epäonnistut, juo \(getNumber(input: 3)) huikkaa",
             "\(player1), yritä saada muut pelaajat nauramaan puhumatta. Jos epäonnistut, juo \(getNumber(input: 3)) huikkaa",
+            "\(player1), esitä vauvaa seuraavan \(getNumber(input: 3)) kierroksen ajan tai juo \(getNumber(input: 4)) huikkaa",
+            "Jokainen pelaaja imitoi jotain eläintä vuorollaan. Huonoiten suoriutunut juo \(getNumber(input: 3)) huikkaa",
+            "\(player1), hyppää niin korkealle kuin pystyt. Jos muut pelaajat ovat vakuuttuneita, säästyt \(getNumber(input: 3)) huikan rangaistukselta",
+           
+            "\(player1), mene lankku-asentoon minuutiksi. Jos epäonnistut, juo \(getNumber(input: 5)) huikkaa",
+            "\(player1), laula oopperaa 10 sekunnin ajan tai juo \(getNumber(input: 4)) huikkaa",
+            "\(player1), hyräile valitsemaasi biisiä. Jos muut pelaajat eivät 15 sekunnissa arvaa mikä kappale on kyseessä, juo \(getNumber(input: 3)) huikkaa",
             "\(player1), mikä on kyykkymaksimisi? Jaa \(getNumber(input: 1)) huikkaa jokaista kymmentä kiloa kohden"
         ]
         
         self.tier3 = [
             "\(player1), Mikä on pisin aikasi ilman suihkua? Vastaa tai juo \(getNumber(input: 3)) huikkaa.",
             "Voiko pettämisen antaa anteeksi? Äänestäkää! Vähemmistö ottaa \(getNumber(input: 4)) huikkaa",
+            "\(player1), nuolaise pelaajan \(player2) napaa tai juo \(getNumber(input: 5)) huikkaa",
+            "\(player1), suutele jokaisen pelaajan nenää tai juo \(getNumber(input: 4)) huikkaa",
             "\(player1), keksi eroottinen lempinimi jokaiselle pelaajalle tai juo \(getNumber(input: 4)) huikkaa",
             "\(player1), riisu pelaajan \(player2) sukat tai juo \(getNumber(input: 3)) huikkaa",
             "Antakaa vuorotellen poskisuudelta oikealla istuvalle pelaajalle. Kieltäytyjälle \(getNumber(input: 5)) huikkaa",
@@ -473,6 +524,8 @@ struct Task {
             "\(player1), ota \(getNumber(input: 3)) huikkaa",
             "\(player1), ota \(getNumber(input: 4)) huikkaa",
             "\(player1), ota \(getNumber(input: 5)) huikkaa",
+            "\(player1), sulje silmät ja ojenna etusormesi. \(player2) laittaa valitsemansa ruumiinosan sormeasi vasten. Jos arvaat, mikä ruumiinosa on kyseessä, säästyt \(getNumber(input: 4)) huikalta",
+            "Jokainen pelaaja voihkaisee kerran. \(player1) aloittaa",
             "\(player1), anna 30 sekunnin jalkahieronta pelaajalle \(player2) tai ota \(getNumber(input: 4)) huikkaa",
             "\(player1), ota \(getNumber(input: 3)) huikkaa tai poskiläimäisy pelaajalta \(player2)",
             "\(player1), laita seuraavat ruumiinosat viehättävyysjärjestykseen: kainalot, varpaat, korvat",
@@ -488,19 +541,34 @@ struct Task {
             "\(player1), näytä viimeisin kuva puhelimesi ”Kätketyt”-albumista",
             "\(player1), ota paita pois loppupelin ajaksi tai juo \(getNumber(input: 4)) huikkaa",
             "\(player1), näytä parhaimmat tanssiliikkeesi seuraavan 15 sekunnin ajan tai juo \(getNumber(input: 5)) huikkaa",
+            "Jokainen pelaaja laulaa sana kerrallaan Juice Leskisen kappaletta Ei tippa tapa. Se, joka jäätyy ensimmäisenä, juo \(getNumber(input: 3)) huikkaa. ”\(player1) aloittaa",
+            "Jokainen pelaaja laulaa sana kerrallaan PMMP:n kappaletta Rusketusraidat. Se, joka jäätyy ensimmäisenä, juo \(getNumber(input: 3)) huikkaa. ”\(player1) aloittaa",
+            "Jokainen pelaaja laulaa sana kerrallaan kappaletta Minttu sekä Ville. Se, joka jäätyy ensimmäisenä, juo \(getNumber(input: 3)) huikkaa. \(player1) aloittaa",
+            "Jokainen pelaaja laulaa sana kerrallaan Mirellan kappaletta Timanttei. Se, joka jäätyy ensimmäisenä, juo \(getNumber(input: 3)) huikkaa. \(player1) aloittaa",
+            "Jokainen pelaaja laulaa sana kerrallaan Kasmirin kappaletta Vadelmavene. Se, joka jäätyy ensimmäisenä, juo \(getNumber(input: 3)) huikkaa. \(player1) aloittaa",
+            "Jokainen pelaaja laulaa sana kerrallaan Käärijän kappaletta Cha cha cha. Se, joka jäätyy ensimmäisenä, juo \(getNumber(input: 3)) huikkaa. \(player1) aloittaa",
+            "Jokainen pelaaja laulaa sana kerrallaan JVG:n kappaletta Ikuinen vappu. Se, joka jäätyy ensimmäisenä, juo \(getNumber(input: 3)) huikkaa. \(player1) aloittaa",
+            "\(player1) ja \(player2), pitäkää toisianne kädestä kiinni loppupelin ajan. Jos kätenne irtoaa kesken pelin, juokaa molemmat \(getNumber(input: 5)) huikkaa",
             "\(player1), näytä seksikkäin ilme minkä osaat tehdä",
             "\(player1), freestyle räppää aiheesta: ”Olen rakastunut pelaajaan \(player2)",
             "\(player1), riisu valitsemasi vaate tai ota \(getNumber(input: 4)) huikkaa",
+            "\(player1), leikkaa saksilla pieni pala hiuksiasi tai juo \(getNumber(input: 5)) huikkaa",
             "\(player1), aina kun juot, voihki jokaisen hörpyn jälkeen loppupelin ajan",
             "\(player1), mikä on kiusallisin tilanne treffeillä, johon olet joutunut? Vastaa tai juo \(getNumber(input: 3)) huikkaa",
             "\(player1), paras kehonosa vastakkaisella sukupuolella? Vastaa tai juo \(getNumber(input: 4)) huikkaa",
             "\(player1), anna pelaajan \(player2) kutittaa sinua 10 sekunnin ajan. Jos naurat, juo \(getNumber(input: 3)) huikkaa",
             "\(player1), flirttaile niin monella kielellä jotain järkevää kuin osaat. Jokaista kieltä kohden muut juovat \(getNumber(input: 2)) huikkaa",
             "\(player1), istu pelaajan \(player2) syliin kolmen vuoron ajaksi. Kieltäytyjälle \(getNumber(input: 4)) huikkaa",
+            "Juo \(getNumber(input: 3)) huikkaa, jos voisit harrastaa seksiä jonkun huoneessa olevan kanssa (ole rehellinen)",
             "\(player1), vastaa kaikkeen ”kyllä” seuraavan minuutin ajan tai juo 5 huikkaa",
             "\(player1), Montaako ihmistä olet suudellut? Vastaa tai juo \(getNumber(input: 3)) huikkaa.",
             "\(player1), oletko omasta mielestäsi hyvä sängyssä? Vastaa tai juo \(getNumber(input: 4)) huikkaa",
             "\(player1), Mikä on isoin asia, josta olet valehdellut?? Vastaa tai juo \(getNumber(input: 3)) huikkaa.",
+            "\(player1), näytä ahegao-ilmeesi tai juo \(getNumber(input: 4)) huikkaa",
+            "Jokainen pelaaja esittelee itsensä mahdollisimman seksikkäästi. Kieltäytyjä/alisuoriutuja juo \(getNumber(input: 4)) huikkaa",
+            "\(player1) ja \(player2), vaihtakaa vaatteet keskenänne loppupelin ajaksi (alkkareita lukuunottamatta). Kieltäytyjä juo 7 huikkaa",
+            "Jokainen pelaaja nimeää vuorollaan jonkun seksilelun tai -välineen. Se, joka jäätyy ensimmäisenä, juo \(getNumber(input: 4)) huikkaa. \(player1) aloittaa",
+            "\(player1), haista pelaajan \(player2) korvia tai juo \(getNumber(input: 3)) huikkaa",
             "\(player1), vaihda paitaa pelaajan \(player2) kanssa. Kieltäytymisestä \(getNumber(input: 4)) huikkaa"
         ]
         
@@ -517,6 +585,7 @@ struct Task {
             "\(player1), ota \(getNumber(input: 3)) huikkaa",
             "\(player1), ota \(getNumber(input: 4)) huikkaa",
             "\(player1), ota \(getNumber(input: 5)) huikkaa",
+            "\(player1), anna muille pelaajille viehättävä, 15 sekunnin napatanssi-esitys tai juo \(getNumber(input: 5)) huikkaa",
             "\(player1), näytä orgasmi-ilmeesi tai juo \(getNumber(input: 4)) huikkaa",
             "\(player1), syö banaani vietteliäästi tai juo \(getNumber(input: 3)) huikkaa",
             "\(player1), oletko omasta mielestäsi hyvä sängyssä? Vastaa tai juo \(getNumber(input: 4)) huikkaa",
@@ -543,6 +612,14 @@ struct Task {
             "\(player1), Mikä on body-counttisi? Vastaa tai juo \(getNumber(input: 4)) huikkaa.",
             "\(player1), Milloin viimeksi harrastit seksiä? Vastaa tai juo \(getNumber(input: 5)) huikkaa.",
             "\(player1), onko koolla väliä? Vastaa tai juo \(getNumber(input: 4)) huikkaa",
+            "Jokainen pelaaja suutelee vasemmalla puolellaan olevaa pelaajaa. Kieltäytymisestä \(getNumber(input: 4)) huikkaa",
+            "\(player1), laske housusi ja nosta alkkarisi niin ylös kuin pystyt, tai juo \(getNumber(input: 4)) huikkaa",
+            "\(player1), imitoi seksiä harrastavaa kilpikonnaa. Juo \(getNumber(input: 3)) huikkaa, jos imitaatiosi ei miellytä muita pelaajia",
+            "\(player1) ja \(player2), tehkää fritsut toistenne rintakehään. Kieltäytyjä juo \(getNumber(input: 5)) huikkaa",
+            "\(player1), kenen pelaajan kanssa harrastaisit mieluiten seksiä? Vastaa rehellisesti tai juo \(getNumber(input: 4)) huikkaa",
+            "\(player1), laita housusi väärinpäin jalkaan loppupelin ajaksi tai juo \(getNumber(input: 4)) huikkaa",
+            "\(player1), nylkytä pelaajan \(player2) jalkaa 10 sekunnin ajan tai juo \(getNumber(input: 4)) huikkaa",
+            "\(player1), julkaise kuva pyllystäsi someen tai juo \(getNumber(input: 4)) huikkaa. Saat pitää housut jalassa",
             "Kouraiskaa vuorotellen oikealla istuvan pelaajan haaraväliä. Kieltäytyjälle \(getNumber(input: 5)) huikkaa. \(player1) aloittaa."
             
         ]
@@ -589,24 +666,16 @@ struct Task {
             "\(player1), esitä apinaa seuraavan 3 kierroksen ajan tai juo \(getNumber(input: 4)) huikkaa",
             "Jokainen pelaaja on nauramatta! Se, joka nauraa ensimmäisenä, juo \(getNumber(input: 3)) huikkaa",
             "\(player1), tee 10 kainalopierua tai juo \(getNumber(input: 3)) huikkaa",
+            "\(player1), rummuta Aakkoslaulun melodia pelaajan \(player2) pakaroilla. Kieltäytyjä juo \(getNumber(input: 5)) huikkaa",
+            "\(player1) ja \(player2), dry humpatkaa keskenänne 10 sekunnin ajan. Kieltäytyjä juo 6 huikkaa",
+            "Lyhin pelaaja juo \(getNumber(input: 3)) huikkaa",
+            "\(player1), ota suu täyteen juomaa ja siirrä nesteet omasta suustasi pelaajan \(player2) suuhun. Kieltäytyjä juo \(getNumber(input: 5)) huikkaa",
+            "\(player1), ja \(player2), vaihtakaa alusvaatteenne keskenänne. Kieltäytyjä juo \(getNumber(input: 6)) huikkaa",
+            "\(player1), näytä tissit tai juo \(getNumber(input: 5)) huikkaa",
+            "\(player1), näytä siittimesi tai juo \(getNumber(input: 6)) huikkaa. Jos et omista siitintä, juo \(getNumber(input: 2)) huikkaa",
             "\(player1), anna fritsu pelaajalle \(player2). Kieltäytyjä juo \(getNumber(input: 5)) huikkaa"
         ]
         
-        
-        
-        var moe: [String] = [
-            
-            
-            
-            
-            
-            
-            
-         
-            
-           
-            ]
-        //Kysymys
     }
     func getTask(category: Int, tier: Int, index: Int) -> NSAttributedString {
         var taskArray: [String]
@@ -675,4 +744,7 @@ struct Task {
         return Int(finalNumber)
         
     }
+    
 }
+
+

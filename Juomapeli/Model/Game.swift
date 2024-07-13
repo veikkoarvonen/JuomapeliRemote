@@ -667,7 +667,7 @@ struct Task {
             "Jokainen pelaaja on nauramatta! Se, joka nauraa ensimmäisenä, juo \(getNumber(input: 3)) huikkaa",
             "\(player1), tee 10 kainalopierua tai juo \(getNumber(input: 3)) huikkaa",
             "\(player1), rummuta Aakkoslaulun melodia pelaajan \(player2) pakaroilla. Kieltäytyjä juo \(getNumber(input: 5)) huikkaa",
-            "\(player1) ja \(player2), dry humpatkaa keskenänne 10 sekunnin ajan. Kieltäytyjä juo 6 huikkaa",
+            "\(player1) ja \(player2), dry humpatkaa keskenänne 10 sekunnin ajan. Kieltäytyjä juo \(getNumber(input: 6)) huikkaa",
             "Lyhin pelaaja juo \(getNumber(input: 3)) huikkaa",
             "\(player1), ota suu täyteen juomaa ja siirrä nesteet omasta suustasi pelaajan \(player2) suuhun. Kieltäytyjä juo \(getNumber(input: 5)) huikkaa",
             "\(player1), ja \(player2), vaihtakaa alusvaatteenne keskenänne. Kieltäytyjä juo \(getNumber(input: 6)) huikkaa",

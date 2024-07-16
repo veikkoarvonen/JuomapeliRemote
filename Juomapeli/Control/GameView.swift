@@ -30,6 +30,9 @@ class GameView: UIViewController {
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleScreenTap))
         self.view.addGestureRecognizer(tapGestureRecognizer)
+        
+      
+        
         newTask()
     }
     
@@ -48,7 +51,14 @@ class GameView: UIViewController {
             label.text = "Peli loppui!"
             shouldReturn = true
         } else {
-            label.attributedText = tasks[currentTask]
+            if gameCategory == 1 && currentTask == 0 {
+                let dateInstructions: String = "Ohjeet: Kysy kortissa lukeva kysymys toiselta. Kun vastapelaaja antaa vastauksensa, ojenna puhelin hänelle, jolloin hän kysyy seuraavan kysymyksen. Sopikaa yhdessä rangaistushuikkien määrä, mikäli kysymykseen ei vastata."
+                label.text = dateInstructions
+                label.frame = CGRect(x: 0, y: 0, width: 200, height: 350)
+                label.center = view.center
+            } else {
+                label.attributedText = tasks[currentTask]
+            }
         }
         performShakingAnimation()
         currentTask += 1

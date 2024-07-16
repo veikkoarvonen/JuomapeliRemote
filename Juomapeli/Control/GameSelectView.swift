@@ -13,9 +13,16 @@ class GameSelectView: UIViewController, valueDelegate {
     var categoryForGame: Int = 0
     var tierValueForGame: Float = 3.0
     var drinkValueForGame: Float = 3.0
+    var shouldPopProVC: Bool = false
     
     @IBOutlet weak var tableView: UITableView!
   
+    override func viewDidAppear(_ animated: Bool) {
+        if shouldPopProVC {
+            performSegue(withIdentifier: "pro", sender: self)
+            shouldPopProVC = false
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,6 +101,7 @@ extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
         }
         
         categoryForGame = category
+        shouldPopProVC = true
         performSegue(withIdentifier: "34", sender: self)
     }
     

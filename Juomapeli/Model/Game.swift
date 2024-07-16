@@ -243,6 +243,7 @@ struct Game {
             tasks.append(taskString)
         }
         
+        
         return tasks
         
     }

@@ -155,11 +155,39 @@
                     <connections>
                         <outlet property="tableView" destination="xUg-ma-KMX" id="Ca2-XZ-iTD"/>
                         <segue destination="0Sf-Hj-GC8" kind="show" identifier="34" id="r40-vw-hja"/>
+                        <segue destination="zSN-b5-bL2" kind="showDetail" identifier="pro" id="Aiq-we-IZI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bjW-YV-yWg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2785" y="-27"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8sD-ac-GL9">
+            <objects>
+                <viewController id="zSN-b5-bL2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="76h-AO-Efx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="755"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Totuus vai tehtävä" translatesAutoresizingMaskIntoConstraints="NO" id="Dhk-Lx-ync">
+                                <rect key="frame" x="0.0" y="47" width="375" height="708"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3Df-hP-tMj"/>
+                        <color key="backgroundColor" name="brandPurple"/>
+                        <constraints>
+                            <constraint firstItem="Dhk-Lx-ync" firstAttribute="top" secondItem="3Df-hP-tMj" secondAttribute="top" id="8u7-H7-d0I"/>
+                            <constraint firstItem="3Df-hP-tMj" firstAttribute="trailing" secondItem="Dhk-Lx-ync" secondAttribute="trailing" id="Abe-96-nXd"/>
+                            <constraint firstItem="Dhk-Lx-ync" firstAttribute="leading" secondItem="3Df-hP-tMj" secondAttribute="leading" id="OuH-qA-v7w"/>
+                            <constraint firstItem="3Df-hP-tMj" firstAttribute="bottom" secondItem="Dhk-Lx-ync" secondAttribute="bottom" id="zWf-vb-nU8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="G6b-nL-LuF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V8v-jT-EWk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2785" y="667"/>
         </scene>
         <!--Game View-->
         <scene sceneID="gL7-zG-WYy">
@@ -218,6 +246,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Totuus vai tehtävä" width="3375" height="6000"/>
         <image name="juomapeli layout png" width="3375" height="6000"/>
         <namedColor name="brandBlue">
             <color red="0.78431372549019607" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

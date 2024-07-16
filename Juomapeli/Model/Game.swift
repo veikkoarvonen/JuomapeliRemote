@@ -122,11 +122,11 @@ struct Game {
         } else if gameCategory == 1 {
             array = Array(0..<demoTask.dates.count)
         } else {
-            var n1 = Array(0..<demoTask.tier1.count)
-            var n2 = Array(0..<demoTask.tier2.count)
-            var n3 = Array(0..<demoTask.tier3.count)
-            var n4 = Array(0..<demoTask.tier4.count)
-            var n5 = Array(0..<demoTask.tier5.count)
+            let n1 = Array(0..<demoTask.tier1.count)
+            let n2 = Array(0..<demoTask.tier2.count)
+            let n3 = Array(0..<demoTask.tier3.count)
+            let n4 = Array(0..<demoTask.tier4.count)
+            let n5 = Array(0..<demoTask.tier5.count)
             var tiers = [n1, n2, n3, n4, n5]
             for i in 0..<tiers.count {
                 tiers[i].shuffle()
@@ -390,7 +390,54 @@ struct Task {
             "\(player1), mitä haluaisit tehdä pelaajan \(player2) kanssa yhdessä?",
             "\(player1), hiero pelaajan \(player2) hartioita 30 sekuntia tai juo 4 huikkaa",
             "\(player1), mikä on paras iskureplasi?",
-            "\(player1), jos olisit peruna, tulisitko mielummin kuorituksi vai keitetyksi?"
+            "\(player1), jos olisit peruna, tulisitko mielummin kuorituksi vai keitetyksi?",
+            "\(player1), onko sinulla luurankoja kaapissa? Mitä ne ovat?",
+            "\(player1), kauanko sinulla menee, että voit olla parisuhteessa täysin oma itsesi?",
+            "\(player1), oletko mieluummin iso lusikka vai pikkulusikka?",
+            "\(player1), oletko mieluummin alla vai päällä?",
+            "\(player1), eskimosuutele pelaajaa \(player2)",
+            "\(player1), kenen julkkiksen kanssa menisit naimisiin?",
+            "\(player1), mistä pidät eniten kehossasi?",
+            "\(player1), jos sinulla olisi 24 tuntia aikaa tuhlata miljoona euroa, mihin käyttäisit ne?",
+            "\(player1), tulisitko mieluummin petetyksi vai pettäisitkö itse?",
+            "\(player1), mikä koettelemus on vahvistanut sinua ihmisenä?",
+            "\(player1), mitä päihteitä käytät/olet kokeillut?",
+            "\(player1), uskotko kohtaloon?",
+            "\(player1), missä haluaisit olla 10 vuoden päästä?",
+            "\(player1), laita tärkeysjärjestykseen: raha, rakkaus, terveys, vapaus, turvallisuus",
+            "\(player1), millaisia piirteitä arvostat kumppanissa eniten?",
+            "\(player1), miten käsittelet riitatilanteita parisuhteessa?",
+            "\(player1), miten osoitat rakkauttasi?",
+            "\(player1), jos haluaisit karata näiltä treffeiltä ovelasti, miten tekisit sen olematta töykeä?",
+            "\(player1), mikä biisi on soinut päässäsi viime aikoina?",
+            "\(player1), mikä on kaikkien aikojen lempikappaleesi?",
+            "\(player1), mikä adjektiivi kuvailisi sinua kaikista eniten?",
+            "\(player1), kerro minulle jokin sisäpiirivitsisi kertomatta kontekstia",
+            "\(player1), minkä vuosikymmenen/ajanjakson musiikki on mielestäsi parasta?",
+            "\(player1), jos saisit valita, mihin maahan lentäisimme yhdessä heti huomenna?",
+            "\(player1), uskotko horoskooppeihin?",
+            "\(player1), uskotko Jumalaan?",
+            "\(player1), mikä on paras neuvo, joka sinulle on annettu?",
+            "\(player1), onko tärkeämpää omistaa 50 kaveria vai 2 hyvää ystävää?",
+            "\(player1), mikä on jokin ärsyttävä piirre itsessäsi?",
+            "\(player1), mikä on mieleenpainuvin kehu, jonka olet saanut?",
+            "\(player1), miksi olet yhä sinkku?",
+            "\(player1), jos voisit kertoa 10-vuotiaalle itsellesi jonkun neuvon, mikä se olisi?",
+            "\(player1), kohtaisitko metsässä mieluummin miehen vai karhun?",
+            "\(player1), oletko ikinä pissannut julkiseen uima-altaaseen?",
+            "\(player1), mitä biisiä kuuntelet, kun olet surullinen?",
+            "\(player1), oletko kateellinen kenellekään? Jos olet, kenelle ja miksi?",
+            "\(player1), miten määrittelisit menestymisen?",
+            "\(player1), mikä on mielestäsi paras tapa viettää laatuaikaa kahdestaan?",
+            "\(player1), kuinka tärkeää seksi on sinulle?",
+            "\(player1), mikä on parasta seksissä?",
+            "\(player1), mikä on oudoin asia, jonka olet kokenut petipuuhissa?",
+            "\(player1), oletko koskaan jättänyt tahallasi avaamatta toisen viestiä, jotta vaikuttaisit kiireiseltä?",
+            "\(player1), mitä mieltä olet yhden illan jutuista?",
+            "\(player1), mikä on suosikki seksiasentosi?",
+            "\(player1), kuunteletko enemmän sydäntäsi vai päätäsi?",
+            "\(player1), haluatko perustaa perheen joskus?",
+            "\(player1), uskotko sielunkumppanuuteen?"
         ]
         
         self.tier1 = [

@@ -114,8 +114,8 @@ struct Game {
         return tiers
     }
     
-    func getIndexes() -> [Int] {
-        var demoTask = Task(player1: "", player2: "", drinkIndex: 1, color1: .red, color2: .red)
+    func getIndexesOld() -> [Int] {
+        let demoTask = Task(player1: "", player2: "", drinkIndex: 1, color1: .red, color2: .red)
         var array: [Int] = []
         if gameCategory == 0 {
             array = Array(0..<demoTask.normals.count)
@@ -140,8 +140,67 @@ struct Game {
                 array.append(index)
             }
         }
+        array.shuffle()
         return array
     }
+    
+    func getIndexes() -> [Int] {
+        let demoTask = Task(player1: "", player2: "", drinkIndex: 1, color1: .red, color2: .red)
+        let n = demoTask.normals.count
+        let d = demoTask.dates.count
+        let t1 = demoTask.tier1.count
+        let t2 = demoTask.tier2.count
+        let t3 = demoTask.tier3.count
+        let t4 = demoTask.tier4.count
+        let t5 = demoTask.tier5.count
+        
+        var array: [Int] = []
+        let tiers = getTiers()
+        var usedIndices: Set<Int> = []
+        var currentIndex: Int = 0
+        var safety: Int = 0
+        
+        while array.count < 30 {
+            var gap: Int
+            if gameCategory == 0 {
+                gap = n
+            } else if gameCategory == 1 {
+                gap = d
+            } else {
+                if currentIndex >= tiers.count {
+                    break
+                }
+                switch tiers[currentIndex] {
+                case 1: gap = t1
+                case 2: gap = t2
+                case 3: gap = t3
+                case 4: gap = t4
+                case 5: gap = t5
+                default: gap = 0
+                }
+            }
+            
+            if gap == 0 {
+                break
+            }
+            
+            let index = Int.random(in: 0..<gap)
+            if !usedIndices.contains(index) {
+                array.append(index)
+                usedIndices.insert(index)
+                currentIndex += 1
+            }
+            
+            safety += 1
+            if safety > 500 {
+                print("Safety break activated to prevent infinite loop.")
+                break
+            }
+        }
+        
+        return array
+    }
+
     
     func getTasks() -> [NSAttributedString] {
         

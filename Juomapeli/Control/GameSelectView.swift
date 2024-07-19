@@ -19,7 +19,7 @@ class GameSelectView: UIViewController, valueDelegate {
   
     override func viewDidAppear(_ animated: Bool) {
         if shouldPopProVC {
-            performSegue(withIdentifier: "pro", sender: self)
+            //performSegue(withIdentifier: "pro", sender: self)
             shouldPopProVC = false
         }
     }

@@ -114,36 +114,6 @@ struct Game {
         return tiers
     }
     
-    func getIndexesOld() -> [Int] {
-        let demoTask = Task(player1: "", player2: "", drinkIndex: 1, color1: .red, color2: .red)
-        var array: [Int] = []
-        if gameCategory == 0 {
-            array = Array(0..<demoTask.normals.count)
-        } else if gameCategory == 1 {
-            array = Array(0..<demoTask.dates.count)
-        } else {
-            let n1 = Array(0..<demoTask.tier1.count)
-            let n2 = Array(0..<demoTask.tier2.count)
-            let n3 = Array(0..<demoTask.tier3.count)
-            let n4 = Array(0..<demoTask.tier4.count)
-            let n5 = Array(0..<demoTask.tier5.count)
-            var tiers = [n1, n2, n3, n4, n5]
-            for i in 0..<tiers.count {
-                tiers[i].shuffle()
-            }
-            
-            let tierValues = getTiers()
-            for i in 0..<tierValues.count {
-            let tier = tierValues[i]
-            let correctArray = tiers[tier - 1]
-            let index = correctArray[i]
-                array.append(index)
-            }
-        }
-        array.shuffle()
-        return array
-    }
-    
     func getIndexes() -> [Int] {
         let demoTask = Task(player1: "", player2: "", drinkIndex: 1, color1: .red, color2: .red)
         let n = demoTask.normals.count
@@ -222,19 +192,37 @@ struct Game {
         print("Tiers: \(tiers)")
         print("Indexes: \(indexes)")
         
+        var pd1: Int = 0
+        var pd2: Int = 1
+        
         for i in 0..<numberOfTasks {
             
-            var playersForTask = players
-            var colorsForTask = colors
-            let p1Index = Int.random(in: 0..<players.count)
-            p1 = players[p1Index]
-            c1 = colors[p1Index]
-            playersForTask.remove(at: p1Index)
-            colorsForTask.remove(at: p1Index)
-            let p2Index = Int.random(in: 0..<playersForTask.count)
-            p2 = playersForTask[p2Index]
-            c2 = colorsForTask[p2Index]
-            
+            if gameCategory == 1 {
+                if pd1 >= players.count {
+                    pd1 = 0
+                }
+                if pd2 >= players.count {
+                    pd2 = 0
+                }
+                p1 = players[pd1]
+                p2 = players[pd2]
+                c1 = colors[pd1]
+                c2 = colors[pd2]
+                pd1 += 1
+                pd2 += 2
+            } else {
+                
+                var playersForTask = players
+                var colorsForTask = colors
+                let p1Index = Int.random(in: 0..<players.count)
+                p1 = players[p1Index]
+                c1 = colors[p1Index]
+                playersForTask.remove(at: p1Index)
+                colorsForTask.remove(at: p1Index)
+                let p2Index = Int.random(in: 0..<playersForTask.count)
+                p2 = playersForTask[p2Index]
+                c2 = colorsForTask[p2Index]
+            }
             let index = indexes[i]
             
             let task = Task(player1: p1, player2: p2, drinkIndex: drinkIndex, color1: c1, color2: c2)

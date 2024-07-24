@@ -12,18 +12,16 @@ class Start: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let t = Task(player1: "2", player2: "", drinkIndex: 0, color1: .red, color2: .red)
-        print(t.normals.count)
-        print(t.dates.count)
-        print(t.tier1.count)
-        print(t.tier2.count)
-        print(t.tier3.count)
-        print(t.tier4.count)
-        print(t.tier5.count)
+       
+        
     }
 
     @IBAction func startPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "12", sender: self)
+        var g = WholeGame(numberOfTasks: 5, players: ["Veikko","Donia"], category: 2, tierSliderValue: 4.5, drinkSliderValue: 3)
+        print(g.indexList)
+        
+        
     }
     
 }

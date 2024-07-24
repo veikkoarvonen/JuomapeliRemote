@@ -17,6 +17,8 @@
 		B6194D622C2C9D7600B6E462 /* DelegateProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6194D612C2C9D7600B6E462 /* DelegateProtocols.swift */; };
 		B6194D642C2C9F9400B6E462 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6194D632C2C9F9400B6E462 /* GameView.swift */; };
 		B63492E92C3BC0BC00241EB8 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63492E82C3BC0BC00241EB8 /* Game.swift */; };
+		B6385E9A2C4FE96300D5B3C2 /* OneTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6385E992C4FE96300D5B3C2 /* OneTask.swift */; };
+		B6385E9C2C4FEDCE00D5B3C2 /* WholeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6385E9B2C4FEDCE00D5B3C2 /* WholeGame.swift */; };
 		B64A930C2C32B87900C00BA9 /* GameModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64A930A2C32B87900C00BA9 /* GameModeCell.swift */; };
 		B64A930D2C32B87900C00BA9 /* GameModeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B64A930B2C32B87900C00BA9 /* GameModeCell.xib */; };
 		B64A930F2C32BFEC00C00BA9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64A930E2C32BFEC00C00BA9 /* Constants.swift */; };
@@ -38,6 +40,8 @@
 		B6194D612C2C9D7600B6E462 /* DelegateProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateProtocols.swift; sourceTree = "<group>"; };
 		B6194D632C2C9F9400B6E462 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		B63492E82C3BC0BC00241EB8 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		B6385E992C4FE96300D5B3C2 /* OneTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTask.swift; sourceTree = "<group>"; };
+		B6385E9B2C4FEDCE00D5B3C2 /* WholeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WholeGame.swift; sourceTree = "<group>"; };
 		B64A930A2C32B87900C00BA9 /* GameModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeCell.swift; sourceTree = "<group>"; };
 		B64A930B2C32B87900C00BA9 /* GameModeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameModeCell.xib; sourceTree = "<group>"; };
 		B64A930E2C32BFEC00C00BA9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 				B6194D462C2C865F00B6E462 /* AppDelegate.swift */,
 				B6194D482C2C865F00B6E462 /* SceneDelegate.swift */,
 				B6194D612C2C9D7600B6E462 /* DelegateProtocols.swift */,
+				B6385E992C4FE96300D5B3C2 /* OneTask.swift */,
+				B6385E9B2C4FEDCE00D5B3C2 /* WholeGame.swift */,
 				B64A930E2C32BFEC00C00BA9 /* Constants.swift */,
 				B63492E82C3BC0BC00241EB8 /* Game.swift */,
 			);
@@ -202,7 +208,9 @@
 				B6194D622C2C9D7600B6E462 /* DelegateProtocols.swift in Sources */,
 				B64A930F2C32BFEC00C00BA9 /* Constants.swift in Sources */,
 				B6194D4B2C2C865F00B6E462 /* Start.swift in Sources */,
+				B6385E9C2C4FEDCE00D5B3C2 /* WholeGame.swift in Sources */,
 				B6194D472C2C865F00B6E462 /* AppDelegate.swift in Sources */,
+				B6385E9A2C4FE96300D5B3C2 /* OneTask.swift in Sources */,
 				B6194D642C2C9F9400B6E462 /* GameView.swift in Sources */,
 				B6194D492C2C865F00B6E462 /* SceneDelegate.swift in Sources */,
 			);

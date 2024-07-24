@@ -62,48 +62,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mju-NG-boC">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jp1-1" translatesAutoresizingMaskIntoConstraints="NO" id="agm-lU-NAw">
                                 <rect key="frame" x="0.0" y="91" width="375" height="687"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovU-gQ-aAG">
-                                        <rect key="frame" x="126.66666666666669" y="615.66666666666663" width="122" height="41.333333333333371"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Seuraava">
-                                            <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
-                                            <color key="baseBackgroundColor" name="brandPurple"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="startPressed:" destination="sGy-dV-Pdx" eventType="touchUpInside" id="TDn-8b-ILp"/>
-                                        </connections>
-                                    </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Tfz-Gb-Jtl">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="565.66666666666663"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableView>
-                                </subviews>
-                                <color key="backgroundColor" name="brandBlue"/>
-                                <constraints>
-                                    <constraint firstItem="ovU-gQ-aAG" firstAttribute="top" secondItem="Tfz-Gb-Jtl" secondAttribute="bottom" constant="50" id="2xL-1K-R56"/>
-                                    <constraint firstAttribute="bottom" secondItem="ovU-gQ-aAG" secondAttribute="bottom" constant="30" id="5xn-Es-1NX"/>
-                                    <constraint firstAttribute="trailing" secondItem="Tfz-Gb-Jtl" secondAttribute="trailing" id="9k8-Tf-NeI"/>
-                                    <constraint firstItem="Tfz-Gb-Jtl" firstAttribute="leading" secondItem="Mju-NG-boC" secondAttribute="leading" id="dPL-3x-Gtt"/>
-                                    <constraint firstItem="ovU-gQ-aAG" firstAttribute="centerX" secondItem="Mju-NG-boC" secondAttribute="centerX" id="dly-nS-f9K"/>
-                                    <constraint firstItem="Tfz-Gb-Jtl" firstAttribute="top" secondItem="Mju-NG-boC" secondAttribute="top" id="jPr-5r-KJO"/>
-                                </constraints>
-                            </view>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Tfz-Gb-Jtl">
+                                <rect key="frame" x="0.0" y="91" width="375" height="575.66666666666663"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovU-gQ-aAG">
+                                <rect key="frame" x="126.66666666666669" y="696.66666666666663" width="122" height="41.333333333333371"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Seuraava">
+                                    <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
+                                    <color key="baseBackgroundColor" name="brandPurple"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="startPressed:" destination="sGy-dV-Pdx" eventType="touchUpInside" id="TDn-8b-ILp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rQJ-xs-Tpr"/>
                         <color key="backgroundColor" name="brandPurple"/>
                         <constraints>
-                            <constraint firstItem="Mju-NG-boC" firstAttribute="leading" secondItem="rQJ-xs-Tpr" secondAttribute="leading" id="78e-If-CdS"/>
-                            <constraint firstItem="Mju-NG-boC" firstAttribute="top" secondItem="rQJ-xs-Tpr" secondAttribute="top" id="A4N-vm-VvC"/>
-                            <constraint firstItem="rQJ-xs-Tpr" firstAttribute="bottom" secondItem="Mju-NG-boC" secondAttribute="bottom" id="GDf-UY-Si0"/>
-                            <constraint firstItem="rQJ-xs-Tpr" firstAttribute="trailing" secondItem="Mju-NG-boC" secondAttribute="trailing" id="RuQ-23-CBs"/>
+                            <constraint firstItem="Tfz-Gb-Jtl" firstAttribute="top" secondItem="rQJ-xs-Tpr" secondAttribute="top" id="1Ib-rs-cPr"/>
+                            <constraint firstItem="Tfz-Gb-Jtl" firstAttribute="trailing" secondItem="rQJ-xs-Tpr" secondAttribute="trailing" id="Aq8-gd-X2K"/>
+                            <constraint firstItem="agm-lU-NAw" firstAttribute="top" secondItem="rQJ-xs-Tpr" secondAttribute="top" id="FFz-uv-gJC"/>
+                            <constraint firstItem="ovU-gQ-aAG" firstAttribute="top" secondItem="Tfz-Gb-Jtl" secondAttribute="bottom" constant="30" id="LVm-9C-0iA"/>
+                            <constraint firstItem="Tfz-Gb-Jtl" firstAttribute="leading" secondItem="rQJ-xs-Tpr" secondAttribute="leading" id="UtN-sZ-gyK"/>
+                            <constraint firstItem="agm-lU-NAw" firstAttribute="leading" secondItem="rQJ-xs-Tpr" secondAttribute="leading" id="XXS-BL-tVK"/>
+                            <constraint firstItem="rQJ-xs-Tpr" firstAttribute="bottom" secondItem="agm-lU-NAw" secondAttribute="bottom" id="ffC-8N-rzH"/>
+                            <constraint firstItem="ovU-gQ-aAG" firstAttribute="centerX" secondItem="zCu-4u-1LZ" secondAttribute="centerX" id="o43-F3-nXb"/>
+                            <constraint firstItem="rQJ-xs-Tpr" firstAttribute="bottom" secondItem="ovU-gQ-aAG" secondAttribute="bottom" constant="40" id="rn0-of-qTt"/>
+                            <constraint firstItem="rQJ-xs-Tpr" firstAttribute="trailing" secondItem="agm-lU-NAw" secondAttribute="trailing" id="xEg-4v-jdU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JoB-81-AVn">
                         <barButtonItem key="backBarButtonItem" title="takaisin" id="PCz-9Q-i25"/>
+                        <barButtonItem key="rightBarButtonItem" image="info.circle" catalog="system" id="RK4-po-ORh">
+                            <connections>
+                                <segue destination="m4N-fd-aRD" kind="show" identifier="playersToInfo" id="FVt-sc-X64"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Tfz-Gb-Jtl" id="Tae-50-fUe"/>
@@ -112,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CMh-hz-AGP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1826.7175572519084" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="1826.4000000000001" y="-28.078817733990149"/>
         </scene>
         <!--Game Select View-->
         <scene sceneID="9ep-bU-WEF">
@@ -151,16 +151,56 @@
                     </view>
                     <navigationItem key="navigationItem" id="m8p-uL-zFY">
                         <barButtonItem key="backBarButtonItem" title="takaisin" id="LVh-QA-30z"/>
+                        <barButtonItem key="rightBarButtonItem" image="info.circle" catalog="system" id="3Au-US-x9o"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="xUg-ma-KMX" id="Ca2-XZ-iTD"/>
                         <segue destination="0Sf-Hj-GC8" kind="show" identifier="34" id="r40-vw-hja"/>
                         <segue destination="zSN-b5-bL2" kind="showDetail" identifier="pro" id="Aiq-we-IZI"/>
+                        <segue destination="m4N-fd-aRD" kind="show" identifier="gameToInfo" id="1Jh-Vx-dM9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bjW-YV-yWg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2785" y="-27"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="phg-MJ-h9n">
+            <objects>
+                <viewController id="m4N-fd-aRD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="USt-QA-JbT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eh0-rP-2nh">
+                                <rect key="frame" x="60" y="241" width="255" height="264"/>
+                                <string key="text">Muista pitää itsestäsi ja pelitovereistasi huolta. Kyseinen peli on tarkoitettu ainoastaan viihteelliseen käyttöön, eikä ketään tule pakottaa jatkamaan peliä , ellei halua. Mikäli pelin yhteydessä nautitaan päihteitä, tulee käyttäjien olla täysi-ikäisiä ja nauttia alkoholia vastuullisesti. Emme vastaa mistään vahingoista tai seuraamuksista, jotka voivat aiheutua vastuuttomasta pelaamisesta.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lisätietoja..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxs-Cc-cwC">
+                                <rect key="frame" x="142" y="568" width="91" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemYellowColor"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Mbo-mT-M7l"/>
+                        <color key="backgroundColor" name="brandPurple"/>
+                        <constraints>
+                            <constraint firstItem="Eh0-rP-2nh" firstAttribute="top" secondItem="Mbo-mT-M7l" secondAttribute="top" constant="150" id="CQL-S6-NHJ"/>
+                            <constraint firstItem="Eh0-rP-2nh" firstAttribute="centerX" secondItem="USt-QA-JbT" secondAttribute="centerX" id="GaI-mW-Gdp"/>
+                            <constraint firstAttribute="trailing" secondItem="Eh0-rP-2nh" secondAttribute="trailing" constant="60" id="ZwR-Vg-xcm"/>
+                            <constraint firstItem="Eh0-rP-2nh" firstAttribute="leading" secondItem="USt-QA-JbT" secondAttribute="leading" constant="60" id="cco-fo-66s"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ja8-IU-P19"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IJy-5R-e6L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2242" y="714"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="8sD-ac-GL9">
@@ -170,24 +210,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="755"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Totuus vai tehtävä" translatesAutoresizingMaskIntoConstraints="NO" id="Dhk-Lx-ync">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="juomapeli plus uus" translatesAutoresizingMaskIntoConstraints="NO" id="3Od-Mq-ynG">
                                 <rect key="frame" x="0.0" y="47" width="375" height="708"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Df-hP-tMj"/>
                         <color key="backgroundColor" name="brandPurple"/>
                         <constraints>
-                            <constraint firstItem="Dhk-Lx-ync" firstAttribute="top" secondItem="3Df-hP-tMj" secondAttribute="top" id="8u7-H7-d0I"/>
-                            <constraint firstItem="3Df-hP-tMj" firstAttribute="trailing" secondItem="Dhk-Lx-ync" secondAttribute="trailing" id="Abe-96-nXd"/>
-                            <constraint firstItem="Dhk-Lx-ync" firstAttribute="leading" secondItem="3Df-hP-tMj" secondAttribute="leading" id="OuH-qA-v7w"/>
-                            <constraint firstItem="3Df-hP-tMj" firstAttribute="bottom" secondItem="Dhk-Lx-ync" secondAttribute="bottom" id="zWf-vb-nU8"/>
+                            <constraint firstItem="3Od-Mq-ynG" firstAttribute="top" secondItem="3Df-hP-tMj" secondAttribute="top" id="6yi-9R-BrL"/>
+                            <constraint firstItem="3Df-hP-tMj" firstAttribute="trailing" secondItem="3Od-Mq-ynG" secondAttribute="trailing" id="Nuu-YS-4pH"/>
+                            <constraint firstItem="3Df-hP-tMj" firstAttribute="bottom" secondItem="3Od-Mq-ynG" secondAttribute="bottom" id="a0u-P0-Vur"/>
+                            <constraint firstItem="3Od-Mq-ynG" firstAttribute="leading" secondItem="3Df-hP-tMj" secondAttribute="leading" id="sD0-Ib-euA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="G6b-nL-LuF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V8v-jT-EWk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2785" y="667"/>
+            <point key="canvasLocation" x="3417" y="714"/>
         </scene>
         <!--Game View-->
         <scene sceneID="gL7-zG-WYy">
@@ -245,9 +285,14 @@
             <point key="canvasLocation" x="67.938931297709928" y="-27.464788732394368"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="1Jh-Vx-dM9"/>
+    </inferredMetricsTieBreakers>
     <resources>
-        <image name="Totuus vai tehtävä" width="3375" height="6000"/>
+        <image name="info.circle" catalog="system" width="128" height="123"/>
+        <image name="jp1-1" width="3375" height="6000"/>
         <image name="juomapeli layout png" width="3375" height="6000"/>
+        <image name="juomapeli plus uus" width="3375" height="6000"/>
         <namedColor name="brandBlue">
             <color red="0.78431372549019607" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -256,6 +301,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

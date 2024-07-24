@@ -21,6 +21,7 @@ class GameView: UIViewController {
     var currentTask = 0
     var label = UILabel()
     var shouldReturn = false
+    var headLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +53,8 @@ class GameView: UIViewController {
             shouldReturn = true
         } else {
             if gameCategory == 1 && currentTask == 0 {
-                let dateInstructions: String = "Ohjeet: Kysy kortissa lukeva kysymys toiselta. Kun vastapelaaja antaa vastauksensa, ojenna puhelin hänelle, jolloin hän kysyy seuraavan kysymyksen. Sopikaa yhdessä rangaistushuikkien määrä, mikäli kysymykseen ei vastata."
+                setHeadLabel()
+                let dateInstructions: String = "Kysy kortissa lukeva kysymys vastapelaajalta. Vuorosi jälkeen anna puhelin vastapelaajalle, jolloin hän kysyy sinulta seuraavan kysymyksen. Jesse kysyy ensiksi"
                 label.text = dateInstructions
                 label.frame = CGRect(x: 0, y: 0, width: 200, height: 350)
                 label.center = view.center
@@ -72,7 +74,8 @@ class GameView: UIViewController {
         label.textColor = .black
         label.clipsToBounds = true
         label.frame = CGRect(x: 0, y: 0, width: 200, height: 250)
-        label.center = view.center
+        label.center.x = view.center.x
+        label.center.y = view.frame.height / 2
         view.addSubview(label)
         performShakingAnimation()
     }
@@ -83,6 +86,18 @@ class GameView: UIViewController {
         shakeAnimation.duration = 0.3
         shakeAnimation.values = [-9, 9, -6, 6, -3, 3, 0]
         label.layer.add(shakeAnimation, forKey: "shake")
+    }
+    
+    func setHeadLabel() {
+        headLabel.text = "Ohjeet"
+        headLabel.numberOfLines = 0
+        headLabel.font = UIFont.boldSystemFont(ofSize: 24)
+        headLabel.textAlignment = .center
+        headLabel.textColor = .red
+        headLabel.clipsToBounds = true
+        headLabel.frame = CGRect(x: 0, y: 100, width: 200, height: 250)
+        headLabel.center.x = view.center.x
+        view.addSubview(headLabel)
     }
     
 }

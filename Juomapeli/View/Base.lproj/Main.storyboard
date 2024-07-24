@@ -151,13 +151,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="m8p-uL-zFY">
                         <barButtonItem key="backBarButtonItem" title="takaisin" id="LVh-QA-30z"/>
-                        <barButtonItem key="rightBarButtonItem" image="info.circle" catalog="system" id="3Au-US-x9o"/>
+                        <barButtonItem key="rightBarButtonItem" image="info.circle" catalog="system" id="3Au-US-x9o">
+                            <connections>
+                                <segue destination="m4N-fd-aRD" kind="show" identifier="gameSelectToSettings" id="AY0-WQ-bpb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="xUg-ma-KMX" id="Ca2-XZ-iTD"/>
                         <segue destination="0Sf-Hj-GC8" kind="show" identifier="34" id="r40-vw-hja"/>
                         <segue destination="zSN-b5-bL2" kind="showDetail" identifier="pro" id="Aiq-we-IZI"/>
-                        <segue destination="m4N-fd-aRD" kind="show" identifier="gameToInfo" id="1Jh-Vx-dM9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bjW-YV-yWg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -286,7 +289,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1Jh-Vx-dM9"/>
+        <segue reference="AY0-WQ-bpb"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="info.circle" catalog="system" width="128" height="123"/>

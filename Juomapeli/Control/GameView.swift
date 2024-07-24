@@ -39,12 +39,18 @@ class GameView: UIViewController {
             navigationController?.popViewController(animated: true)
             shouldReturn = false
         } else {
+            headLabel.removeFromSuperview()
             newTask()
         }
     }
     
     func newTask() {
         setLabel()
+        
+        if gameCategory == 1 && currentTask == 0 {
+            setHeadLabel()
+        }
+        
         if currentTask >= tasks.count {
             label.text = "Peli loppui!"
             shouldReturn = true

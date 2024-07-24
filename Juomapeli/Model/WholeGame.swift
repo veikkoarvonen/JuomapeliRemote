@@ -119,7 +119,7 @@ struct WholeGame {
                 // Define the attributes for the player's name
                 let playerAttributes: [NSAttributedString.Key: Any] = [
                     .font: UIFont.boldSystemFont(ofSize: 24),
-                    .foregroundColor: UIColor.red
+                    .foregroundColor: color1list[players.count - 1]
                 ]
                 
                 // Apply the attributes to the player's name

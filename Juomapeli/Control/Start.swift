@@ -18,8 +18,6 @@ class Start: UIViewController {
 
     @IBAction func startPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "12", sender: self)
-        var g = WholeGame(numberOfTasks: 5, players: ["Veikko","Donia"], category: 2, tierSliderValue: 4.5, drinkSliderValue: 3)
-        print(g.indexList)
         
         
     }

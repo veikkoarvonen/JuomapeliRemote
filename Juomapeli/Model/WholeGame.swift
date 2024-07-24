@@ -39,6 +39,7 @@ struct WholeGame {
         playerLists()
         initializeTiers()
         initilizeIndexes()
+        initializeTasks()
     }
   
 //MARK: - Pelaajat ja värit
@@ -68,12 +69,13 @@ struct WholeGame {
             }
             
         } else {
-            
+            var colors = Colors.colors
+            colors.shuffle()
             for _ in 0..<numberOfTasks {
                 var array = Array(0..<players.count)
-                var colors = Colors.colors
+                
                 array.shuffle()
-                colors.shuffle()
+                
                 let x1 = array[0]
                 let x2 = array[1]
                 player1list.append(players[x1])

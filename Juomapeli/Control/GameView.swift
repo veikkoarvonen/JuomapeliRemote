@@ -14,26 +14,23 @@ class GameView: UIViewController {
     var tierValue: Float = 3.0
     var drinkValue: Float = 1.0
     
-    var game = Game(players: [], gameCategory: 0, drinkIndex: 1, tierIndex: 1, numberOfTasks: 30)
-    var colors = Colors.colors
+    var game = WholeGame(numberOfTasks: 30, players: ["P2","P1"], category: 0, tierSliderValue: 1, drinkSliderValue: 1)
     var tasks: [NSAttributedString] = []
     
     var currentTask = 0
     var label = UILabel()
-    var shouldReturn = false
     var headLabel = UILabel()
+    var shouldReturn = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        game = Game(players: players, gameCategory: gameCategory, drinkIndex: drinkValue, tierIndex: tierValue, numberOfTasks: 30)
-        tasks = game.getTasks()
-        colors.shuffle()
+        
+        game = WholeGame(numberOfTasks: 30, players: players, category: gameCategory, tierSliderValue: tierValue, drinkSliderValue: drinkValue)
+        tasks = game.tasks
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleScreenTap))
         self.view.addGestureRecognizer(tapGestureRecognizer)
-        
-      
-        
         newTask()
     }
     
@@ -52,15 +49,7 @@ class GameView: UIViewController {
             label.text = "Peli loppui!"
             shouldReturn = true
         } else {
-            if gameCategory == 1 && currentTask == 0 {
-                setHeadLabel()
-                let dateInstructions: String = "Kysy kortissa lukeva kysymys vastapelaajalta. Vuorosi jälkeen anna puhelin vastapelaajalle, jolloin hän kysyy sinulta seuraavan kysymyksen. Jesse kysyy ensiksi"
-                label.text = dateInstructions
-                label.frame = CGRect(x: 0, y: 0, width: 200, height: 350)
-                label.center = view.center
-            } else {
-                label.attributedText = tasks[currentTask]
-            }
+            label.attributedText = tasks[currentTask]
         }
         performShakingAnimation()
         currentTask += 1

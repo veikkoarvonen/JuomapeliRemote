@@ -49,6 +49,16 @@ class GameSelectView: UIViewController, valueDelegate {
             drinkValueForGame = to
         }
     }
+    
+    private func proLabel() -> UILabel {
+        let label = UILabel()
+        label.text = "Pro 🔒"
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = UIFont(name: "Marker Felt", size: 45)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }
 }
 
 extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
@@ -69,6 +79,22 @@ extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
             imageView.image = Cells.images[indexPath.row]
         } else {
             print("Image view is nil")
+        }
+        
+        if indexPath.row != 0 {
+            if !UserDefaults.standard.hasPurchasedProVersion() {
+                cell.backView.alpha = 0.5
+                cell.drinkSlider.isUserInteractionEnabled = false
+                cell.actionSlider.isUserInteractionEnabled = false
+                let label = proLabel()
+                cell.backView.addSubview(label)
+                NSLayoutConstraint.activate([
+                    label.centerXAnchor.constraint(equalTo: cell.backView.centerXAnchor),
+                    label.centerYAnchor.constraint(equalTo: cell.backView.centerYAnchor)
+                ])
+            } else {
+                
+            }
         }
         
         return cell
@@ -101,8 +127,19 @@ extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
         }
         
         categoryForGame = category
-        shouldPopProVC = true
-        performSegue(withIdentifier: "34", sender: self)
+        
+        
+        if indexPath.row != 0 {
+            if UserDefaults.standard.hasPurchasedProVersion() {
+                performSegue(withIdentifier: "34", sender: self)
+                shouldPopProVC = true
+            } else {
+                performSegue(withIdentifier: "pro", sender: self)
+            }
+        } else {
+            performSegue(withIdentifier: "34", sender: self)
+            shouldPopProVC = true
+        }
     }
     
     

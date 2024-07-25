@@ -217,10 +217,10 @@
             </objects>
             <point key="canvasLocation" x="2242" y="714"/>
         </scene>
-        <!--View Controller-->
+        <!--Pro View-->
         <scene sceneID="8sD-ac-GL9">
             <objects>
-                <viewController id="zSN-b5-bL2" sceneMemberID="viewController">
+                <viewController id="zSN-b5-bL2" customClass="ProView" customModule="Juomapeli" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="76h-AO-Efx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="755"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -228,17 +228,64 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="juomapeli plus uus" translatesAutoresizingMaskIntoConstraints="NO" id="3Od-Mq-ynG">
                                 <rect key="frame" x="0.0" y="47" width="375" height="708"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8u-MP-c2y">
+                                <rect key="frame" x="0.0" y="405" width="375" height="350"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="mAj-wW-Med">
+                                        <rect key="frame" x="25" y="35" width="325" height="215"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pte-Pe-8Si">
+                                                <rect key="frame" x="0.0" y="0.0" width="325" height="55"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHG-Ge-ZP6">
+                                                <rect key="frame" x="0.0" y="80" width="325" height="55"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qf-Bs-rAJ">
+                                                <rect key="frame" x="0.0" y="160" width="325" height="55"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="mAj-wW-Med" secondAttribute="trailing" constant="25" id="5lo-b1-LE8"/>
+                                    <constraint firstAttribute="bottom" secondItem="mAj-wW-Med" secondAttribute="bottom" constant="100" id="FIm-5U-m4c"/>
+                                    <constraint firstItem="mAj-wW-Med" firstAttribute="leading" secondItem="P8u-MP-c2y" secondAttribute="leading" constant="25" id="Ha1-YE-jKj"/>
+                                    <constraint firstAttribute="height" constant="350" id="YLH-FY-nqd"/>
+                                    <constraint firstItem="mAj-wW-Med" firstAttribute="top" secondItem="P8u-MP-c2y" secondAttribute="top" constant="35" id="dTl-He-s1p"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Df-hP-tMj"/>
                         <color key="backgroundColor" name="brandPurple"/>
                         <constraints>
+                            <constraint firstItem="3Df-hP-tMj" firstAttribute="bottom" secondItem="P8u-MP-c2y" secondAttribute="bottom" id="3QZ-c7-YsJ"/>
+                            <constraint firstItem="P8u-MP-c2y" firstAttribute="leading" secondItem="3Df-hP-tMj" secondAttribute="leading" id="4dT-HR-bzw"/>
                             <constraint firstItem="3Od-Mq-ynG" firstAttribute="top" secondItem="3Df-hP-tMj" secondAttribute="top" id="6yi-9R-BrL"/>
                             <constraint firstItem="3Df-hP-tMj" firstAttribute="trailing" secondItem="3Od-Mq-ynG" secondAttribute="trailing" id="Nuu-YS-4pH"/>
                             <constraint firstItem="3Df-hP-tMj" firstAttribute="bottom" secondItem="3Od-Mq-ynG" secondAttribute="bottom" id="a0u-P0-Vur"/>
+                            <constraint firstItem="3Df-hP-tMj" firstAttribute="trailing" secondItem="P8u-MP-c2y" secondAttribute="trailing" id="cdo-ff-dqs"/>
                             <constraint firstItem="3Od-Mq-ynG" firstAttribute="leading" secondItem="3Df-hP-tMj" secondAttribute="leading" id="sD0-Ib-euA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="G6b-nL-LuF"/>
+                    <connections>
+                        <outlet property="label1" destination="Pte-Pe-8Si" id="NgH-DE-nge"/>
+                        <outlet property="label2" destination="aHG-Ge-ZP6" id="vJ9-9d-txy"/>
+                        <outlet property="label3" destination="7qf-Bs-rAJ" id="lk4-Pl-qTw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V8v-jT-EWk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -66,6 +66,11 @@ extension SettingsView: UITableViewDataSource, UITableViewDelegate {
             if indexPath.section == 1 && indexPath.row == 0 {
                 cell.accessoryType = .none
             }
+            
+            if indexPath.section == 2 && indexPath.row == 0 && UserDefaults.standard.hasPurchasedProVersion() {
+                cell.textLabel?.text = "Peruuta Pro -tilaus"
+            }
+            
             return cell
         }
         

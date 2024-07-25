@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B604BC0C2C527CE50056B9CE /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B604BC0B2C527CE50056B9CE /* Settings.swift */; };
+		B604BC0E2C5290360056B9CE /* ProView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B604BC0D2C5290360056B9CE /* ProView.swift */; };
 		B6194D472C2C865F00B6E462 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6194D462C2C865F00B6E462 /* AppDelegate.swift */; };
 		B6194D492C2C865F00B6E462 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6194D482C2C865F00B6E462 /* SceneDelegate.swift */; };
 		B6194D4B2C2C865F00B6E462 /* Start.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6194D4A2C2C865F00B6E462 /* Start.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		B604BC0B2C527CE50056B9CE /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		B604BC0D2C5290360056B9CE /* ProView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProView.swift; sourceTree = "<group>"; };
 		B6194D432C2C865F00B6E462 /* Juomapeli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Juomapeli.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6194D462C2C865F00B6E462 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6194D482C2C865F00B6E462 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				B64A93102C32C07F00C00BA9 /* GameSelectView.swift */,
 				B6194D632C2C9F9400B6E462 /* GameView.swift */,
 				B604BC0B2C527CE50056B9CE /* Settings.swift */,
+				B604BC0D2C5290360056B9CE /* ProView.swift */,
 				B64A930A2C32B87900C00BA9 /* GameModeCell.swift */,
 				B64A930B2C32B87900C00BA9 /* GameModeCell.xib */,
 				B65FAFF02C3E706D00D9EF26 /* TableViewTextCell.swift */,
@@ -205,6 +208,7 @@
 			files = (
 				B65FAFF22C3E706D00D9EF26 /* TableViewTextCell.swift in Sources */,
 				B64A93112C32C07F00C00BA9 /* GameSelectView.swift in Sources */,
+				B604BC0E2C5290360056B9CE /* ProView.swift in Sources */,
 				B63492E92C3BC0BC00241EB8 /* Game.swift in Sources */,
 				B64A930C2C32B87900C00BA9 /* GameModeCell.swift in Sources */,
 				B604BC0C2C527CE50056B9CE /* Settings.swift in Sources */,

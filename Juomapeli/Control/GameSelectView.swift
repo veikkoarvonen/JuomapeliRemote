@@ -18,7 +18,7 @@ class GameSelectView: UIViewController, valueDelegate {
     @IBOutlet weak var tableView: UITableView!
   
     override func viewDidAppear(_ animated: Bool) {
-        if shouldPopProVC {
+        if shouldPopProVC && !UserDefaults.standard.hasPurchasedProVersion() {
             performSegue(withIdentifier: "pro", sender: self)
             shouldPopProVC = false
         }
@@ -87,10 +87,10 @@ extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
                 cell.drinkSlider.isUserInteractionEnabled = false
                 cell.actionSlider.isUserInteractionEnabled = false
                 let label = proLabel()
-                cell.backView.addSubview(label)
+                cell.addSubview(label)
                 NSLayoutConstraint.activate([
-                    label.centerXAnchor.constraint(equalTo: cell.backView.centerXAnchor),
-                    label.centerYAnchor.constraint(equalTo: cell.backView.centerYAnchor)
+                    label.centerXAnchor.constraint(equalTo: cell.centerXAnchor),
+                    label.centerYAnchor.constraint(equalTo: cell.centerYAnchor)
                 ])
             } else {
                 

@@ -25,9 +25,21 @@ struct Cells {
     static let paragraphs: [String] = [
         "Monipuolisia tehtäviä ja haasteita, jotka takaavat räväkän meiningin hyvän maun rajoissa... juuri ja juuri.",
         "Syvällisiä, hauskoja sekä mielenkiintoisia kysymyksiä ja tehtäviä, joiden avulla varmasti tutustut seuralaiseesi - myös pintaa syvemmältä.",
-        "VAROITUS: Ei nynnyille! Alla olevista mittareista voit itse valita pelin intensiteetin ja rangaistushuikkien määrän. Huom: Tehtävät vaativat pahimmillaan äärimmäistä heittäytymistä, joten peli sopii ainoastaan kovimmille bilihileille!"
+        "VAROITUS: Ei nynnyille! Alla olevista mittareista voit itse valita pelin intensiteetin ja rangaistushuikkien määrän. Huom: Tehtävät vaativat pahimmillaan äärimmäistä heittäytymistä, joten peli sopii ainoastaan kovimmille bilehileille!"
     ]
 }
+
+struct Settings {
+    
+    static let headers: [String] = ["Tietoa", "Vastuullisuus", "Pro -tilaus"]
+    
+    static let sections: [[String]] = [
+        ["Juomapeli kotisivut", "Tietosuojakäytäntö", "Käyttöehdot"],
+        ["Muista pitää itsestäsi ja pelitovereistasi huolta. Kyseinen peli on tarkoitettu ainoastaan viihteelliseen käyttöön, eikä ketään tule pakottaa jatkamaan peliä, ellei halua. Mikäli pelin yhteydessä nautitaan päihteitä, tulee käyttäjien olla täysi-ikäisiä ja nauttia alkoholia vastuullisesti. Emme vastaa mistään vahingoista tai seuraamuksista, jotka voivat aiheutua vastuuttomasta pelaamisesta.","Lue lisää vastuullisuudesta"],
+        ["Osta Juomapeli -Pro", "Palauta ostot"]
+    ]
+}
+
 
 struct Colors {
     static let colors: [UIColor] = [

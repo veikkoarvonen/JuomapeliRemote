@@ -175,28 +175,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eh0-rP-2nh">
-                                <rect key="frame" x="60" y="241" width="255" height="264"/>
-                                <string key="text">Muista pitää itsestäsi ja pelitovereistasi huolta. Kyseinen peli on tarkoitettu ainoastaan viihteelliseen käyttöön, eikä ketään tule pakottaa jatkamaan peliä , ellei halua. Mikäli pelin yhteydessä nautitaan päihteitä, tulee käyttäjien olla täysi-ikäisiä ja nauttia alkoholia vastuullisesti. Emme vastaa mistään vahingoista tai seuraamuksista, jotka voivat aiheutua vastuuttomasta pelaamisesta.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lisätietoja..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxs-Cc-cwC">
-                                <rect key="frame" x="142" y="568" width="91" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="systemYellowColor"/>
-                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jp1-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ugc-YZ-fWC">
+                                <rect key="frame" x="0.0" y="91" width="375" height="687"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="79m-7j-RiY">
+                                <rect key="frame" x="0.0" y="91" width="375" height="687"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mbo-mT-M7l"/>
                         <color key="backgroundColor" name="brandPurple"/>
                         <constraints>
-                            <constraint firstItem="Eh0-rP-2nh" firstAttribute="top" secondItem="Mbo-mT-M7l" secondAttribute="top" constant="150" id="CQL-S6-NHJ"/>
-                            <constraint firstItem="Eh0-rP-2nh" firstAttribute="centerX" secondItem="USt-QA-JbT" secondAttribute="centerX" id="GaI-mW-Gdp"/>
-                            <constraint firstAttribute="trailing" secondItem="Eh0-rP-2nh" secondAttribute="trailing" constant="60" id="ZwR-Vg-xcm"/>
-                            <constraint firstItem="Eh0-rP-2nh" firstAttribute="leading" secondItem="USt-QA-JbT" secondAttribute="leading" constant="60" id="cco-fo-66s"/>
+                            <constraint firstItem="79m-7j-RiY" firstAttribute="leading" secondItem="Mbo-mT-M7l" secondAttribute="leading" id="7BD-EV-fFT"/>
+                            <constraint firstItem="79m-7j-RiY" firstAttribute="top" secondItem="Mbo-mT-M7l" secondAttribute="top" id="AUN-rW-59P"/>
+                            <constraint firstItem="Ugc-YZ-fWC" firstAttribute="leading" secondItem="Mbo-mT-M7l" secondAttribute="leading" id="F8K-Rq-5qs"/>
+                            <constraint firstItem="Mbo-mT-M7l" firstAttribute="bottom" secondItem="Ugc-YZ-fWC" secondAttribute="bottom" id="Fa9-HO-xjG"/>
+                            <constraint firstItem="Mbo-mT-M7l" firstAttribute="trailing" secondItem="79m-7j-RiY" secondAttribute="trailing" id="UNE-JX-Ob2"/>
+                            <constraint firstItem="Mbo-mT-M7l" firstAttribute="bottom" secondItem="79m-7j-RiY" secondAttribute="bottom" id="WDD-eH-kex"/>
+                            <constraint firstItem="Mbo-mT-M7l" firstAttribute="trailing" secondItem="Ugc-YZ-fWC" secondAttribute="trailing" id="sDH-Bg-y7H"/>
+                            <constraint firstItem="Ugc-YZ-fWC" firstAttribute="top" secondItem="Mbo-mT-M7l" secondAttribute="top" id="tAx-wt-UUk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ja8-IU-P19"/>
@@ -213,7 +211,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="755"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="juomapeli plus uus" translatesAutoresizingMaskIntoConstraints="NO" id="3Od-Mq-ynG">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="juomapeli plus uus" translatesAutoresizingMaskIntoConstraints="NO" id="3Od-Mq-ynG">
                                 <rect key="frame" x="0.0" y="47" width="375" height="708"/>
                             </imageView>
                         </subviews>
@@ -304,9 +302,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

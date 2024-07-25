@@ -119,9 +119,9 @@
 				B6194D462C2C865F00B6E462 /* AppDelegate.swift */,
 				B6194D482C2C865F00B6E462 /* SceneDelegate.swift */,
 				B6194D612C2C9D7600B6E462 /* DelegateProtocols.swift */,
+				B64A930E2C32BFEC00C00BA9 /* Constants.swift */,
 				B6385E992C4FE96300D5B3C2 /* OneTask.swift */,
 				B6385E9B2C4FEDCE00D5B3C2 /* WholeGame.swift */,
-				B64A930E2C32BFEC00C00BA9 /* Constants.swift */,
 				B63492E82C3BC0BC00241EB8 /* Game.swift */,
 			);
 			path = Model;

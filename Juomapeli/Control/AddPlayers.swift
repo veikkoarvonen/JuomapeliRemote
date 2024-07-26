@@ -9,7 +9,7 @@ import UIKit
 
 class AddPlayers: UIViewController, CellDelegate {
     
-    var players: [String] = ["Veikko","Donia"]
+    var players: [String] = []
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,7 +27,7 @@ class AddPlayers: UIViewController, CellDelegate {
     @IBAction func startPressed(_ sender: UIButton) {
         view.endEditing(true)
         if players.count < 2 {
-            showErrorAlert()
+            showErrorAlert(text: "Lisää vähintään kaksi pelaajaa")
         } else {
             performSegue(withIdentifier: "23", sender: self)
         }
@@ -41,12 +41,13 @@ class AddPlayers: UIViewController, CellDelegate {
     }
     
     @objc func handleScreenTap() {
+        
         view.endEditing(true)
     }
     
-    func showErrorAlert() {
+    func showErrorAlert(text: String) {
             // Create the alert controller
-            let alertController = UIAlertController(title: nil, message: "Lisää vähintään kaksi pelaajaa", preferredStyle: .alert)
+            let alertController = UIAlertController(title: nil, message: text, preferredStyle: .alert)
             
             // Add the "Selvä" action
             let closeAction = UIAlertAction(title: "Selvä", style: .default, handler: nil)
@@ -71,6 +72,8 @@ class AddPlayers: UIViewController, CellDelegate {
         } else {
             players[row] = name
         }
+        
+        
         
         tableView.reloadData()
         print(players)

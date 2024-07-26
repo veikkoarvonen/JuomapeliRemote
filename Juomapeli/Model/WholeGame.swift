@@ -142,7 +142,8 @@ struct WholeGame {
             Array(0..<demoTask.tier2.count),
             Array(0..<demoTask.tier3.count),
             Array(0..<demoTask.tier4.count),
-            Array(0..<demoTask.tier5.count)
+            Array(0..<demoTask.tier5.count),
+            Array(0..<30)
         ]
         
         for i in 0..<arrays.count {
@@ -151,25 +152,33 @@ struct WholeGame {
         
         for i in 0..<numberOfTasks {
             var targerArray: [Int]
-            if category == 0 {
-                targerArray = arrays[0]
-            } else if category == 1 {
-                targerArray = arrays[1]
+            
+            if !UserDefaults.standard.hasPurchasedProVersion() {
+                targerArray = arrays[7]
             } else {
                 
-                guard tierList.count >= i else {
-                    print("Tierlist doesn't contain \(i) items!")
-                    break
+                if category == 0 {
+                    targerArray = arrays[0]
+                } else if category == 1 {
+                    targerArray = arrays[1]
+                } else {
+                    
+                    guard tierList.count >= i else {
+                        print("Tierlist doesn't contain \(i) items!")
+                        break
+                    }
+                    
+                    switch tierList[i] {
+                    case 1: targerArray = arrays[2]
+                    case 2: targerArray = arrays[3]
+                    case 3: targerArray = arrays[4]
+                    case 4: targerArray = arrays[5]
+                    case 5: targerArray = arrays[6]
+                    default: targerArray = arrays[1]
+                    }
                 }
                 
-                switch tierList[i] {
-                case 1: targerArray = arrays[2]
-                case 2: targerArray = arrays[3]
-                case 3: targerArray = arrays[4]
-                case 4: targerArray = arrays[5]
-                case 5: targerArray = arrays[6]
-                default: targerArray = arrays[1]
-                }
+                
             }
             indexList.append(targerArray[i])
         }

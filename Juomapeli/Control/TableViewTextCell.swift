@@ -55,6 +55,7 @@ extension TableViewTextCell: UITextFieldDelegate {
         }
         // Typically used to dismiss the keyboard
         textField.resignFirstResponder()
+        
         return true
     }
     

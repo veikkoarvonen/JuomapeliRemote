@@ -9,7 +9,7 @@ import UIKit
 
 class AddPlayers: UIViewController, CellDelegate {
     
-    var players: [String] = []
+    var players: [String] = ["Veikko","Donia"]
     
     @IBOutlet weak var tableView: UITableView!
     

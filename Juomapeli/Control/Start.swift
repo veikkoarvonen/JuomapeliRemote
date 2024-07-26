@@ -8,9 +8,10 @@
 import UIKit
 
 class Start: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpUI()
         // Do any additional setup after loading the view.
         print(UserDefaults.standard.hasPurchasedProVersion())
         UserDefaults.standard.setProVersionPurchased(false)
@@ -23,5 +24,33 @@ class Start: UIViewController {
         
     }
     
+    private func setUpUI() {
+        
+        let ukot = UIImageView()
+        ukot.image = UIImage(named: "ukot2")
+        ukot.contentMode = .scaleAspectFill
+        ukot.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(ukot)
+        
+        
+        let image = UIImageView()
+        image.image = UIImage(named: "alkutausta")
+        image.contentMode = .scaleAspectFill
+        image.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(image)
+        view.sendSubviewToBack(image)
+        
+        NSLayoutConstraint.activate([
+            image.topAnchor.constraint(equalTo: view.topAnchor),
+            image.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            image.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            image.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            ukot.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            ukot.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            ukot.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            ukot.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+    }
 }
+
 

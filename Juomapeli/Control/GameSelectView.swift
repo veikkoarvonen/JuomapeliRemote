@@ -52,7 +52,7 @@ class GameSelectView: UIViewController, valueDelegate {
     
     private func proLabel() -> UILabel {
         let label = UILabel()
-        label.text = "Pro 🔒"
+        label.text = "🔒"
         label.textColor = .white
         label.textAlignment = .center
         label.font = UIFont(name: "Marker Felt", size: 45)
@@ -83,15 +83,16 @@ extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
         
         if indexPath.row != 0 {
             if !UserDefaults.standard.hasPurchasedProVersion() {
-                cell.backView.alpha = 0.5
-                cell.drinkSlider.isUserInteractionEnabled = false
-                cell.actionSlider.isUserInteractionEnabled = false
+                cell.backView.alpha = 1
+                //cell.drinkSlider.isUserInteractionEnabled = false
+                //cell.actionSlider.isUserInteractionEnabled = false
                 let label = proLabel()
-                cell.addSubview(label)
+                //cell.addSubview(label)
                 NSLayoutConstraint.activate([
-                    label.centerXAnchor.constraint(equalTo: cell.centerXAnchor),
-                    label.centerYAnchor.constraint(equalTo: cell.centerYAnchor)
+                    //label.centerXAnchor.constraint(equalTo: cell.customImageView.centerXAnchor),
+                    //label.centerYAnchor.constraint(equalTo: cell.customImageView.centerYAnchor)
                 ])
+                cell.header.textColor = UIColor(red: 255/255.0, green: 218/255.0, blue: 0/255.0, alpha: 1.0)
             } else {
                 
             }

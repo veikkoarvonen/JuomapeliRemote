@@ -23,7 +23,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rc6-o7-h3e">
                                 <rect key="frame" x="0.0" y="0.0" width="80" height="150"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_123650291" translatesAutoresizingMaskIntoConstraints="NO" id="Zya-v8-MvD">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resized1" translatesAutoresizingMaskIntoConstraints="NO" id="Zya-v8-MvD">
                                         <rect key="frame" x="2" y="37" width="76" height="76"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="76" id="PQz-g1-T50"/>
@@ -127,7 +127,8 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" name="brandBlue"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="TLw-ML-KhI" secondAttribute="trailing" constant="5" id="NVp-iL-wd2"/>
                     <constraint firstAttribute="bottom" secondItem="TLw-ML-KhI" secondAttribute="bottom" constant="5" id="eiV-5U-sGd"/>
@@ -136,6 +137,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="actionSlider" destination="KoX-4l-FNR" id="psE-v7-3C3"/>
                 <outlet property="backView" destination="TLw-ML-KhI" id="0Mk-rK-iWP"/>
@@ -150,7 +152,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="image_123650291" width="1170" height="1170"/>
+        <image name="resized1" width="250" height="250"/>
         <namedColor name="brandBlue">
             <color red="0.78431372549019607" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

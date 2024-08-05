@@ -69,7 +69,7 @@ class Start: UIViewController {
                 textField.isSecureTextEntry = true // Makes the text field secure for password entry
             }
             
-            // Add a dismiss button to the alert
+            // Add a dismiss button to the alert here
             let dismissAction = UIAlertAction(title: "Valmis", style: .default) { _ in
                 // Handle the dismiss action if needed
                 if let textField = alertController.textFields?.first {

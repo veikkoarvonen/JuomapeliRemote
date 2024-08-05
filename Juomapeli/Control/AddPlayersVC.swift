@@ -41,7 +41,6 @@ class AddPlayers: UIViewController, CellDelegate {
     }
     
     @objc func handleScreenTap() {
-        
         view.endEditing(true)
     }
     
@@ -72,8 +71,6 @@ class AddPlayers: UIViewController, CellDelegate {
         } else {
             players[row] = name
         }
-        
-        
         
         tableView.reloadData()
         print(players)

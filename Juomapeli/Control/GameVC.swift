@@ -26,6 +26,11 @@ class GameView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if gameCategory == 1 {
+            view.backgroundColor = UIColor(red: 184/255.0, green: 108/255.0, blue: 165/255.0, alpha: 1.0)
+
+        }
+        
         game = WholeGame(numberOfTasks: 30, players: players, category: gameCategory, tierSliderValue: tierValue, drinkSliderValue: drinkValue)
         tasks = game.tasks
         

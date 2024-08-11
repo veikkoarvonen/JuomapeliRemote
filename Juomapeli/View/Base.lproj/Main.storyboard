@@ -215,6 +215,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="755"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alkutausta" translatesAutoresizingMaskIntoConstraints="NO" id="3Od-Mq-ynG">
+                                <rect key="frame" x="0.0" y="47" width="375" height="708"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8u-MP-c2y">
                                 <rect key="frame" x="0.0" y="405" width="375" height="350"/>
                                 <subviews>
@@ -254,19 +257,23 @@
                                     <constraint firstItem="mAj-wW-Med" firstAttribute="top" secondItem="P8u-MP-c2y" secondAttribute="top" constant="35" id="dTl-He-s1p"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="juomapeli plus uus" translatesAutoresizingMaskIntoConstraints="NO" id="3Od-Mq-ynG">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kultatili png" translatesAutoresizingMaskIntoConstraints="NO" id="lKf-Cq-GsA">
                                 <rect key="frame" x="0.0" y="47" width="375" height="708"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Df-hP-tMj"/>
                         <color key="backgroundColor" name="brandPurple"/>
                         <constraints>
+                            <constraint firstItem="3Df-hP-tMj" firstAttribute="trailing" secondItem="lKf-Cq-GsA" secondAttribute="trailing" id="2ZS-8F-ldi"/>
                             <constraint firstItem="3Df-hP-tMj" firstAttribute="bottom" secondItem="P8u-MP-c2y" secondAttribute="bottom" id="3QZ-c7-YsJ"/>
                             <constraint firstItem="P8u-MP-c2y" firstAttribute="leading" secondItem="3Df-hP-tMj" secondAttribute="leading" id="4dT-HR-bzw"/>
                             <constraint firstItem="3Od-Mq-ynG" firstAttribute="top" secondItem="3Df-hP-tMj" secondAttribute="top" id="6yi-9R-BrL"/>
+                            <constraint firstItem="lKf-Cq-GsA" firstAttribute="top" secondItem="3Df-hP-tMj" secondAttribute="top" id="GHw-KA-sip"/>
                             <constraint firstItem="3Df-hP-tMj" firstAttribute="trailing" secondItem="3Od-Mq-ynG" secondAttribute="trailing" id="Nuu-YS-4pH"/>
                             <constraint firstAttribute="bottom" secondItem="3Od-Mq-ynG" secondAttribute="bottom" id="bo8-nk-EEK"/>
                             <constraint firstItem="3Df-hP-tMj" firstAttribute="trailing" secondItem="P8u-MP-c2y" secondAttribute="trailing" id="cdo-ff-dqs"/>
+                            <constraint firstItem="lKf-Cq-GsA" firstAttribute="leading" secondItem="3Df-hP-tMj" secondAttribute="leading" id="nnb-mu-FNT"/>
+                            <constraint firstItem="3Df-hP-tMj" firstAttribute="bottom" secondItem="lKf-Cq-GsA" secondAttribute="bottom" id="riG-ps-HAx"/>
                             <constraint firstItem="3Od-Mq-ynG" firstAttribute="leading" secondItem="3Df-hP-tMj" secondAttribute="leading" id="sD0-Ib-euA"/>
                         </constraints>
                     </view>
@@ -279,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V8v-jT-EWk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3417" y="714"/>
+            <point key="canvasLocation" x="3416.8000000000002" y="713.79310344827593"/>
         </scene>
         <!--Game View-->
         <scene sceneID="gL7-zG-WYy">
@@ -289,7 +296,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="juomapeli layout png" translatesAutoresizingMaskIntoConstraints="NO" id="opD-e7-2gr">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="raibale png" translatesAutoresizingMaskIntoConstraints="NO" id="opD-e7-2gr">
                                 <rect key="frame" x="0.0" y="91" width="375" height="647"/>
                             </imageView>
                         </subviews>
@@ -344,8 +351,8 @@
         <image name="alkutausta" width="3375" height="6000"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="jp1-1" width="3375" height="6000"/>
-        <image name="juomapeli layout png" width="3375" height="6000"/>
-        <image name="juomapeli plus uus" width="3375" height="6000"/>
+        <image name="kultatili png" width="3375" height="6000"/>
+        <image name="raibale png" width="3375" height="6000"/>
         <namedColor name="brandPurple">
             <color red="0.59215686274509804" green="0.27843137254901962" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

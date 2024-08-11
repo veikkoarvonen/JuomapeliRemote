@@ -90,6 +90,7 @@
 		B6194D452C2C865F00B6E462 /* Juomapeli */ = {
 			isa = PBXGroup;
 			children = (
+				B6378B9C2C611940001A958F /* CustomCells */,
 				B6194D652C2CA1C200B6E462 /* Model */,
 				B6194D5A2C2C90D700B6E462 /* Control */,
 				B60E455A2C304E6700F1B627 /* View */,
@@ -109,10 +110,6 @@
 				B6194D632C2C9F9400B6E462 /* GameVC.swift */,
 				B604BC0B2C527CE50056B9CE /* SettingsVC.swift */,
 				B604BC0D2C5290360056B9CE /* ProBannerVC.swift */,
-				B64A930A2C32B87900C00BA9 /* GameModeCell.swift */,
-				B64A930B2C32B87900C00BA9 /* GameModeCell.xib */,
-				B65FAFF02C3E706D00D9EF26 /* TableViewTextCell.swift */,
-				B65FAFF12C3E706D00D9EF26 /* TableViewTextCell.xib */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -128,6 +125,17 @@
 				B6385E9B2C4FEDCE00D5B3C2 /* WholeGame.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B6378B9C2C611940001A958F /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				B64A930A2C32B87900C00BA9 /* GameModeCell.swift */,
+				B64A930B2C32B87900C00BA9 /* GameModeCell.xib */,
+				B65FAFF02C3E706D00D9EF26 /* TableViewTextCell.swift */,
+				B65FAFF12C3E706D00D9EF26 /* TableViewTextCell.xib */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

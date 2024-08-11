@@ -278,12 +278,3 @@ struct WholeGame {
     }
     
 }
-
-//self.player1 = player1
-//self.player2 = player2
-//self.color1 = color1
-//self.color2 = color2
-//self.category = category
-//self.tier = tier
-//self.drinkValue = drinkValue
-//self.taskIndex = taskIndex

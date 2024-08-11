@@ -117,11 +117,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Totuus vai tehtävä-2" translatesAutoresizingMaskIntoConstraints="NO" id="cYK-gP-w2v">
-                                <rect key="frame" x="0.0" y="91" width="375" height="687"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alkutausta" translatesAutoresizingMaskIntoConstraints="NO" id="cYK-gP-w2v">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xUg-ma-KMX">
-                                <rect key="frame" x="0.0" y="91" width="375" height="587"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xUg-ma-KMX">
+                                <rect key="frame" x="0.0" y="91" width="375" height="687"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -129,14 +129,14 @@
                         <viewLayoutGuide key="safeArea" id="kJx-lX-9eI"/>
                         <color key="backgroundColor" name="brandPurple"/>
                         <constraints>
-                            <constraint firstItem="cYK-gP-w2v" firstAttribute="top" secondItem="kJx-lX-9eI" secondAttribute="top" id="HhS-NW-GDt"/>
+                            <constraint firstAttribute="bottom" secondItem="cYK-gP-w2v" secondAttribute="bottom" id="6Sm-sK-Eme"/>
                             <constraint firstItem="xUg-ma-KMX" firstAttribute="top" secondItem="kJx-lX-9eI" secondAttribute="top" id="LjX-Su-3VV"/>
                             <constraint firstItem="kJx-lX-9eI" firstAttribute="trailing" secondItem="xUg-ma-KMX" secondAttribute="trailing" id="NbJ-lA-0l3"/>
-                            <constraint firstItem="cYK-gP-w2v" firstAttribute="bottom" secondItem="kJx-lX-9eI" secondAttribute="bottom" id="Vb8-dQ-1N6"/>
                             <constraint firstAttribute="trailing" secondItem="cYK-gP-w2v" secondAttribute="trailing" id="dm4-8a-uyd"/>
                             <constraint firstItem="xUg-ma-KMX" firstAttribute="leading" secondItem="kJx-lX-9eI" secondAttribute="leading" id="fib-Gc-UfH"/>
-                            <constraint firstItem="kJx-lX-9eI" firstAttribute="bottom" secondItem="xUg-ma-KMX" secondAttribute="bottom" constant="100" id="m2b-W8-L2J"/>
+                            <constraint firstItem="kJx-lX-9eI" firstAttribute="bottom" secondItem="xUg-ma-KMX" secondAttribute="bottom" id="m2b-W8-L2J"/>
                             <constraint firstItem="cYK-gP-w2v" firstAttribute="leading" secondItem="kJx-lX-9eI" secondAttribute="leading" id="qiR-XX-rn5"/>
+                            <constraint firstItem="cYK-gP-w2v" firstAttribute="top" secondItem="X91-Ss-CXs" secondAttribute="top" id="rSb-9k-SOG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="m8p-uL-zFY">
@@ -215,9 +215,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="755"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="juomapeli plus uus" translatesAutoresizingMaskIntoConstraints="NO" id="3Od-Mq-ynG">
-                                <rect key="frame" x="0.0" y="47" width="375" height="708"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8u-MP-c2y">
                                 <rect key="frame" x="0.0" y="405" width="375" height="350"/>
                                 <subviews>
@@ -257,6 +254,9 @@
                                     <constraint firstItem="mAj-wW-Med" firstAttribute="top" secondItem="P8u-MP-c2y" secondAttribute="top" constant="35" id="dTl-He-s1p"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="juomapeli plus uus" translatesAutoresizingMaskIntoConstraints="NO" id="3Od-Mq-ynG">
+                                <rect key="frame" x="0.0" y="47" width="375" height="708"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Df-hP-tMj"/>
                         <color key="backgroundColor" name="brandPurple"/>
@@ -341,7 +341,7 @@
         <segue reference="AY0-WQ-bpb"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="Totuus vai tehtävä-2" width="3375" height="6000"/>
+        <image name="alkutausta" width="3375" height="6000"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="jp1-1" width="3375" height="6000"/>
         <image name="juomapeli layout png" width="3375" height="6000"/>

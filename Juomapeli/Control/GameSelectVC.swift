@@ -16,20 +16,12 @@ class GameSelectView: UIViewController, valueDelegate {
     var shouldPopProVC: Bool = false
     
     @IBOutlet weak var tableView: UITableView!
-  
-    override func viewDidAppear(_ animated: Bool) {
-        if shouldPopProVC && !UserDefaults.standard.hasPurchasedProVersion() {
-            performSegue(withIdentifier: "pro", sender: self)
-            shouldPopProVC = false
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: C.gamemodeCell, bundle: nil), forCellReuseIdentifier: C.gamemodeNIb)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.backgroundColor = UIColor(named: C.blue)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -49,16 +41,6 @@ class GameSelectView: UIViewController, valueDelegate {
             drinkValueForGame = to
         }
     }
-    
-    private func proLabel() -> UILabel {
-        let label = UILabel()
-        label.text = "🔒"
-        label.textColor = .white
-        label.textAlignment = .center
-        label.font = UIFont(name: "Marker Felt", size: 45)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }
 }
 
 extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
@@ -66,11 +48,22 @@ extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
         return 3
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let normalHeight: Double = 160
+        let extremeHeight: Double = 220
+        if indexPath.row == 2 {
+            return extremeHeight + 140
+        } else {
+            return normalHeight
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: C.gamemodeNIb, for: indexPath) as! GameModeCell
         cell.delegate = self
         cell.header.text = Cells.headers[indexPath.row]
         cell.rules.text = Cells.paragraphs[indexPath.row]
+        cell.rules.font = .systemFont(ofSize: 15.8)
         if indexPath.row != 2 {
             cell.lowerView.isHidden = true
         }
@@ -84,35 +77,14 @@ extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row != 0 {
             if !UserDefaults.standard.hasPurchasedProVersion() {
                 cell.backView.alpha = 1
-                //cell.drinkSlider.isUserInteractionEnabled = false
-                //cell.actionSlider.isUserInteractionEnabled = false
-                let label = proLabel()
-                //cell.addSubview(label)
-                NSLayoutConstraint.activate([
-                    //label.centerXAnchor.constraint(equalTo: cell.customImageView.centerXAnchor),
-                    //label.centerYAnchor.constraint(equalTo: cell.customImageView.centerYAnchor)
-                ])
-                cell.header.textColor = UIColor(red: 255/255.0, green: 218/255.0, blue: 0/255.0, alpha: 1.0)
+                //cell.header.textColor = UIColor(red: 255/255.0, green: 218/255.0, blue: 0/255.0, alpha: 1.0)
+                cell.header.textColor = .orange
             } else {
                 
             }
         }
         
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        var height: CGFloat
-        
-        switch indexPath.row {
-        case 0: height = 110
-        case 1: height = 120
-        case 2: height = 300
-        default: height = 300
-        }
-        
-        return height
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

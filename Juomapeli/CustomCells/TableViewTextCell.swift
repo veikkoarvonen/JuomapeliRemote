@@ -27,6 +27,12 @@ class TableViewTextCell: UITableViewCell {
         
         
         setPlaceholder(text: " + Lisää pelaaja")
+        
+        backView.layer.masksToBounds = false
+        backView.layer.shadowColor = UIColor.black.cgColor
+        backView.layer.shadowOpacity = 0.1
+        backView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        backView.layer.shadowRadius = 1
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

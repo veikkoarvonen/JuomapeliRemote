@@ -13,8 +13,8 @@ class Start: UIViewController {
         super.viewDidLoad()
         setUpUI()
         // Do any additional setup after loading the view.
-        print(UserDefaults.standard.hasPurchasedProVersion())
         UserDefaults.standard.setProVersionPurchased(false)
+        print(UserDefaults.standard.hasPurchasedProVersion())
         
     }
 
@@ -35,7 +35,7 @@ class Start: UIViewController {
         
         let image = UIImageView()
         image.image = UIImage(named: "alkutausta")
-        image.contentMode = .scaleAspectFill
+        image.contentMode = .scaleToFill
         image.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(image)
         view.sendSubviewToBack(image)
@@ -47,8 +47,8 @@ class Start: UIViewController {
             image.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             ukot.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             ukot.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            ukot.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            ukot.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            ukot.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
+            ukot.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 5)
         ])
     }
     

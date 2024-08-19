@@ -76,10 +76,19 @@ struct WholeGame {
                 
                 array.shuffle()
                 
-                let x1 = array[0]
-                let x2 = array[1]
+                var x1 = array[0]
+                var x2 = array[1]
                 player1list.append(players[x1])
                 player2list.append(players[x2])
+                
+                if x1 >= colors.count {
+                    x1 = colors.count - 1
+                }
+                
+                if x2 >= colors.count {
+                    x2 = colors.count - 1
+                }
+                
                 color1list.append(colors[x1])
                 color2list.append(colors[x2])
             }

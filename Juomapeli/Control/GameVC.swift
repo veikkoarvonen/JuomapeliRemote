@@ -8,8 +8,10 @@
 import UIKit
 
 class GameView: UIViewController {
+ 
+//MARK: - Variables & constants
     
-    //From previous VC
+    //Game parameters from previous VC
     var players: [String] = []
     var gameCategory: Int = 0
     var tierValue: Float = 3.0
@@ -27,12 +29,24 @@ class GameView: UIViewController {
     var p2list: [Player] = []
     var tiers: [Int] = []
     var tasksIndexes: [Int] = []
+  
+//MARK: - Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareGame()
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleScreenTap))
         self.view.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func handleScreenTap() {
+        if shouldReturn {
+            navigationController?.popViewController(animated: true)
+            shouldReturn = false
+        } else {
+            headLabel.removeFromSuperview()
+            newTask()
+        }
     }
     
     func prepareGame() {
@@ -49,20 +63,10 @@ class GameView: UIViewController {
         p2list = players.p2
         tiers = game.generateTierList(sliderValue: tierValue, numberOfTasks: numberOfTasks)
         tasksIndexes = game.generateTaskIndexes(category: gameCategory, numberOfTasks: numberOfTasks, tiers: tiers)
-        if gameCategory == 1 {
+        if isDateCategory {
             view.backgroundColor = UIColor(red: 184/255.0, green: 108/255.0, blue: 165/255.0, alpha: 1.0)
         }
         newTask()
-    }
-    
-    @objc func handleScreenTap() {
-        if shouldReturn {
-            navigationController?.popViewController(animated: true)
-            shouldReturn = false
-        } else {
-            headLabel.removeFromSuperview()
-            newTask()
-        }
     }
     
     func newTask() {
@@ -83,6 +87,8 @@ class GameView: UIViewController {
         performShakingAnimation()
         currentTask += 1
     }
+  
+//MARK: - UI elements & functionality
     
     func setLabel() {
         label.removeFromSuperview()

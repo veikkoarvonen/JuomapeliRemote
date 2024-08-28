@@ -9,18 +9,23 @@ import UIKit
 
 class GameView: UIViewController {
     
+    //From previous VC
     var players: [String] = []
     var gameCategory: Int = 0
     var tierValue: Float = 3.0
     var drinkValue: Float = 1.0
     
-    var game = WholeGame(numberOfTasks: 30, players: ["P2","P1"], category: 0, tierSliderValue: 1, drinkSliderValue: 1)
-    var tasks: [NSAttributedString] = []
-    
+    //Game elements
     var currentTask = 0
     var label = UILabel()
     var headLabel = UILabel()
     var shouldReturn = false
+    
+    
+    var game = WholeGame(numberOfTasks: 30, players: ["P2","P1"], category: 0, tierSliderValue: 1, drinkSliderValue: 1)
+    var tasks: [NSAttributedString] = []
+    
+    
     
     
     override func viewDidLoad() {
@@ -28,7 +33,6 @@ class GameView: UIViewController {
         
         if gameCategory == 1 {
             view.backgroundColor = UIColor(red: 184/255.0, green: 108/255.0, blue: 165/255.0, alpha: 1.0)
-
         }
         
         game = WholeGame(numberOfTasks: 30, players: players, category: gameCategory, tierSliderValue: tierValue, drinkSliderValue: drinkValue)

@@ -14,7 +14,14 @@ class Start: UIViewController {
         setUpUI()
         // Do any additional setup after loading the view.
         UserDefaults.standard.setProVersionPurchased(false)
-        print(UserDefaults.standard.hasPurchasedProVersion())
+        let G = GameManager()
+        let p1 = G.generatePlayerLists(players: ["Donia", "Veikko"], numberOfTasks: 10)
+        for i in 0..<p1.p1.count {
+            print(p1.p1[i].name)
+        }
+        for i in 0..<p1.p2.count {
+            print(p1.p2[i].name)
+        }
         
     }
 

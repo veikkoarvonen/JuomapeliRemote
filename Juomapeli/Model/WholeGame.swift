@@ -287,3 +287,72 @@ struct WholeGame {
     }
     
 }
+
+
+struct Player {
+    var name: String
+    var color: UIColor
+}
+
+
+struct GameManager {
+    
+    func generatePlayerLists(players: [String], numberOfTasks: Int) -> (p1: [Player], p2: [Player]) {
+        
+        //Initialize & shuffle colors
+        var colors = Colors.colors
+        colors.shuffle()
+        
+        //Initialize player-color combos
+        var playerList = [Player]()
+        
+        //Determine player-color combos
+        for i in 0..<players.count {
+            let name = players[i]
+            var color: UIColor
+            
+            if i < colors.count {
+                color = colors[i]
+            } else {
+                color = .purple
+            }
+            
+            let newPlayer = Player(name: name, color: color)
+            playerList.append(newPlayer)
+        }
+        
+        let indexArray = Array(0..<playerList.count)
+        var currentIndex = 0
+        var p1Indexes: [Int] = []
+        
+        for _ in 0..<numberOfTasks {
+            if currentIndex >= indexArray.count {
+                currentIndex = 0
+            }
+            p1Indexes.append(indexArray[currentIndex])
+            currentIndex += 1
+        }
+        
+        p1Indexes.shuffle()
+        
+        var p2Indexes: [Int] = []
+        for i in 0..<numberOfTasks {
+            var p2array = indexArray
+            p2array.remove(at: p1Indexes[i])
+            p2Indexes.append(p2array.randomElement()!)
+        }
+        
+        var p1array = [Player]()
+        var p2array = [Player]()
+        
+        for i in 0..<numberOfTasks {
+            let p1 = playerList[p1Indexes[i]]
+            let p2 = playerList[p2Indexes[i]]
+            p1array.append(p1)
+            p2array.append(p2)
+        }
+        
+        return (p1: p1array, p2: p2array)
+    }
+    
+}

@@ -299,20 +299,53 @@ struct GameManager {
  
 //MARK: - Playerlists & colors
     
-    func generatePlayerLists(players: [String], numberOfTasks: Int) -> (p1: [Player], p2: [Player]) {
+    func generatePlayerLists(players: [String], numberOfTasks: Int, isDateCategory: Bool) -> (p1: [Player], p2: [Player]) {
         
         //Initialize & randomize colors
         var colors = Colors.colors
         colors.shuffle()
         
-        //Generate players with random colors for the game
-        var playerList: [Player] {
+        //Generate indexes for players 1 & 2
+        var p1indexes = generateIndexes(from: 0, playerAmount: players.count, numberOfTasks: numberOfTasks)
+        var p2indexes: [Int] = []
+        
+        if isDateCategory {
+            p2indexes = generateIndexes(from: 1, playerAmount: players.count, numberOfTasks: numberOfTasks)
+        } else {
+            p1indexes.shuffle()
+            for i in 0..<numberOfTasks {
+                var p2array = Array(0..<players.count)
+                p2array.remove(at: p1indexes[i])
+                p2indexes.append(p2array.randomElement()!)
+            }
+        }
+        
+        var p1array: [Player] {
             var p: [Player] = []
-            for i in 0..<players.count {
-                let name = players[i]
+            for i in 0..<p1indexes.count {
+                let index = p1indexes[i]
+                let name = players[index]
                 var color: UIColor {
-                    if i <= players.count {
-                        return colors[i]
+                    if index < colors.count {
+                        return colors[index]
+                    } else {
+                        return .purple
+                    }
+                }
+                let newPlayer = Player(name: name, color: color)
+                p.append(newPlayer)
+            }
+            return p
+        }
+        
+        var p2array: [Player] {
+            var p: [Player] = []
+            for i in 0..<p2indexes.count {
+                let index = p2indexes[i]
+                let name = players[index]
+                var color: UIColor {
+                    if index < colors.count {
+                        return colors[index]
                     } else {
                         return .purple
                     }
@@ -325,7 +358,7 @@ struct GameManager {
         
         
         
-        return (p1: [], p2: [])
+        return (p1: p1array, p2: p2array)
     }
  
 //MARK: Tiers for game
@@ -391,6 +424,21 @@ struct GameManager {
         
         return indexes
         
+    }
+    
+    func generateIndexes(from startingIndex: Int, playerAmount: Int, numberOfTasks: Int) -> [Int] {
+        var indexes: [Int] = []
+        var currentIndex = startingIndex
+        for _ in 0..<numberOfTasks {
+            if currentIndex < playerAmount {
+                indexes.append(currentIndex)
+            } else {
+                currentIndex = 0
+                indexes.append(currentIndex)
+            }
+            currentIndex += 1
+        }
+        return indexes
     }
     
 }

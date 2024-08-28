@@ -36,8 +36,15 @@ class GameView: UIViewController {
     }
     
     func prepareGame() {
+        var isDateCategory: Bool {
+            if gameCategory == 1 {
+                return true
+            } else {
+                return false
+            }
+        }
         let game = GameManager()
-        let players = game.generatePlayerLists(players: players, numberOfTasks: numberOfTasks)
+        let players = game.generatePlayerLists(players: players, numberOfTasks: numberOfTasks, isDateCategory: isDateCategory)
         p1list = players.p1
         p2list = players.p2
         tiers = game.generateTierList(sliderValue: tierValue, numberOfTasks: numberOfTasks)

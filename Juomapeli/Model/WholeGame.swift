@@ -296,6 +296,8 @@ struct Player {
 
 
 struct GameManager {
+ 
+//MARK: - Playerlists & colors
     
     func generatePlayerLists(players: [String], numberOfTasks: Int) -> (p1: [Player], p2: [Player]) {
         
@@ -353,6 +355,70 @@ struct GameManager {
         }
         
         return (p1: p1array, p2: p2array)
+    }
+ 
+//MARK: Tiers for game
+    
+    func generateTierList(sliderValue: Float, numberOfTasks: Int) -> [Int] {
+        let min = sliderValue - 6 / 10
+        let max = sliderValue + 6 / 10
+        
+        var tiers: [Int] = []
+        
+        for _ in 0..<numberOfTasks {
+            
+            let tierIndex = Float.random(in: min...max)
+            
+            if tierIndex > 4.5 {
+                tiers.append(5)
+            } else if tierIndex > 3.5 {
+                tiers.append(4)
+            } else if tierIndex > 2.5 {
+                tiers.append(3)
+            } else if tierIndex > 1.5 {
+                tiers.append(2)
+            } else {
+                tiers.append(1)
+            }
+        }
+        
+        return tiers
+        
+    }
+
+//MARK: - Task indexes for game
+    
+    func generateTaskIndexes(category: Int, numberOfTasks: Int, tiers: [Int]) -> [Int] {
+        let task = SingleTask(player1: "", player2: "", color1: .red, color2: .red, category: 0, tier: 0, drinkValue: 0, taskIndex: 0)
+        var indexArrays: [[Int]] = [
+            Array(0..<task.normals.count),
+            Array(0..<task.dates.count),
+            Array(0..<task.tier1.count),
+            Array(0..<task.tier2.count),
+            Array(0..<task.tier3.count),
+            Array(0..<task.tier4.count),
+            Array(0..<task.tier5.count)
+        ]
+        
+        for i in 0..<indexArrays.count {
+            indexArrays[i].shuffle()
+        }
+        
+        var indexes: [Int] = []
+        
+        if category == 0 {
+            indexes = indexArrays[0]
+        } else if category == 1 {
+            indexes = indexArrays[1]
+        } else {
+            for i in 0..<numberOfTasks {
+                let targetArray = indexArrays[i + 1]
+                indexes.append(targetArray[i])
+            }
+        }
+        
+        return indexes
+        
     }
     
 }

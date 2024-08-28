@@ -15,11 +15,14 @@ class AddPlayers: UIViewController, CellDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //TableVIew
         tableView.register(UINib(nibName: C.playerTextCell, bundle: nil), forCellReuseIdentifier: C.playerTextNib)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .clear
         
+        //Gesture regognizer
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleScreenTap))
         self.view.addGestureRecognizer(tapGestureRecognizer)
     }
@@ -39,27 +42,11 @@ class AddPlayers: UIViewController, CellDelegate {
             destinationVC.players = players
         }
     }
-    
-    @objc func handleScreenTap() {
-        view.endEditing(true)
-    }
-    
-    func showErrorAlert(text: String) {
-            // Create the alert controller
-            let alertController = UIAlertController(title: nil, message: text, preferredStyle: .alert)
-            
-            // Add the "Selvä" action
-            let closeAction = UIAlertAction(title: "Selvä", style: .default, handler: nil)
-            alertController.addAction(closeAction)
-            
-            // Present the alert controller
-            self.present(alertController, animated: true, completion: nil)
-        }
+ 
+//MARK: - Functions
     
     func deleteCell(at index: Int) {
-        guard index <= players.count else {
-            return
-        }
+        guard index <= players.count else { return }
         
         players.remove(at: index)
         tableView.reloadData()
@@ -73,9 +60,10 @@ class AddPlayers: UIViewController, CellDelegate {
         }
         
         tableView.reloadData()
-        print(players)
     }
 }
+
+//MARK: - TableView methods
 
 extension AddPlayers: UITableViewDataSource, UITableViewDelegate {
     
@@ -105,5 +93,27 @@ extension AddPlayers: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
+    
+}
+
+//MARK: - Screen tap & alert controller
+
+extension AddPlayers {
+    
+    @objc func handleScreenTap() {
+        view.endEditing(true)
+    }
+    
+    func showErrorAlert(text: String) {
+        // Create the alert controller
+        let alertController = UIAlertController(title: nil, message: text, preferredStyle: .alert)
+        
+        // Add the "Selvä" action
+        let closeAction = UIAlertAction(title: "Selvä", style: .default, handler: nil)
+        alertController.addAction(closeAction)
+        
+        // Present the alert controller
+        self.present(alertController, animated: true, completion: nil)
+    }
     
 }

@@ -9,6 +9,8 @@ import UIKit
 
 class GameSelectView: UIViewController, valueDelegate {
     
+//MARK: -Variables & IBOutlets
+    
     var players: [String] = []
     var categoryForGame: Int = 0
     var tierValueForGame: Float = 3.0
@@ -16,6 +18,8 @@ class GameSelectView: UIViewController, valueDelegate {
     var shouldPopProVC: Bool = false
     
     @IBOutlet weak var tableView: UITableView!
+ 
+//MARK: - Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +37,8 @@ class GameSelectView: UIViewController, valueDelegate {
             destinationVC.drinkValue = drinkValueForGame
         }
     }
+ 
+//MARK: - Handle cells' sliders value change
     
     func setValue(to: Float, forTier: Bool) {
         if forTier {
@@ -42,6 +48,8 @@ class GameSelectView: UIViewController, valueDelegate {
         }
     }
 }
+
+//MARK: - TableView mathods
 
 extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -101,7 +109,6 @@ extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
         }
         
         categoryForGame = category
-        
         
         if indexPath.row != 0 {
             if UserDefaults.standard.hasPurchasedProVersion() {

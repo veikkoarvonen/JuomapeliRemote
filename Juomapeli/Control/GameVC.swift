@@ -16,31 +16,39 @@ class GameView: UIViewController {
     var drinkValue: Float = 1.0
     
     //Game elements
+    let numberOfTasks = 30
     var currentTask = 0
     var label = UILabel()
     var headLabel = UILabel()
     var shouldReturn = false
     
-    
-    var game = WholeGame(numberOfTasks: 30, players: ["P2","P1"], category: 0, tierSliderValue: 1, drinkSliderValue: 1)
-    var tasks: [NSAttributedString] = []
-    
-    
-    
+    //Generate based on info from previous VC
+    var p1list: [Player] = []
+    var p2list: [Player] = []
+    var tiers: [Int] = []
+    var tasksIndexes: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if gameCategory == 1 {
-            view.backgroundColor = UIColor(red: 184/255.0, green: 108/255.0, blue: 165/255.0, alpha: 1.0)
-        }
-        
-        game = WholeGame(numberOfTasks: 30, players: players, category: gameCategory, tierSliderValue: tierValue, drinkSliderValue: drinkValue)
-        tasks = game.tasks
-        
+        prepareGame()
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleScreenTap))
         self.view.addGestureRecognizer(tapGestureRecognizer)
-        newTask()
+    }
+    
+    func prepareGame() {
+        let game = GameManager()
+        let players = game.generatePlayerLists(players: players, numberOfTasks: numberOfTasks)
+        p1list = players.p1
+        p2list = players.p2
+        tiers = game.generateTierList(sliderValue: tierValue, numberOfTasks: numberOfTasks)
+        tasksIndexes = game.generateTaskIndexes(category: gameCategory, numberOfTasks: numberOfTasks, tiers: tiers)
+        if gameCategory == 1 {
+            view.backgroundColor = UIColor(red: 184/255.0, green: 108/255.0, blue: 165/255.0, alpha: 1.0)
+            setLabel()
+            label.text = con
+        } else {
+            newTask()
+        }
     }
     
     @objc func handleScreenTap() {
@@ -55,16 +63,18 @@ class GameView: UIViewController {
     
     func newTask() {
         setLabel()
-        
-        if gameCategory == 1 && currentTask == 0 {
-            setHeadLabel()
-        }
-        
-        if currentTask >= tasks.count {
+        if currentTask >= numberOfTasks {
             label.text = "Peli loppui!"
             shouldReturn = true
         } else {
-            label.attributedText = tasks[currentTask]
+            let p1 = p1list[currentTask].name
+            let p2 = p2list[currentTask].name
+            let c1 = p1list[currentTask].color
+            let c2 = p2list[currentTask].color
+            let tier = tiers[currentTask]
+            let index = tasksIndexes[currentTask]
+            let task = SingleTask(player1: p1, player2: p2, color1: c1, color2: c2, category: gameCategory, tier: tier, drinkValue: drinkValue, taskIndex: index)
+            label.attributedText = task.getTask()
         }
         performShakingAnimation()
         currentTask += 1

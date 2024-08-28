@@ -105,8 +105,8 @@ class Start: UIViewController {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
+        print("This is clean branch")
         }
 
 }
-
 

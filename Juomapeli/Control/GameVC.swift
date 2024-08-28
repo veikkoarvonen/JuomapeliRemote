@@ -44,11 +44,8 @@ class GameView: UIViewController {
         tasksIndexes = game.generateTaskIndexes(category: gameCategory, numberOfTasks: numberOfTasks, tiers: tiers)
         if gameCategory == 1 {
             view.backgroundColor = UIColor(red: 184/255.0, green: 108/255.0, blue: 165/255.0, alpha: 1.0)
-            setLabel()
-            label.text = con
-        } else {
-            newTask()
         }
+        newTask()
     }
     
     @objc func handleScreenTap() {

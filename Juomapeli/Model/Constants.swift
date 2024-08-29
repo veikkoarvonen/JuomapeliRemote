@@ -54,17 +54,18 @@ struct Colors {
     ]
 }
 
-struct UserDefaultsKeys {
-    static let hasPurchasedProVersion = "hasPurchasedProVersion"
-}
-
-extension UserDefaults {
-    func setProVersionPurchased(_ purchased: Bool) {
-        set(purchased, forKey: UserDefaultsKeys.hasPurchasedProVersion)
+struct UD {
+    
+    let plusKey: String = "hasPurchasedPlusVersion"
+    
+    func setPlusVersionStatus(purchased: Bool) {
+        UserDefaults.standard.set(purchased, forKey: plusKey)
     }
     
-    func hasPurchasedProVersion() -> Bool {
-        return bool(forKey: UserDefaultsKeys.hasPurchasedProVersion)
+    func hasPurchasedPlusVersion() -> Bool {
+        return UserDefaults.standard.bool(forKey: plusKey)
     }
+    
 }
+
 

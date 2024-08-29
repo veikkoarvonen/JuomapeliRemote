@@ -13,7 +13,8 @@ class Start: UIViewController {
         super.viewDidLoad()
         setUpUI()
         // Do any additional setup after loading the view.
-        UserDefaults.standard.setProVersionPurchased(true)
+        let ud = UD()
+        print(ud.hasPurchasedPlusVersion())
         
     }
 

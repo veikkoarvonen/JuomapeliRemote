@@ -11,6 +11,7 @@ class GameSelectView: UIViewController, valueDelegate {
     
 //MARK: -Variables & IBOutlets
     
+    let ud = UD()
     var players: [String] = []
     var categoryForGame: Int = 0
     var tierValueForGame: Float = 3.0
@@ -26,6 +27,13 @@ class GameSelectView: UIViewController, valueDelegate {
         tableView.register(UINib(nibName: C.gamemodeCell, bundle: nil), forCellReuseIdentifier: C.gamemodeNIb)
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if shouldPopProVC {
+            performSegue(withIdentifier: "pro", sender: self)
+            shouldPopProVC = false
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -82,14 +90,8 @@ extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
             print("Image view is nil")
         }
         
-        if indexPath.row != 0 {
-            if !UserDefaults.standard.hasPurchasedProVersion() {
-                cell.backView.alpha = 1
-                //cell.header.textColor = UIColor(red: 255/255.0, green: 218/255.0, blue: 0/255.0, alpha: 1.0)
-                cell.header.textColor = .orange
-            } else {
-                
-            }
+        if indexPath.row != 0 && !ud.hasPurchasedPlusVersion() {
+            cell.header.textColor = .orange
         }
         
         return cell
@@ -98,7 +100,6 @@ extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        categoryForGame = indexPath.row
         var category: Int
         
         switch indexPath.row {
@@ -110,17 +111,16 @@ extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
         
         categoryForGame = category
         
-        if indexPath.row != 0 {
-            if UserDefaults.standard.hasPurchasedProVersion() {
-                performSegue(withIdentifier: "34", sender: self)
-                shouldPopProVC = true
-            } else {
-                performSegue(withIdentifier: "pro", sender: self)
-            }
+        if indexPath.row != 0 && !ud.hasPurchasedPlusVersion() {
+            performSegue(withIdentifier: "pro", sender: self)
         } else {
             performSegue(withIdentifier: "34", sender: self)
-            shouldPopProVC = true
+            if !ud.hasPurchasedPlusVersion() {
+                shouldPopProVC = true
+            }
         }
+        
+        
     }
     
     

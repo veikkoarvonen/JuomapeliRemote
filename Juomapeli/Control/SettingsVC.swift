@@ -10,8 +10,10 @@ import UIKit
 class SettingsView: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
     let headers = Settings.headers
     let items = Settings.sections
+    let ud = UD()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,8 +69,8 @@ extension SettingsView: UITableViewDataSource, UITableViewDelegate {
                 cell.accessoryType = .none
             }
             
-            if indexPath.section == 2 && indexPath.row == 0 && UserDefaults.standard.hasPurchasedProVersion() {
-                cell.textLabel?.text = "Peruuta Pro -tilaus"
+            if indexPath.section == 2 && indexPath.row == 0 && ud.hasPurchasedPlusVersion() {
+                cell.textLabel?.text = "Peruuta Plus -tilaus"
             }
             
             return cell

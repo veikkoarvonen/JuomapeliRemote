@@ -6,17 +6,25 @@
 //
 
 import UIKit
+import StoreKit
 
-class ProView: UIViewController {
+class ProView: UIViewController, SKPaymentTransactionObserver {
+    
     
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var label3: UILabel!
     
+    let weeklyKey = "weeklySubscription"
+    let monthlyKey = "monthlySubscription"
+    let yearlyKey = "yearlySubscription"
+    let ud = UD()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
         discountLabel()
+        SKPaymentQueue.default().add(self)
     }
     
     @objc func label1Tapped() {
@@ -97,4 +105,46 @@ extension ProView {
         label.layer.shadowOpacity = 0.7 // Ensure the opacity is high enough to see
         label.layer.shadowRadius = 10 // Adjust to your preference
     }
+}
+
+extension ProView {
+    
+    func purchasePlusVersion(for package: Int) {
+        if SKPaymentQueue.canMakePayments() {
+            
+            let paymentRequest = SKMutablePayment()
+            var productID: String
+            
+            switch package {
+            case 0: productID = weeklyKey
+            case 1: productID = monthlyKey
+            case 2: productID = yearlyKey
+            default: productID = ""
+            }
+            
+            paymentRequest.productIdentifier = productID
+            
+            SKPaymentQueue.default().add(paymentRequest)
+            
+        } else {
+            //Cannot make payments
+        }
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        
+        for transaction in transactions {
+            if transaction.transactionState == .purchased {
+                
+                ud.setPlusVersionStatus(purchased: true)
+                SKPaymentQueue.default().finishTransaction(transaction)
+            } else if transaction.transactionState == .failed {
+                
+                
+                SKPaymentQueue.default().finishTransaction(transaction)
+            }
+        }
+            
+    }
+    
 }

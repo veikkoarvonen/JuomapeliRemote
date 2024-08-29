@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import StoreKit
 
-class SettingsView: UIViewController {
+class SettingsView: UIViewController, SKPaymentTransactionObserver {
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,6 +22,21 @@ class SettingsView: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        SKPaymentQueue.default().add(self)
+    }
+    
+    func restorePlusPurchace() {
+        SKPaymentQueue.default().restoreCompletedTransactions()
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+            if transaction.transactionState == .restored {
+                ud.setPlusVersionStatus(purchased: true)
+                SKPaymentQueue.default().finishTransaction(transaction)
+            }
+        }
+        
     }
 }
 
@@ -56,7 +73,7 @@ extension SettingsView: UITableViewDataSource, UITableViewDelegate {
         let section = Settings.sections[section]
         let count = section.count
         return count
-        }
+    }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)

@@ -47,26 +47,25 @@ extension SettingsView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-            let headerView = UIView()
-            headerView.backgroundColor = UIColor(named: C.purple)
-            
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.text = headers[section]
-            label.font = UIFont(name: "Marker Felt", size: 18)
-            label.textColor = .white
-            headerView.addSubview(label)
-            
-            NSLayoutConstraint.activate([
-                label.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
-                label.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16),
-                label.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 8),
-                label.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -8)
-            ])
-            
-            return headerView
-        }
-    
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor(named: C.purple)
+        
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = headers[section]
+        label.font = UIFont(name: "Marker Felt", size: 18)
+        label.textColor = .white
+        headerView.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
+            label.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16),
+            label.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 8),
+            label.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -8)
+        ])
+        
+        return headerView
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

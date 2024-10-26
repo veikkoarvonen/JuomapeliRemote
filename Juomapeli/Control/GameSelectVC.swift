@@ -11,7 +11,7 @@ class GameSelectView: UIViewController, valueDelegate {
     
 //MARK: -Variables & IBOutlets
     
-    let ud = UD()
+    var hasPlusVersion = Bool()
     var players: [String] = []
     var categoryForGame: Int = 0
     var tierValueForGame: Float = 3.0
@@ -27,6 +27,9 @@ class GameSelectView: UIViewController, valueDelegate {
         tableView.register(UINib(nibName: C.gamemodeCell, bundle: nil), forCellReuseIdentifier: C.gamemodeNIb)
         tableView.dataSource = self
         tableView.delegate = self
+        let subData = SubscriptionData()
+        hasPlusVersion = !subData.fetchIDArray()!.isEmpty
+        print(hasPlusVersion)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,7 +93,7 @@ extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
             print("Image view is nil")
         }
         
-        if indexPath.row != 0 && !ud.hasPurchasedPlusVersion() {
+        if indexPath.row != 0 && !hasPlusVersion {
             cell.header.textColor = .orange
         }
         
@@ -111,11 +114,11 @@ extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
         
         categoryForGame = category
         
-        if indexPath.row != 0 && !ud.hasPurchasedPlusVersion() {
+        if indexPath.row != 0 && !hasPlusVersion {
             performSegue(withIdentifier: "pro", sender: self)
         } else {
             performSegue(withIdentifier: "34", sender: self)
-            if !ud.hasPurchasedPlusVersion() {
+            if !hasPlusVersion {
                 shouldPopProVC = true
             }
         }

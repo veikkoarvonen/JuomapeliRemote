@@ -57,14 +57,18 @@ struct Colors {
 
 struct UD {
     
-    let plusKey: String = "hasPurchasedPlusVersion"
+    let purchasedProductIDs: String = "purchasedProductIDs"
+    
+    func addKey(key: String) {
+        UserDefaults.standard.set(key, forKey: purchasedProductIDs)
+    }
     
     func setPlusVersionStatus(purchased: Bool) {
-        UserDefaults.standard.set(purchased, forKey: plusKey)
+        
     }
     
     func hasPurchasedPlusVersion() -> Bool {
-        return UserDefaults.standard.bool(forKey: plusKey)
+        return false
     }
     
 }

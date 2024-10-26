@@ -6,17 +6,24 @@
 //
 
 import UIKit
+import StoreKit
 
 class Start: UIViewController {
+    
+    let subData = SubscriptionData()
+    let subManager = SubscriptionManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
-        // Do any additional setup after loading the view.
-        let ud = UD()
-        print(ud.hasPurchasedPlusVersion())
-        
+        Task {
+            await subData.updatePurchasedProducts()
+        }
     }
+    
+    
+    
+    
 
     @IBAction func startPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "12", sender: self)

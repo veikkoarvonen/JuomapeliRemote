@@ -8,7 +8,7 @@
 import UIKit
 import StoreKit
 
-class ProView: UIViewController, SKPaymentTransactionObserver {
+class ProView: UIViewController {
     
     
     @IBOutlet weak var label1: UILabel!
@@ -18,28 +18,56 @@ class ProView: UIViewController, SKPaymentTransactionObserver {
     let weeklyKey = "weeklySubscription"
     let monthlyKey = "monthlySubscription"
     let yearlyKey = "yearlySubscription"
-    let ud = UD()
+    let subManager = SubscriptionManager()
+    var selectedProduct: Product?
+    var availabelProducts: [Product] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
         discountLabel()
-        SKPaymentQueue.default().add(self)
+        loadProducts()
+    }
+    
+    func loadProducts() {
+        Task {
+            let products = await subManager.fetchProducts()
+            availabelProducts = products
+            if availabelProducts.count > 2 {
+                label1.text = availabelProducts[0].displayPrice
+                label2.text = availabelProducts[1].displayPrice
+                label3.text = availabelProducts[2].displayPrice
+            } else {
+                label1.text = "Virhe tuotteiden haussa"
+                label2.text = "Virhe tuotteiden haussa"
+                label3.text = "Virhe tuotteiden haussa"
+            }
+        }
+    }
+    
+    func purchaseProduct(index: Int) {
+        guard availabelProducts.count >= index else { return }
+        selectedProduct = availabelProducts[index]
+        if let selectedProduct = selectedProduct {
+            Task {
+                await subManager.buyProduct(selectedProduct)
+            }
+        }
     }
     
     @objc func label1Tapped() {
         print("Label 1 tapped")
-        // Handle the tap event for label 1
+        purchaseProduct(index: 0)
     }
     
     @objc func label2Tapped() {
         print("Label 2 tapped")
-        // Handle the tap event for label 2
+        purchaseProduct(index: 1)
     }
     
     @objc func label3Tapped() {
         print("Label 3 tapped")
-        // Handle the tap event for label 3
+        purchaseProduct(index: 2)
     }
     
 }
@@ -109,42 +137,7 @@ extension ProView {
 
 extension ProView {
     
-    func purchasePlusVersion(for package: Int) {
-        if SKPaymentQueue.canMakePayments() {
-            
-            let paymentRequest = SKMutablePayment()
-            var productID: String
-            
-            switch package {
-            case 0: productID = weeklyKey
-            case 1: productID = monthlyKey
-            case 2: productID = yearlyKey
-            default: productID = ""
-            }
-            
-            paymentRequest.productIdentifier = productID
-            
-            SKPaymentQueue.default().add(paymentRequest)
-            
-        } else {
-            //Cannot make payments
-        }
-    }
     
-    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         
-        for transaction in transactions {
-            if transaction.transactionState == .purchased {
-                
-                ud.setPlusVersionStatus(purchased: true)
-                SKPaymentQueue.default().finishTransaction(transaction)
-            } else if transaction.transactionState == .failed {
-                
-                
-                SKPaymentQueue.default().finishTransaction(transaction)
-            }
-        }
-            
-    }
     
 }

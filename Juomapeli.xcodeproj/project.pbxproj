@@ -26,6 +26,7 @@
 		B64A93112C32C07F00C00BA9 /* GameSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64A93102C32C07F00C00BA9 /* GameSelectVC.swift */; };
 		B65FAFF22C3E706D00D9EF26 /* TableViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65FAFF02C3E706D00D9EF26 /* TableViewTextCell.swift */; };
 		B65FAFF32C3E706D00D9EF26 /* TableViewTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B65FAFF12C3E706D00D9EF26 /* TableViewTextCell.xib */; };
+		B6D3BEBD2CCD03B200D635FF /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D3BEBC2CCD03B200D635FF /* SubscriptionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,8 +49,10 @@
 		B64A930B2C32B87900C00BA9 /* GameModeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameModeCell.xib; sourceTree = "<group>"; };
 		B64A930E2C32BFEC00C00BA9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B64A93102C32C07F00C00BA9 /* GameSelectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectVC.swift; sourceTree = "<group>"; };
+		B656F00C2CCBBF43001A60D0 /* storeKitConfiguration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = storeKitConfiguration.storekit; sourceTree = "<group>"; };
 		B65FAFF02C3E706D00D9EF26 /* TableViewTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewTextCell.swift; sourceTree = "<group>"; };
 		B65FAFF12C3E706D00D9EF26 /* TableViewTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewTextCell.xib; sourceTree = "<group>"; };
+		B6D3BEBC2CCD03B200D635FF /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,7 @@
 				B6194D632C2C9F9400B6E462 /* GameVC.swift */,
 				B604BC0B2C527CE50056B9CE /* SettingsVC.swift */,
 				B604BC0D2C5290360056B9CE /* ProBannerVC.swift */,
+				B656F00C2CCBBF43001A60D0 /* storeKitConfiguration.storekit */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -118,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				B6194D462C2C865F00B6E462 /* AppDelegate.swift */,
+				B6D3BEBC2CCD03B200D635FF /* SubscriptionManager.swift */,
 				B6194D482C2C865F00B6E462 /* SceneDelegate.swift */,
 				B6194D612C2C9D7600B6E462 /* DelegateProtocols.swift */,
 				B64A930E2C32BFEC00C00BA9 /* Constants.swift */,
@@ -222,6 +227,7 @@
 				B6194D4B2C2C865F00B6E462 /* StartVC.swift in Sources */,
 				B6385E9C2C4FEDCE00D5B3C2 /* WholeGame.swift in Sources */,
 				B6194D472C2C865F00B6E462 /* AppDelegate.swift in Sources */,
+				B6D3BEBD2CCD03B200D635FF /* SubscriptionManager.swift in Sources */,
 				B6385E9A2C4FE96300D5B3C2 /* OneTask.swift in Sources */,
 				B6194D642C2C9F9400B6E462 /* GameVC.swift in Sources */,
 				B6194D492C2C865F00B6E462 /* SceneDelegate.swift in Sources */,

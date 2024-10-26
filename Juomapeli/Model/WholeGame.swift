@@ -132,6 +132,9 @@ struct GameManager {
             indexArrays[i].shuffle()
         }
         
+        let subManager = SubscriptionData()
+        let hasPlusVersion = !subManager.fetchIDArray()!.isEmpty
+        
         var indexes: [Int] = []
         
         if category == 0 {

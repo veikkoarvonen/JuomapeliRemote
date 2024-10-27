@@ -34,7 +34,7 @@ struct SubscriptionManager {
         
         do {
             let result = try await product.purchase()
-            
+            //r
             switch result {
             case let .success(.verified(transaction)):
                 // Successful purhcase

@@ -18,9 +18,9 @@ class Start: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
-        Task {
+      /*  Task {
             await subData.updatePurchasedProducts()
-        }
+        }*/
     }
     
     

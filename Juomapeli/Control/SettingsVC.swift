@@ -95,6 +95,36 @@ extension SettingsView: UITableViewDataSource, UITableViewDelegate {
         // MARK: - UITableViewDelegate
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            
+            let urls = [
+                    "https://veikkoarvonen.github.io/juomapelicup/",
+                    "https://veikkoarvonen.github.io/juomapelicup/HTML/app-privacy-policy.html",
+                    "https://veikkoarvonen.github.io/juomapelicup/HTML/app-terms-and-conditions.html",
+                    "https://veikkoarvonen.github.io/juomapelicup/HTML/vastuullisuus.html"
+                ]
+            
+            var urlIndex: Int?
+            
+            if indexPath.section == 0 {
+                switch indexPath.row {
+                case 0: urlIndex = 0
+                case 1: urlIndex = 1
+                case 2: urlIndex = 2
+                default: urlIndex = nil
+                }
+            } else if indexPath.section == 1 && indexPath.row == 1 {
+                urlIndex = 3
+            } else {
+                urlIndex = nil
+            }
+            
+            if let index = urlIndex {
+                if let url = URL(string: urls[index]), UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }
+            }
+            
+            
             // Handle cell selection
             tableView.deselectRow(at: indexPath, animated: true)
         }

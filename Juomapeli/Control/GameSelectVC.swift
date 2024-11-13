@@ -28,7 +28,8 @@ class GameSelectView: UIViewController, valueDelegate {
         tableView.dataSource = self
         tableView.delegate = self
         let subData = SubscriptionData()
-        hasPlusVersion = !subData.fetchIDArray()!.isEmpty
+        //hasPlusVersion = !subData.fetchIDArray()!.isEmpty
+        hasPlusVersion = true
         print(hasPlusVersion)
         performSegue(withIdentifier: "pro", sender: self)
     }

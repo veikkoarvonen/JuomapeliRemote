@@ -15,7 +15,6 @@ struct SubscriptionManager {
     func fetchProducts() async -> [Product] {
         
         let productIDs = ["weeklySubscription","monthlySubscription","yearlySubscription"]
-        
         do {
             let products = try await Product.products(for: productIDs).sorted(by: { $0.price > $1.price })
             return products
@@ -31,7 +30,6 @@ struct SubscriptionManager {
     func buyProduct(_ product: Product) async {
         let subData = SubscriptionData()
         guard var productIDArray = subData.fetchIDArray() else { return }
-        
         do {
             let result = try await product.purchase()
             //r

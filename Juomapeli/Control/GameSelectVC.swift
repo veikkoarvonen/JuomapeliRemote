@@ -9,7 +9,7 @@ import UIKit
 
 class GameSelectView: UIViewController, valueDelegate {
     
-//MARK: -Variables & IBOutlets
+//MARK: Variables & IBOutlets
     
     var hasPlusVersion = Bool()
     var players: [String] = []
@@ -30,6 +30,7 @@ class GameSelectView: UIViewController, valueDelegate {
         let subData = SubscriptionData()
         hasPlusVersion = !subData.fetchIDArray()!.isEmpty
         print(hasPlusVersion)
+        performSegue(withIdentifier: "pro", sender: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -122,9 +123,5 @@ extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
                 shouldPopProVC = true
             }
         }
-        
-        
     }
-    
-    
 }

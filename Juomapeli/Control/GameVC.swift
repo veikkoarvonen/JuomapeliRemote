@@ -11,6 +11,8 @@ class GameView: UIViewController {
     
 //MARK: - Variables & constants
     
+    var tapGesture: UITapGestureRecognizer?
+    
     //Game parameters from previous VC
     var players: [String] = []
     var gameCategory: Int = 0
@@ -26,7 +28,9 @@ class GameView: UIViewController {
     //word explanation
     var points: Int = 0
     var pointLabel = UILabel()
-    var wordLabel = UILabel()
+    var timeLabel = UILabel()
+    var words: [String] = []
+    var playAgainButton = UIButton()
     
     //Generate based on info from previous VC
     var p1list: [Player] = []
@@ -48,8 +52,30 @@ class GameView: UIViewController {
         if gameCategory != 3 {
             newTask()
         } else {
-            
+            playWordgameInstructions()
+            tapGesture?.isEnabled = false
         }
+    }
+    
+//MARK: - Word explanation
+    
+    private func displayWordGameInstructions() {
+        taskLabel.text = WordGame.startMessage
+    }
+    
+    private func playWordgameInstructions() {
+        initializeWordLabel()
+    }
+    
+    private func initializeWordLabel() {
+        taskLabel.backgroundColor = .white
+        taskLabel.textColor = .black
+        taskLabel.layer.cornerRadius = 10
+        taskLabel.frame = CGRect(x: 0, y: 0, width: 250, height: 350)
+        taskLabel.center.x = view.frame.width / 2
+        taskLabel.center.y = view.frame.height / 2
+        taskLabel.text = "moe"
+        UIFont.systemFont(ofSize: 25)
     }
     
 //MARK: - New task
@@ -125,19 +151,20 @@ class GameView: UIViewController {
     private func prepareGame() {
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleScreenTap))
+        tapGesture = tapGestureRecognizer
         self.view.addGestureRecognizer(tapGestureRecognizer)
+        initializeTaskLabel()
         
         if gameCategory == 1 {
             view.backgroundColor = UIColor(red: 184/255.0, green: 108/255.0, blue: 165/255.0, alpha: 1.0)
         }
         
-        if gameCategory == 3 {
-            backImageView.isHidden = true
+        if gameCategory != 3 {
+            newTask()
         }
         
-        if gameCategory != 3 {
-            initializeTaskLabel()
-            newTask()
+        if gameCategory == 3 {
+            displayWordGameInstructions()
         }
         
     }

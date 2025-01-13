@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B604BC0C2C527CE50056B9CE /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B604BC0B2C527CE50056B9CE /* SettingsVC.swift */; };
 		B604BC0E2C5290360056B9CE /* ProBannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B604BC0D2C5290360056B9CE /* ProBannerVC.swift */; };
+		B60CEE2B2D352B5B003205BA /* EricaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B60CEE2A2D352B5B003205BA /* EricaOne-Regular.ttf */; };
 		B6194D472C2C865F00B6E462 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6194D462C2C865F00B6E462 /* AppDelegate.swift */; };
 		B6194D492C2C865F00B6E462 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6194D482C2C865F00B6E462 /* SceneDelegate.swift */; };
 		B6194D4B2C2C865F00B6E462 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6194D4A2C2C865F00B6E462 /* StartVC.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		B604BC0B2C527CE50056B9CE /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		B604BC0D2C5290360056B9CE /* ProBannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProBannerVC.swift; sourceTree = "<group>"; };
+		B60CEE2A2D352B5B003205BA /* EricaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EricaOne-Regular.ttf"; sourceTree = "<group>"; };
 		B6194D432C2C865F00B6E462 /* Juomapeli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Juomapeli.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6194D462C2C865F00B6E462 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6194D482C2C865F00B6E462 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		B6194D3A2C2C865F00B6E462 = {
 			isa = PBXGroup;
 			children = (
+				B60CEE2A2D352B5B003205BA /* EricaOne-Regular.ttf */,
 				B6194D452C2C865F00B6E462 /* Juomapeli */,
 				B6194D442C2C865F00B6E462 /* Products */,
 			);
@@ -204,6 +207,7 @@
 				B6194D532C2C866100B6E462 /* LaunchScreen.storyboard in Resources */,
 				B65FAFF32C3E706D00D9EF26 /* TableViewTextCell.xib in Resources */,
 				B64A930D2C32B87900C00BA9 /* GameModeCell.xib in Resources */,
+				B60CEE2B2D352B5B003205BA /* EricaOne-Regular.ttf in Resources */,
 				B6194D502C2C866100B6E462 /* Assets.xcassets in Resources */,
 				B6194D4E2C2C865F00B6E462 /* Main.storyboard in Resources */,
 			);

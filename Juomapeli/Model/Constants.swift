@@ -18,6 +18,8 @@ struct C {
     
     static let purple = "brandPurple"
     static let blue = "brandBlue"
+    
+    static let wordGameFont = "EricaOne-Regular.ttf"
 }
 
 struct Cells {
@@ -72,6 +74,11 @@ struct UD {
         return false
     }
     
+}
+
+struct WordGame {
+    static let startMessage = "Sanaselityspeli! Tehtäväsi on selittää pelaajatoverillesi niin monta sanaa 60:ssä sekunnissa kuin mahdollista. Oikeasta sanasta saatte yhden pisteen. Kosketa näyttöä aloittaaksesi."
+    static let words: [String] = []
 }
 
 

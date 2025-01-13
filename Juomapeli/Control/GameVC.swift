@@ -21,9 +21,12 @@ class GameView: UIViewController {
     let numberOfTasks = 30
     var currentTask = 0
     var taskLabel = UILabel()
-    var wordLabel = UILabel()
     var shouldReturn = false
-    var points: Int?
+    
+    //word explanation
+    var points: Int = 0
+    var pointLabel = UILabel()
+    var wordLabel = UILabel()
     
     //Generate based on info from previous VC
     var p1list: [Player] = []
@@ -42,8 +45,14 @@ class GameView: UIViewController {
     }
     
     @objc func handleScreenTap() {
-        newTask()
+        if gameCategory != 3 {
+            newTask()
+        } else {
+            
+        }
     }
+    
+//MARK: - New task
     
     private func newTask() {
         
@@ -109,11 +118,14 @@ class GameView: UIViewController {
         let playerLists = game.generatePlayerLists(players: players, numberOfTasks: numberOfTasks, isDateCategory: isDateCategory)
         p1list = playerLists.p1
         p2list = playerLists.p2
-        tiers = game.generateTierList(sliderValue: drinkValue, numberOfTasks: numberOfTasks)
+        tiers = game.generateTierList(sliderValue: tierValue, numberOfTasks: numberOfTasks)
         tasksIndexes = game.generateTaskIndexes(category: gameCategory, numberOfTasks: numberOfTasks, tiers: tiers)
     }
     
     private func prepareGame() {
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleScreenTap))
+        self.view.addGestureRecognizer(tapGestureRecognizer)
         
         if gameCategory == 1 {
             view.backgroundColor = UIColor(red: 184/255.0, green: 108/255.0, blue: 165/255.0, alpha: 1.0)
@@ -124,8 +136,6 @@ class GameView: UIViewController {
         }
         
         if gameCategory != 3 {
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleScreenTap))
-            self.view.addGestureRecognizer(tapGestureRecognizer)
             initializeTaskLabel()
             newTask()
         }

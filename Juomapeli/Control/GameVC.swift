@@ -8,7 +8,173 @@
 import UIKit
 
 class GameView: UIViewController {
- 
+    
+//MARK: - Variables & constants
+    
+    //Game parameters from previous VC
+    var players: [String] = []
+    var gameCategory: Int = 0
+    var tierValue: Float = 3.0
+    var drinkValue: Float = 1.0
+    
+    //Game elements
+    let numberOfTasks = 30
+    var currentTask = 0
+    var taskLabel = UILabel()
+    var wordLabel = UILabel()
+    var shouldReturn = false
+    var points: Int?
+    
+    //Generate based on info from previous VC
+    var p1list: [Player] = []
+    var p2list: [Player] = []
+    var tiers: [Int] = []
+    var tasksIndexes: [Int] = []
+    
+    @IBOutlet weak var backImageView: UIImageView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setGameParameters()
+        prepareGame()
+        runIndexSafetyCheck()
+        printGameParameters()
+    }
+    
+    @objc func handleScreenTap() {
+        newTask()
+    }
+    
+    private func newTask() {
+        
+        if shouldReturn {
+            navigationController?.popViewController(animated: true)
+        } else if currentTask >= numberOfTasks {
+            endGame()
+        } else {
+            print("current task index: \(currentTask)")
+            let p1 = p1list[currentTask].name
+            let p2 = p2list[currentTask].name
+            let c1 = p1list[currentTask].color
+            let c2 = p2list[currentTask].color
+            let category = gameCategory
+            let tier = tiers[currentTask]
+            let dValue = drinkValue
+            let tIndex = tasksIndexes[currentTask]
+            
+            let task = SingleTask(player1: p1, player2: p2, color1: c1, color2: c2, category: category, tier: tier, drinkValue: dValue, taskIndex: tIndex)
+            taskLabel.attributedText = task.getTask()
+            performShakingAnimation()
+            currentTask += 1
+        }
+    }
+    
+//MARK: - Task label
+    
+    private func initializeTaskLabel() {
+        taskLabel.numberOfLines = 0
+        taskLabel.font = UIFont.systemFont(ofSize: 20)
+        taskLabel.textAlignment = .center
+        taskLabel.textColor = .black
+        taskLabel.clipsToBounds = true
+        taskLabel.frame = CGRect(x: 0, y: 0, width: 200, height: 250)
+        taskLabel.center.x = view.center.x
+        taskLabel.center.y = view.frame.height / 2
+        view.addSubview(taskLabel)
+    }
+    
+    private func performShakingAnimation() {
+        let shakeAnimation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        shakeAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        shakeAnimation.duration = 0.3
+        shakeAnimation.values = [-9, 9, -6, 6, -3, 3, 0]
+        taskLabel.layer.add(shakeAnimation, forKey: "shake")
+    }
+    
+    private func endGame() {
+        taskLabel.text = "Peli loppui!"
+        performShakingAnimation()
+        shouldReturn = true
+    }
+    
+//MARK: - Prepare game and parameters
+    
+    private func setGameParameters() {
+        var isDateCategory: Bool = false
+        if gameCategory == 1 {
+            isDateCategory = true
+        }
+        
+        let game = GameManager()
+        let playerLists = game.generatePlayerLists(players: players, numberOfTasks: numberOfTasks, isDateCategory: isDateCategory)
+        p1list = playerLists.p1
+        p2list = playerLists.p2
+        tiers = game.generateTierList(sliderValue: drinkValue, numberOfTasks: numberOfTasks)
+        tasksIndexes = game.generateTaskIndexes(category: gameCategory, numberOfTasks: numberOfTasks, tiers: tiers)
+    }
+    
+    private func prepareGame() {
+        
+        if gameCategory == 1 {
+            view.backgroundColor = UIColor(red: 184/255.0, green: 108/255.0, blue: 165/255.0, alpha: 1.0)
+        }
+        
+        if gameCategory == 3 {
+            backImageView.isHidden = true
+        }
+        
+        if gameCategory != 3 {
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleScreenTap))
+            self.view.addGestureRecognizer(tapGestureRecognizer)
+            initializeTaskLabel()
+            newTask()
+        }
+        
+    }
+    
+//MARK: - Index safety check
+    
+    private func runIndexSafetyCheck() {
+        
+        let warningMessage = "Warning: one or more game parameters have invalid count!"
+        
+        guard p1list.count == 30 else {
+            print(warningMessage)
+            return
+            
+        }
+        
+        guard p2list.count == 30 else {
+            print(warningMessage)
+            return
+            
+        }
+        
+        guard tiers.count == 30 else {
+            print(warningMessage)
+            return
+        }
+        
+        guard tasksIndexes.count == 30 else {
+            print(warningMessage)
+            return
+        }
+        
+        print("Index safety check successful!")
+        
+    }
+    
+    private func printGameParameters() {
+        print("Player 1 list: \(p1list)")
+        print("Player 2 list: \(p2list)")
+        print("Tiers for tasks: \(tiers)")
+        print("Task indexes: \(tasksIndexes)")
+    }
+    
+}
+
+/*
+    
 //MARK: - Variables & constants
     
     //Game parameters from previous VC
@@ -125,3 +291,5 @@ class GameView: UIViewController {
     }
     
 }
+
+*/

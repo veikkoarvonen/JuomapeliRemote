@@ -21,12 +21,13 @@ struct C {
 }
 
 struct Cells {
-    static let images: [UIImage] = [UIImage(named: "basicGame")!,UIImage(named: "treffit")!,UIImage(named: "extreme")!]
-    static let headers: [String] = ["Peruspeli", "Treffit", "Extreme"]
+    static let images: [UIImage] = [UIImage(named: "basicGame")!,UIImage(named: "treffit")!,UIImage(named: "extreme")!, UIImage(named: "selita")!]
+    static let headers: [String] = ["Peruspeli", "Treffit", "Extreme", "Sanaselitys"]
     static let paragraphs: [String] = [
         "Monipuolisia tehtäviä ja haasteita, jotka takaavat räväkän meiningin pysyen kuitenkin hyvän maun rajoissa... juuri ja juuri.",
         "Syvällisiä, hauskoja ja mielenkiintoisia kysymyksiä ja tehtäviä, joiden avulla varmasti tutustut seuralaiseesi - myös pintaa syvemmältä.",
-        "VAROITUS: Ei nynnyille! Alla olevista mittareista voit itse valita pelin intensiteetin ja rangaistushuikkien määrän.                                           HUOM: Tehtävät vaativat pahimmillaan äärimmäistä heittäytymistä, joten peli sopii ainoastaan kovimmille bilehileille!"
+        "VAROITUS: Ei nynnyille! Alla olevista mittareista voit itse valita pelin intensiteetin ja rangaistushuikkien määrän.                                           HUOM: Tehtävät vaativat pahimmillaan äärimmäistä heittäytymistä, joten peli sopii ainoastaan kovimmille bilehileille!",
+        "Sanaselitys! Sinulla on minuutti aikaa selittää pelikaverillesi niin monta sanaa, kuin kerkeät. Jokaisesta oikeasta vastauksesta saatte pisteen."
     ]
 }
 

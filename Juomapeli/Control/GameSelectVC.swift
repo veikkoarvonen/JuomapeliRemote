@@ -65,7 +65,7 @@ class GameSelectView: UIViewController, valueDelegate {
 
 extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -110,6 +110,7 @@ extension GameSelectView: UITableViewDataSource, UITableViewDelegate {
         case 0: category = 0; drinkValueForGame = 3
         case 1: category = 1; drinkValueForGame = 3
         case 2: category = 2
+        case 3: category = 3
         default: category = 0
         }
         

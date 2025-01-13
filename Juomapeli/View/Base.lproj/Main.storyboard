@@ -312,6 +312,9 @@
                     <navigationItem key="navigationItem" id="SOR-aE-MiX">
                         <barButtonItem key="backBarButtonItem" title="takaisin" id="yl3-kJ-3Gy"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="backImageView" destination="opD-e7-2gr" id="fib-r2-7Wd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5z-MP-WUC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

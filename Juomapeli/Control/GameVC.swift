@@ -30,7 +30,9 @@ class GameView: UIViewController {
     var pointLabel = UILabel()
     var timeLabel = UILabel()
     var words: [String] = []
-    var playAgainButton = UIButton()
+    let gameTime: Int = 10
+    var countdownTime: Int = 0
+    var timer: Timer?
     
     //Generate based on info from previous VC
     var p1list: [Player] = []
@@ -39,6 +41,7 @@ class GameView: UIViewController {
     var tasksIndexes: [Int] = []
     
     @IBOutlet weak var backImageView: UIImageView!
+    @IBOutlet weak var timebar: UIProgressView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +52,16 @@ class GameView: UIViewController {
     }
     
     @objc func handleScreenTap() {
-        if gameCategory != 3 {
-            newTask()
-        } else {
-            playWordgameInstructions()
+        if gameCategory == 3 {
+            addButtons()
+            addPointLabel()
+            taskLabel.text = words[currentTask]
+            currentTask += 1
+            setTimer()
             tapGesture?.isEnabled = false
+            timebar.isHidden = false
+        } else {
+            newTask()
         }
     }
     
@@ -63,19 +71,85 @@ class GameView: UIViewController {
         taskLabel.text = WordGame.startMessage
     }
     
-    private func playWordgameInstructions() {
-        initializeWordLabel()
+    @objc private func handleLeftButtonTap() {
+        newWord(didScorePoint: false)
+    }
+
+    @objc private func handleRightButtonTap() {
+        newWord(didScorePoint: true)
     }
     
-    private func initializeWordLabel() {
-        taskLabel.backgroundColor = .white
-        taskLabel.textColor = .black
-        taskLabel.layer.cornerRadius = 10
-        taskLabel.frame = CGRect(x: 0, y: 0, width: 250, height: 350)
-        taskLabel.center.x = view.frame.width / 2
-        taskLabel.center.y = view.frame.height / 2
-        taskLabel.text = "moe"
-        UIFont.systemFont(ofSize: 25)
+    private func addButtons() {
+        // Create the left button
+        let leftButton = UIImageView()
+        leftButton.image = UIImage(named: "wrong")
+        view.addSubview(leftButton)
+        leftButton.frame = CGRect(x: 100, y: 100, width: 70, height: 70)
+        leftButton.center.y = view.frame.height * (3 / 4) - 50
+        leftButton.center.x = view.frame.width * (1 / 3)
+        leftButton.isUserInteractionEnabled = true
+
+        // Add tap gesture recognizer to the left button
+        let leftTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleLeftButtonTap))
+        leftButton.addGestureRecognizer(leftTapGesture)
+
+        // Create the right button
+        let rightButton = UIImageView()
+        rightButton.image = UIImage(named: "right")
+        view.addSubview(rightButton)
+        rightButton.frame = CGRect(x: 200, y: 100, width: 70, height: 70)
+        rightButton.center.y = view.frame.height * (3 / 4) - 50
+        rightButton.center.x = view.frame.width * (2 / 3)
+        rightButton.isUserInteractionEnabled = true
+
+        // Add tap gesture recognizer to the right button
+        let rightTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleRightButtonTap))
+        rightButton.addGestureRecognizer(rightTapGesture)
+    }
+
+    
+    private func newWord(didScorePoint: Bool) {
+        if didScorePoint {
+            points += 1
+            pointLabel.text = "Pisteet: \(points)"
+        }
+        taskLabel.text = words[currentTask]
+        currentTask += 1
+        performShakingAnimation()
+    }
+    
+    private func addPointLabel() {
+        pointLabel.text = "Pisteet: \(points)"
+        pointLabel.textAlignment = .center
+        pointLabel.textColor = .white
+        pointLabel.font = UIFont(name: C.wordGameFont, size: 30)
+        view.addSubview(pointLabel)
+        //pointLabel.backgroundColor = .black
+        pointLabel.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.frame.width, height: 30)
+    }
+    
+    private func setTimer() {
+        countdownTime = gameTime
+        timerFired()
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
+    }
+    
+    @objc func timerFired() {
+        if countdownTime <= 0 {
+            finishGame()
+        } else {
+            let progress = Float(countdownTime) / Float(gameTime)
+            UIView.animate(withDuration: 1.0, animations: {
+                self.timebar.progress = progress
+            })
+            timebar.progress = progress
+            print(countdownTime)
+            countdownTime -= 1
+        }
+    }
+    
+    private func finishGame() {
+        timer?.invalidate()
     }
     
 //MARK: - New task
@@ -146,10 +220,12 @@ class GameView: UIViewController {
         p2list = playerLists.p2
         tiers = game.generateTierList(sliderValue: tierValue, numberOfTasks: numberOfTasks)
         tasksIndexes = game.generateTaskIndexes(category: gameCategory, numberOfTasks: numberOfTasks, tiers: tiers)
+        words = WordGame.words
+        words.shuffle()
     }
     
     private func prepareGame() {
-        
+        timebar.isHidden = true
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleScreenTap))
         tapGesture = tapGestureRecognizer
         self.view.addGestureRecognizer(tapGestureRecognizer)

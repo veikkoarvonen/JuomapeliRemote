@@ -299,12 +299,20 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="raibale png" translatesAutoresizingMaskIntoConstraints="NO" id="opD-e7-2gr">
                                 <rect key="frame" x="0.0" y="91" width="375" height="647"/>
                             </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="5q2-nZ-LeE">
+                                <rect key="frame" x="25" y="684" width="325" height="4"/>
+                                <color key="progressTintColor" name="brandBlue"/>
+                                <color key="trackTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eyi-8B-TXc"/>
                         <color key="backgroundColor" name="brandPurple"/>
                         <constraints>
                             <constraint firstItem="eyi-8B-TXc" firstAttribute="bottom" secondItem="opD-e7-2gr" secondAttribute="bottom" constant="40" id="1rU-KS-mqx"/>
+                            <constraint firstItem="eyi-8B-TXc" firstAttribute="trailing" secondItem="5q2-nZ-LeE" secondAttribute="trailing" constant="25" id="5Tv-iy-Bsb"/>
                             <constraint firstItem="opD-e7-2gr" firstAttribute="leading" secondItem="eyi-8B-TXc" secondAttribute="leading" id="7Q5-We-xBL"/>
+                            <constraint firstItem="eyi-8B-TXc" firstAttribute="bottom" secondItem="5q2-nZ-LeE" secondAttribute="bottom" constant="90" id="GKa-Jt-scF"/>
+                            <constraint firstItem="5q2-nZ-LeE" firstAttribute="leading" secondItem="eyi-8B-TXc" secondAttribute="leading" constant="25" id="Q3p-xX-EgH"/>
                             <constraint firstItem="eyi-8B-TXc" firstAttribute="trailing" secondItem="opD-e7-2gr" secondAttribute="trailing" id="cZh-KD-jrQ"/>
                             <constraint firstItem="opD-e7-2gr" firstAttribute="top" secondItem="eyi-8B-TXc" secondAttribute="top" id="d8a-7b-N0T"/>
                         </constraints>
@@ -314,6 +322,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="backImageView" destination="opD-e7-2gr" id="fib-r2-7Wd"/>
+                        <outlet property="timebar" destination="5q2-nZ-LeE" id="zVF-TF-9iB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5z-MP-WUC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -356,6 +365,9 @@
         <image name="jp1-1" width="3375" height="6000"/>
         <image name="kultatili png" width="3375" height="6000"/>
         <image name="raibale png" width="3375" height="6000"/>
+        <namedColor name="brandBlue">
+            <color red="0.78431372549019607" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="brandPurple">
             <color red="0.59215686274509804" green="0.27843137254901962" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

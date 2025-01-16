@@ -30,9 +30,11 @@ class GameView: UIViewController {
     var pointLabel = UILabel()
     var timeLabel = UILabel()
     var words: [String] = []
-    let gameTime: Int = 10
+    let gameTime: Int = 60
     var countdownTime: Int = 0
     var timer: Timer?
+    var rButton = UIImageView()
+    var lButton = UIImageView()
     
     //Generate based on info from previous VC
     var p1list: [Player] = []
@@ -52,6 +54,12 @@ class GameView: UIViewController {
     }
     
     @objc func handleScreenTap() {
+        
+        guard !shouldReturn else {
+            navigationController?.popViewController(animated: true)
+            return
+        }
+        
         if gameCategory == 3 {
             addButtons()
             addPointLabel()
@@ -88,6 +96,7 @@ class GameView: UIViewController {
         leftButton.center.y = view.frame.height * (3 / 4) - 50
         leftButton.center.x = view.frame.width * (1 / 3)
         leftButton.isUserInteractionEnabled = true
+        lButton = leftButton
 
         // Add tap gesture recognizer to the left button
         let leftTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleLeftButtonTap))
@@ -101,6 +110,7 @@ class GameView: UIViewController {
         rightButton.center.y = view.frame.height * (3 / 4) - 50
         rightButton.center.x = view.frame.width * (2 / 3)
         rightButton.isUserInteractionEnabled = true
+        rButton = rightButton
 
         // Add tap gesture recognizer to the right button
         let rightTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleRightButtonTap))
@@ -109,6 +119,7 @@ class GameView: UIViewController {
 
     
     private func newWord(didScorePoint: Bool) {
+        guard words.count > currentTask else { return }
         if didScorePoint {
             points += 1
             pointLabel.text = "Pisteet: \(points)"
@@ -138,18 +149,39 @@ class GameView: UIViewController {
         if countdownTime <= 0 {
             finishGame()
         } else {
-            let progress = Float(countdownTime) / Float(gameTime)
+            let progress = Float(countdownTime - 1) / Float(gameTime)
             UIView.animate(withDuration: 1.0, animations: {
-                self.timebar.progress = progress
+                self.timebar.setProgress(progress, animated: true)
             })
-            timebar.progress = progress
-            print(countdownTime)
+            
+            
             countdownTime -= 1
         }
     }
     
     private func finishGame() {
         timer?.invalidate()
+        pointLabel.center.x = view.center.x
+        pointLabel.center.y = view.center.y
+        taskLabel.isHidden = true
+        lButton.isHidden = true
+        rButton.isHidden = true
+        backImageView.isHidden = true
+        timebar.isHidden = true
+        performTypingAnimation()
+        shouldReturn = true
+        tapGesture?.isEnabled = true
+    }
+    
+    private func performTypingAnimation() {
+        pointLabel.text = ""
+        let text = "Pisteet: \(points)"
+        var charIndex = 0.0
+        for letter in text {
+            Timer.scheduledTimer(withTimeInterval: 0.1 * charIndex, repeats: false) { (timer) in self.pointLabel.text?.append(letter)
+            }
+            charIndex += 1
+        }
     }
     
 //MARK: - New task
@@ -241,6 +273,7 @@ class GameView: UIViewController {
         
         if gameCategory == 3 {
             displayWordGameInstructions()
+            view.backgroundColor = .blue
         }
         
     }

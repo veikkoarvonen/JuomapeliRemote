@@ -32,7 +32,7 @@ class Start: UIViewController {
     private func setUpUI() {
         
         let ukot = UIImageView()
-        ukot.image = UIImage(named: "ukot2")
+        ukot.image = UIImage(named: "20")
         ukot.contentMode = .scaleAspectFill
         ukot.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(ukot)

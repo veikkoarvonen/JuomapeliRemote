@@ -23,7 +23,7 @@ struct C {
 }
 
 struct Cells {
-    static let images: [UIImage] = [UIImage(named: "basicGame")!,UIImage(named: "treffit")!,UIImage(named: "extreme")!, UIImage(named: "selita")!]
+    static let images: [UIImage] = [UIImage(named: "basic")!,UIImage(named: "treffit")!,UIImage(named: "extreme")!, UIImage(named: "selita")!]
     static let headers: [String] = ["Peruspeli", "Treffit", "Extreme", "Sanaselitys"]
     static let paragraphs: [String] = [
         "Monipuolisia tehtäviä ja haasteita, jotka takaavat räväkän meiningin pysyen kuitenkin hyvän maun rajoissa... juuri ja juuri.",
@@ -78,8 +78,7 @@ struct UD {
 
 struct WordGame {
     static let startMessage = "Sanaselityspeli! Tehtäväsi on selittää pelaajatoverillesi niin monta sanaa 60:ssä sekunnissa kuin mahdollista. Oikeasta sanasta saatte yhden pisteen. Kosketa näyttöä aloittaaksesi."
-    static let words: [String] = ["Paavo Pesusieni", "Ikkuna", "Mike Tyson", "Petteri Orpo", "Riikka Purra",
-                                  "Sanna Marin", "Kynttilä", "Yhdyntä", "Varvas", "Kynsilakka", "Huulet",
+    static let words: [String] = ["Paavo Pesusieni", "Ikkuna", "Mike Tyson", "Petteri Orpo", "Riikka Purra", "Sanna Marin", "Kynttilä", "Yhdyntä", "Varvas", "Kynsilakka", "Huulet",
                                   "Pakara", "G-piste", "Etanoli", "Avatar", "Michael Jakcson", "Kondomi",
                                   "Soihtu", "Nuotti", "Kurkku", "Audi", "Oksennus", "Aakkoset", "Verhot",
                                   "Neitsyt Maria", "Palapeli", "Ahven", "Mato", "Ruuvimeisseli", "Kauhuelokuva",

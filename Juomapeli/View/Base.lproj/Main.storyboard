@@ -296,7 +296,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="raibale png" translatesAutoresizingMaskIntoConstraints="NO" id="opD-e7-2gr">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="raibale_OIKEESTIOIKEESTI" translatesAutoresizingMaskIntoConstraints="NO" id="opD-e7-2gr">
                                 <rect key="frame" x="0.0" y="91" width="375" height="647"/>
                             </imageView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="5q2-nZ-LeE">
@@ -364,7 +364,7 @@
         <image name="alkutausta" width="3375" height="6000"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="jp1-1" width="3375" height="6000"/>
-        <image name="raibale png" width="3375" height="6000"/>
+        <image name="raibale_OIKEESTIOIKEESTI" width="3375" height="6000"/>
         <namedColor name="brandPurple">
             <color red="0.59215686274509804" green="0.27843137254901962" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

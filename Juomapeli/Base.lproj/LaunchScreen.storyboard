@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="dZn-EY-LQ3">
-                                <rect key="frame" x="0.0" y="-824" width="393" height="2500"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="juhlapeli uuslogo" translatesAutoresizingMaskIntoConstraints="NO" id="dZn-EY-LQ3">
+                                <rect key="frame" x="0.0" y="-1174" width="393" height="3200"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -35,7 +35,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="2500" height="2500"/>
+        <image name="juhlapeli uuslogo" width="3200" height="3200"/>
         <namedColor name="brandPurple">
             <color red="0.59215686274509804" green="0.27843137254901962" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
